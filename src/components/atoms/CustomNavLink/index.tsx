@@ -1,0 +1,62 @@
+import * as Chakra from "@chakra-ui/react";
+import NextLink from "next/link";
+import { theme } from "@/theme";
+import { CustomText } from "../CustomText";
+import { IColor } from "@/interfaces/IColor";
+
+interface IProps {
+  href: string;
+  label: string;
+  color?: IColor;
+  hoverColor?: string;
+  fontWeight?: string;
+  hasImage?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
+
+export const CustomNavLink = ({
+  href,
+  label,
+  color = "black",
+  hoverColor = theme.colors.blue,
+  fontWeight = "bold",
+  hasImage = false,
+  onMouseEnter,
+  onMouseLeave,
+}: IProps) => {
+  return (
+    <Chakra.Link
+      as={NextLink}
+      href={href}
+      _focus={{ boxShadow: "none", outline: "none" }}
+      _hover={{ textDecoration: "none" }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <Chakra.HStack gap={1}>
+        {hasImage && (
+          <Chakra.Image
+            src="/images/home_logo.svg"
+            width="45px"
+            height="60px"
+            mr="2px"
+          />
+        )}
+        <CustomText.Large
+          letterSpacing="0.5px"
+          lineHeight="1.25"
+          fontSize="lg"
+          fontWeight={fontWeight}
+          color={color}
+          _hover={{
+            color: hoverColor,
+          }}
+          transition="all 0.5s ease"
+        >
+          {label}
+        </CustomText.Large>
+      </Chakra.HStack>
+    </Chakra.Link>
+  );
+};

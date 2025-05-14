@@ -11,11 +11,10 @@ export const TemplateWeb = ({ main }: IProps) => {
   return (
     <Chakra.VStack
       overflowY="auto"
-      w="100vw"
       h="100vh"
+      w="100vw"
+      px={{ base: "8", md: "16", lg: "24" }}
       background={theme.colors.white}
-      alignItems="start"
-      paddingX="24"
       css={{
         "&::-webkit-scrollbar": {
           width: "8px",
@@ -29,8 +28,13 @@ export const TemplateWeb = ({ main }: IProps) => {
         },
       }}
     >
-      <WebNavBar />
-      {main}
+      <Chakra.HStack w="full">
+        <WebNavBar />
+      </Chakra.HStack>
+
+      <Chakra.HStack w="full" h="full">
+        {main}
+      </Chakra.HStack>
     </Chakra.VStack>
   );
 };

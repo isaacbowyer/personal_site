@@ -43,19 +43,19 @@ export const CustomNavLink = ({
             mr="2px"
           />
         )}
-        <CustomText.Large
+        <CustomText.Header
           letterSpacing="0.5px"
           lineHeight="1.25"
-          fontSize="lg"
           fontWeight={fontWeight}
           color={color}
           _hover={{
             color: hoverColor,
+            transform: hasImage ? "" : "translateY(-5px)",
           }}
           transition="all 0.5s ease"
         >
           {label}
-        </CustomText.Large>
+        </CustomText.Header>
       </Chakra.HStack>
     </Chakra.Link>
   );

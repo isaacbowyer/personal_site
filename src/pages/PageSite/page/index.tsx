@@ -1,24 +1,22 @@
 import * as Chakra from "@chakra-ui/react";
 import { TemplateContainer } from "@/components/templates/TemplateContainer";
+import { CustomText } from "@/components/atoms/CustomText";
+import { CustomTypeWriter } from "@/components/molecules/CustomTypeWriter";
 
 export const Site = () => {
   return (
     <TemplateContainer
       main={
-        <Chakra.VStack justifyContent="start" alignItems="start">
-          <Chakra.VStack id="home">Home</Chakra.VStack>
-          <Chakra.Text textAlign="start">Hello</Chakra.Text>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.VStack id="expertise">Expertise</Chakra.VStack>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.VStack id="projects">Projects</Chakra.VStack>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.VStack id="work">Work</Chakra.VStack>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.Text>Hello</Chakra.Text>
-          <Chakra.VStack id="contact">Contact</Chakra.VStack>
+        <Chakra.VStack h="full" w="full" align="start" spaceY={10}>
+          <CustomText.Title>ISAAC BOWYER</CustomText.Title>
+          <CustomTypeWriter
+            staticLabel="I'm a"
+            animatedWords={[
+              "Software Engineer",
+              "Fullstack Web Developer",
+              "Mobile App Developer",
+            ]}
+          />
         </Chakra.VStack>
       }
     />

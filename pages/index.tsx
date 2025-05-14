@@ -1,3 +1,7 @@
-export default function Home() {
-  return <div></div>;
-}
+import { PageSite } from "@/pages/PageSite";
+
+const index = () => {
+  return <PageSite />;
+};
+
+export default index;

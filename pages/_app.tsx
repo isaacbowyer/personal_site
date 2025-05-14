@@ -1,10 +1,10 @@
 import type { AppProps } from "next/app";
-import { Provider } from "../components/ui/provider";
+import { Provider as ChakraProvider } from "../components/ui/provider";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider>
+    <ChakraProvider>
       <Head>
         <title>Isaac Bowyer</title>
         <meta
@@ -16,6 +16,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
-    </Provider>
+    </ChakraProvider>
   );
 }

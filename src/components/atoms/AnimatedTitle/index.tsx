@@ -1,5 +1,6 @@
 import { IColor } from "@/interfaces/IColor";
 import { theme } from "@/theme";
+import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
@@ -7,7 +8,7 @@ import { ReactNode } from "react";
 interface IProps {
   children: ReactNode;
   color?: IColor;
-  fontSize?: string;
+  isMobile: boolean;
 }
 
 const MotionTitle = motion(Chakra.Text);
@@ -15,8 +16,10 @@ const MotionTitle = motion(Chakra.Text);
 export const AnimatedTitle = ({
   children,
   color = "black",
-  fontSize = "7xl",
+  isMobile,
 }: IProps) => {
+  const fontSize = validateOptionsBasedOnBoolean(isMobile, "3xl", "7xl");
+
   return (
     <MotionTitle
       color={theme.colors[color]}
@@ -26,7 +29,10 @@ export const AnimatedTitle = ({
       fontWeight="bold"
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{
+        once: true,
+        amount: 0.7,
+      }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {children}

@@ -1,4 +1,6 @@
+import { AnimatedBorder } from "@/components/atoms/AnimatedBorder";
 import { CustomAvatar } from "@/components/atoms/CustomAvatar";
+import { IBorderPostion } from "@/interfaces/IBorderPosition";
 import { theme } from "@/theme";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
@@ -18,6 +20,9 @@ export const ProfileAvatar = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const borderActive = theme.colors.dark_blue;
+  const borderInactive = theme.colors.blue;
+
   return (
     <Chakra.Center
       marginTop="20px"
@@ -33,45 +38,16 @@ export const ProfileAvatar = ({
     >
       <CustomAvatar size={size} src={src} />
 
-      <MotionBox
-        position="absolute"
-        top={-4}
-        left="20%"
-        right="20%"
-        height="14px"
-        borderTop="5px solid"
-        borderColor={validateOptionsBasedOnBoolean(
-          isHovered,
-          theme.colors.dark_blue,
-          theme.colors.blue
-        )}
-        borderRadius="60px 60px 0 0"
-        pointerEvents="none"
-        style={{ transformOrigin: "left" }}
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      />
-
-      <MotionBox
-        position="absolute"
-        bottom={-4}
-        left="20%"
-        right="20%"
-        height="14px"
-        borderBottom="5px solid"
-        borderColor={validateOptionsBasedOnBoolean(
-          isHovered,
-          theme.colors.dark_blue,
-          theme.colors.blue
-        )}
-        borderRadius="0 0 60px 60px"
-        pointerEvents="none"
-        style={{ transformOrigin: "left" }}
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-      />
+      {["top", "bottom", "left", "right"].map((pos, i) => (
+        <AnimatedBorder
+          key={pos}
+          position={pos as IBorderPostion}
+          isHovered={isHovered}
+          activeColor={borderActive}
+          inActiveColor={borderInactive}
+          delay={i * 0.3}
+        />
+      ))}
     </Chakra.Center>
   );
 };

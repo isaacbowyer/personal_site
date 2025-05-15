@@ -2,19 +2,19 @@ import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
 import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileImage";
 import { ProfileAvatar } from "@/components/molecules/ProfileAvatar";
-import { useHomeSection } from "@/hooks/useHomeSection";
 import { HomeSectionActions } from "@/components/molecules/HomeSectionActions";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const HomeSection = () => {
-  const { state } = useHomeSection();
+  const { state } = useIsMobile();
 
   return (
     <Chakra.Grid
       templateColumns={{ base: "1fr", md: "2fr 3fr" }}
-      overflow="hidden"
       gap={8}
       w="full"
       h="full"
+      id="home"
     >
       <Chakra.VStack
         w="full"
@@ -26,20 +26,14 @@ export const HomeSection = () => {
           <ProfileAvatar />
         </Chakra.VStack>
 
-        <AnimatedTitle fontSize={state.isMobile ? "7xl" : "3xl"}>
-          ISAAC BOWYER
-        </AnimatedTitle>
+        <AnimatedTitle isMobile={state.isMobile}>ISAAC BOWYER</AnimatedTitle>
 
         <HomeSectionActions />
       </Chakra.VStack>
 
-      {state.imageSize && (
-        <Chakra.VStack
-          align="center"
-          justify="center"
-          display={{ base: "none", md: "flex" }}
-        >
-          <HexagonalProfileImage size={state.imageSize} />
+      {!state.isMobile && (
+        <Chakra.VStack align="center" justify="center" mt={{ md: 0, lg: 4 }}>
+          <HexagonalProfileImage />
         </Chakra.VStack>
       )}
     </Chakra.Grid>

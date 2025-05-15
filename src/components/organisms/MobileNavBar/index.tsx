@@ -66,8 +66,8 @@ export const MobileNavBar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -60 }}
                 transition={{
-                  delay: 0.4 + index * 0.1, // slower stagger
-                  duration: 0.6, // slower animation
+                  delay: 0.4 + index * 0.1,
+                  duration: 0.6,
                   ease: "easeOut",
                 }}
               >

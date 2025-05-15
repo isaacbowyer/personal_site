@@ -13,7 +13,7 @@ export const TemplateWeb = ({ main }: IProps) => {
       overflowY="auto"
       h="100vh"
       w="100vw"
-      px={{ base: "8", md: "16", lg: "24" }}
+      justifyContent="space-between"
       background={theme.colors.white}
       css={{
         "&::-webkit-scrollbar": {
@@ -28,13 +28,22 @@ export const TemplateWeb = ({ main }: IProps) => {
         },
       }}
     >
-      <Chakra.HStack w="full">
-        <WebNavBar />
-      </Chakra.HStack>
+      <Chakra.VStack
+        maxW="1200px"
+        mx="auto"
+        px={{ base: 4, md: 6 }}
+        w="full"
+        h="full"
+        justifyContent="space-between"
+      >
+        <Chakra.HStack w="full">
+          <WebNavBar />
+        </Chakra.HStack>
 
-      <Chakra.HStack w="full" h="full">
-        {main}
-      </Chakra.HStack>
+        <Chakra.HStack w="full" h="full">
+          {main}
+        </Chakra.HStack>
+      </Chakra.VStack>
     </Chakra.VStack>
   );
 };

@@ -8,11 +8,18 @@ import { download } from "@/data/download";
 import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileImage";
 
 export const Site = () => {
+  const imageSize = Chakra.useBreakpointValue({
+    base: 0,
+    md: 450,
+    lg: 650,
+  });
+
   return (
     <TemplateContainer
       main={
         <Chakra.Grid
           templateColumns={{ base: "1fr", md: "2fr 3fr" }}
+          overflow="hidden"
           gap={8}
           w="full"
           h="full"
@@ -20,7 +27,7 @@ export const Site = () => {
           <Chakra.VStack align="start" gap={24}>
             <CustomText.Title>ISAAC BOWYER</CustomText.Title>
 
-            <Chakra.VStack align="start" gap={32}>
+            <Chakra.VStack align="start" gap={40}>
               <CustomTypeWriter
                 staticLabel="I'm a"
                 animatedWords={[
@@ -42,13 +49,11 @@ export const Site = () => {
             </Chakra.VStack>
           </Chakra.VStack>
 
-          <Chakra.VStack
-            align="center"
-            justify="center"
-            display={{ base: "none", md: "flex" }}
-          >
-            <HexagonalProfileImage />
-          </Chakra.VStack>
+          {imageSize ? (
+            <Chakra.VStack align="center" justify="center">
+              <HexagonalProfileImage size={imageSize} />
+            </Chakra.VStack>
+          ) : null}
         </Chakra.Grid>
       }
     />

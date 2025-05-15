@@ -37,7 +37,7 @@ export const CustomNavLink = ({
       <Chakra.HStack gap={1}>
         {hasImage && (
           <Chakra.Image
-            src="/images/home_logo.svg"
+            src="/images/home.svg"
             width="45px"
             height="60px"
             mr="2px"

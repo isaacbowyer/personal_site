@@ -11,6 +11,7 @@ interface IProps {
   hoverColor?: string;
   fontWeight?: string;
   hasImage?: boolean;
+  shouldTransform?: boolean;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }

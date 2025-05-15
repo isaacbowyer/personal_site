@@ -1,13 +1,13 @@
 import * as Chakra from "@chakra-ui/react";
-import { WebNavBar } from "@/components/organisms/WebNavBar";
 import { theme } from "@/theme";
 import { ReactNode } from "react";
+import { MobileNavBar } from "@/components/organisms/MobileNavBar";
 
 interface IProps {
   main: ReactNode;
 }
 
-export const TemplateWeb = ({ main }: IProps) => {
+export const TemplateMobile = ({ main }: IProps) => {
   return (
     <Chakra.VStack
       overflowY="auto"
@@ -34,12 +34,10 @@ export const TemplateWeb = ({ main }: IProps) => {
         px={{ base: 4, md: 6 }}
         w="full"
         h="full"
-        display="flex"
-        flexDirection="column"
         justifyContent="space-between"
       >
         <Chakra.HStack w="full">
-          <WebNavBar />
+          <MobileNavBar />
         </Chakra.HStack>
 
         <Chakra.HStack w="full" h="full">

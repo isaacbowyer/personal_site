@@ -32,6 +32,7 @@ export const WebNavBar = () => {
                 hoverColor={theme.colors.blue}
                 onMouseEnter={() => setHoveredLabel(link.label)}
                 onMouseLeave={() => setHoveredLabel("")}
+                shouldTransform
               />
             );
           })}

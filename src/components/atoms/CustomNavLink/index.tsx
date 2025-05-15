@@ -43,7 +43,7 @@ export const CustomNavLink = ({
             mr="2px"
           />
         )}
-        <CustomText.Header
+        <CustomText.SubHeader
           letterSpacing="0.5px"
           lineHeight="1.25"
           fontWeight={fontWeight}
@@ -55,7 +55,7 @@ export const CustomNavLink = ({
           transition="all 0.5s ease"
         >
           {label}
-        </CustomText.Header>
+        </CustomText.SubHeader>
       </Chakra.HStack>
     </Chakra.Link>
   );

@@ -25,7 +25,25 @@ const Title = ({ children, color = "black", ...props }: IProps) => {
 
 const Header = ({ children, color = "black", ...props }: IProps) => {
   return (
-    <ChakraText color={theme.colors[color]} fontWeight="bold" {...props}>
+    <ChakraText
+      color={theme.colors[color]}
+      fontWeight="bold"
+      fontSize="2xl"
+      {...props}
+    >
+      {children}
+    </ChakraText>
+  );
+};
+
+const SubHeader = ({ children, color = "black", ...props }: IProps) => {
+  return (
+    <ChakraText
+      color={theme.colors[color]}
+      fontWeight="bold"
+      fontSize="xl"
+      {...props}
+    >
       {children}
     </ChakraText>
   );
@@ -43,4 +61,5 @@ export const CustomText = {
   Large,
   Title,
   Header,
+  SubHeader,
 };

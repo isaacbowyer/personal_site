@@ -19,6 +19,7 @@ export const WebNavBar = () => {
           hoverColor={theme.colors.black}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
+          hasPointer={false}
         />
 
         <Chakra.HStack as="ul" listStyleType="none" gap={6}>

@@ -25,7 +25,8 @@ export const AnimatedTitle = ({
       letterSpacing="6px"
       fontWeight="bold"
       initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {children}

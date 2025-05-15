@@ -25,7 +25,10 @@ export const Solid = ({
       py="6"
       px="10"
       style={{ transition: "all 0.5s ease" }}
-      _hover={{ bg: theme.colors.dark_blue, color: theme.colors.white }}
+      _hover={{
+        bg: theme.colors.dark_blue,
+        color: theme.colors.white,
+      }}
       {...props}
     >
       {children}

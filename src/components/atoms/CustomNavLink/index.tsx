@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { theme } from "@/theme";
 import { CustomText } from "../CustomText";
 import { IColor } from "@/interfaces/IColor";
+import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 
 interface IProps {
   href: string;
@@ -12,6 +13,7 @@ interface IProps {
   fontWeight?: string;
   hasImage?: boolean;
   shouldTransform?: boolean;
+  hasPointer?: boolean;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }
@@ -23,6 +25,7 @@ export const CustomNavLink = ({
   hoverColor = theme.colors.blue,
   fontWeight = "bold",
   hasImage = false,
+  hasPointer = true,
   onMouseEnter,
   onMouseLeave,
 }: IProps) => {
@@ -31,7 +34,10 @@ export const CustomNavLink = ({
       as={NextLink}
       href={href}
       _focus={{ boxShadow: "none", outline: "none" }}
-      _hover={{ textDecoration: "none" }}
+      _hover={{
+        textDecoration: "none",
+        cursor: validateOptionsBasedOnBoolean(hasPointer, "pointer", "default"),
+      }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

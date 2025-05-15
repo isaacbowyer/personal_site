@@ -1,17 +1,12 @@
-import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
-import { ButtonLink } from "@/components/molecules/ButtonLink";
-import { CustomTypeWriter } from "@/components/molecules/CustomTypeWriter";
-import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileImage";
-import { download } from "@/data/download";
 import * as Chakra from "@chakra-ui/react";
-import { RiDownload2Fill } from "react-icons/ri";
+import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
+import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileImage";
+import { ProfileAvatar } from "@/components/molecules/ProfileAvatar";
+import { useHomeSection } from "@/hooks/useHomeSection";
+import { HomeSectionActions } from "@/components/molecules/HomeSectionActions";
 
 export const HomeSection = () => {
-  const imageSize = Chakra.useBreakpointValue({
-    base: 0,
-    md: 450,
-    lg: 650,
-  });
+  const { state } = useHomeSection();
 
   return (
     <Chakra.Grid
@@ -21,44 +16,32 @@ export const HomeSection = () => {
       w="full"
       h="full"
     >
-      <Chakra.VStack align="start" gap={{ base: "48px", md: "64px" }}>
-        {!imageSize && (
-          <Chakra.HStack w="full">
-            <Chakra.Avatar.Root size="md">
-              <Chakra.Avatar.Image src="https://bit.ly/sage-adebayo" />
-            </Chakra.Avatar.Root>
-          </Chakra.HStack>
-        )}
-
-        {imageSize && 
-        
-        <AnimatedTitle>ISAAC BOWYER</AnimatedTitle>
-
-
-;       <Chakra.VStack align="start" gap={{ base: "96px", md: "136px" }}>
-          <CustomTypeWriter
-            staticLabel="I'm a"
-            animatedWords={[
-              "Software Engineer",
-              "Fullstack Web Developer",
-              "Mobile App Developer",
-            ]}
-          />
-
-          <ButtonLink
-            href={download.cv}
-            label={"Download CV"}
-            isDownload={true}
-            icon={<RiDownload2Fill />}
-          />
+      <Chakra.VStack
+        w="full"
+        align={{ base: "center", md: "flex-start" }}
+        gap={{ base: 16, md: 24 }}
+        textAlign={{ base: "center", md: "left" }}
+      >
+        <Chakra.VStack display={{ base: "block", md: "none" }}>
+          <ProfileAvatar />
         </Chakra.VStack>
+
+        <AnimatedTitle fontSize={state.isMobile ? "7xl" : "3xl"}>
+          ISAAC BOWYER
+        </AnimatedTitle>
+
+        <HomeSectionActions />
       </Chakra.VStack>
 
-      {imageSize ? (
-        <Chakra.VStack align="center" justify="center">
-          <HexagonalProfileImage size={imageSize} />
+      {state.imageSize && (
+        <Chakra.VStack
+          align="center"
+          justify="center"
+          display={{ base: "none", md: "flex" }}
+        >
+          <HexagonalProfileImage size={state.imageSize} />
         </Chakra.VStack>
-      ) : null}
+      )}
     </Chakra.Grid>
   );
 };

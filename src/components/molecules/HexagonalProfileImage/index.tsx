@@ -2,6 +2,7 @@ import { theme } from "@/theme";
 import { getBottomPathForProfileBorder } from "@/utils/getBottomPathForProfileBorder";
 import { getHexPoints } from "@/utils/getHexPoints";
 import { getTopPathForProfileBorder } from "@/utils/getTopPathForProfileBorder";
+import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import React, { useState, useEffect, useRef } from "react";
 
 interface IProps {
@@ -21,7 +22,7 @@ export const HexagonalProfileImage = ({
   borderWidth = 10,
   gap = 12,
 }: IProps) => {
-  const [hovered, setHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [animated, setAnimated] = useState(false);
   const topPathRef = useRef<SVGPathElement>(null);
   const bottomPathRef = useRef<SVGPathElement>(null);
@@ -41,12 +42,10 @@ export const HexagonalProfileImage = ({
       const length = path.getTotalLength();
 
       if (animated) {
-        // Animate stroke drawing
         path.style.transition = "stroke-dashoffset 2s ease";
         path.style.strokeDasharray = `${length}`;
         path.style.strokeDashoffset = "0";
       } else {
-        // Reset to hidden stroke
         path.style.transition = "none";
         path.style.strokeDasharray = `${length}`;
         path.style.strokeDashoffset = `${length}`;
@@ -75,17 +74,16 @@ export const HexagonalProfileImage = ({
         height,
         userSelect: "none",
         transition: "all 0.3s ease",
-        cursor: "pointer",
       }}
       aria-label={alt}
       role="img"
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "scale(1.05)";
-        setHovered(true);
+        setIsHovered(true);
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "scale(1)";
-        setHovered(false);
+        setIsHovered(false);
       }}
     >
       {/* Border Layer */}
@@ -117,7 +115,11 @@ export const HexagonalProfileImage = ({
           ref={topPathRef}
           d={getTopPathForProfileBorder(outerPoints, shortStrokeLength)}
           fill="none"
-          stroke={hovered ? borderColorHover : borderColorNormal}
+          stroke={validateOptionsBasedOnBoolean(
+            isHovered,
+            borderColorHover,
+            borderColorNormal
+          )}
           strokeWidth={borderWidth}
           strokeLinejoin="round"
           strokeLinecap="round"
@@ -131,7 +133,11 @@ export const HexagonalProfileImage = ({
           ref={bottomPathRef}
           d={getBottomPathForProfileBorder(outerPoints, shortStrokeLength)}
           fill="none"
-          stroke={hovered ? borderColorHover : borderColorNormal}
+          stroke={validateOptionsBasedOnBoolean(
+            isHovered,
+            borderColorHover,
+            borderColorNormal
+          )}
           strokeWidth={borderWidth}
           strokeLinejoin="round"
           strokeLinecap="round"

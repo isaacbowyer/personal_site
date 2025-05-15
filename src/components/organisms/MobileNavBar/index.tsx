@@ -17,13 +17,7 @@ export const MobileNavBar = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.Box
-      display={{ base: "block", md: "none" }}
-      position="relative"
-      w="full"
-      p={4}
-    >
-      {/* Top bar */}
+    <Chakra.Box position="relative" w="full" p={4}>
       <Chakra.HStack justifyContent="space-between" alignItems="center">
         <CustomNavLink
           href="#home"
@@ -33,6 +27,7 @@ export const MobileNavBar = () => {
           hoverColor={theme.colors.black}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
+          hasPointer={false}
         />
 
         <Chakra.IconButton
@@ -45,7 +40,6 @@ export const MobileNavBar = () => {
         </Chakra.IconButton>
       </Chakra.HStack>
 
-      {/* Dropdown Menu */}
       <AnimatePresence>
         {isOpen && (
           <MotionVStack

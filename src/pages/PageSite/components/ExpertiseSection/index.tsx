@@ -1,9 +1,13 @@
 import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useExpertiseSection } from "@/hooks/useExpertiseSection";
+import { ExpertiseCard } from "@/components/organisms/ExpertiseCard";
+import { motion } from "framer-motion";
+
+const MotionGrid = motion(Chakra.Grid);
 
 export const ExpertiseSection = () => {
-  const { state } = useIsMobile();
+  const { state, methods } = useExpertiseSection();
 
   return (
     <Chakra.VStack
@@ -13,6 +17,43 @@ export const ExpertiseSection = () => {
       id="expertise"
     >
       <AnimatedTitle isMobile={state.isMobile}>EXPERTISE</AnimatedTitle>
+
+      <Chakra.Text color="gray" fontSize={{ base: "lg", md: "xl" }}>
+        Specialized knowledge and proven experience across multiple development
+        domains
+      </Chakra.Text>
+
+      <Chakra.Box
+        flex="1"
+        px={4}
+        py={8}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <MotionGrid
+          w="full"
+          maxW="5xl"
+          templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+          gap={6}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
+        >
+          {state.expertiseItems.map((expertise) => (
+            <ExpertiseCard
+              key={expertise.id}
+              title={expertise.title}
+              icon={expertise.icon}
+              description={expertise.description}
+              color={expertise.color}
+              borderColor={expertise.borderColor}
+              isActive={state.activeCard === expertise.id}
+              onClick={() => methods.handleClickActiveCard(expertise.id)}
+            />
+          ))}
+        </MotionGrid>
+      </Chakra.Box>
     </Chakra.VStack>
   );
 };

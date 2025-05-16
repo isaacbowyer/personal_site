@@ -33,7 +33,6 @@ export const AnimatedTitle = ({
         once: true,
         amount: 0.7,
       }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {children}
     </MotionTitle>

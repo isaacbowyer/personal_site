@@ -20,8 +20,8 @@ export const ProfileAvatar = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const borderActive = theme.colors.blue.light;
-  const borderInactive = theme.colors.blue.vivid;
+  const borderActive = theme.colors.blue.vivid;
+  const borderInactive = theme.colors.blue.light;
 
   return (
     <Chakra.Center

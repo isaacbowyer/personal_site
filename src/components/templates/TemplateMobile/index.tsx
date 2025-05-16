@@ -1,15 +1,19 @@
 import * as Chakra from "@chakra-ui/react";
 import { theme } from "@/theme";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 import { MobileNavBar } from "@/components/organisms/MobileNavBar";
+import { ScrollToTopButton } from "@/components/atoms/ScrollToTopButton";
 
 interface IProps {
   main: ReactNode;
 }
 
 export const TemplateMobile = ({ main }: IProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   return (
     <Chakra.VStack
+      ref={scrollRef}
       overflowY="auto"
       h="100vh"
       w="100vw"
@@ -23,7 +27,7 @@ export const TemplateMobile = ({ main }: IProps) => {
           width: "8px",
         },
         "&::-webkit-scrollbar-thumb": {
-          background: theme.colors.blue.vivid,
+          background: theme.colors.blue.light,
           borderRadius: "24px",
         },
       }}
@@ -44,6 +48,8 @@ export const TemplateMobile = ({ main }: IProps) => {
           {main}
         </Chakra.HStack>
       </Chakra.VStack>
+
+      <ScrollToTopButton scrollContainer={scrollRef} />
     </Chakra.VStack>
   );
 };

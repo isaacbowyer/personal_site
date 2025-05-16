@@ -1,5 +1,6 @@
 import { CustomButton } from "@/components/atoms/CustomButton";
 import * as Chakra from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface IProps {
@@ -8,6 +9,9 @@ interface IProps {
   icon?: ReactNode;
   isDownload?: boolean;
 }
+
+const MotionBox = motion(Chakra.Box);
+
 export const ButtonLink = ({
   href,
   label,

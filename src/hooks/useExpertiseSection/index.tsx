@@ -49,10 +49,10 @@ export const useExpertiseSection = () => {
         "React",
         "Redux",
         "Next.js",
-        "Cypress",
         "Python",
         "Django",
-        "RESTful APIs",
+        "Cypress",
+        "Figma",
       ],
     },
     {

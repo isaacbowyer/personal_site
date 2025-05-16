@@ -49,10 +49,11 @@ export const CustomNavLink = ({
             mr="2px"
           />
         )}
-        <CustomText.SubHeader
+        <Chakra.Text
           letterSpacing="0.5px"
           lineHeight="1.25"
           fontWeight={fontWeight}
+          fontSize="2xl"
           color={color}
           _hover={{
             color: hoverColor,
@@ -61,7 +62,7 @@ export const CustomNavLink = ({
           transition="all 0.5s ease"
         >
           {label}
-        </CustomText.SubHeader>
+        </Chakra.Text>
       </Chakra.HStack>
     </Chakra.Link>
   );

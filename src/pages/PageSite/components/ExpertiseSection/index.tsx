@@ -3,6 +3,7 @@ import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
 import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { ExpertiseCard } from "@/components/organisms/ExpertiseCard";
 import { motion } from "framer-motion";
+import { theme } from "@/theme";
 
 const MotionGrid = motion(Chakra.Grid);
 
@@ -18,19 +19,15 @@ export const ExpertiseSection = () => {
     >
       <AnimatedTitle isMobile={state.isMobile}>EXPERTISE</AnimatedTitle>
 
-      <Chakra.Text color="gray" fontSize={{ base: "lg", md: "xl" }}>
+      <Chakra.Text
+        color={theme.colors.gray.medium}
+        fontSize={{ base: "lg", md: "xl" }}
+      >
         Specialized knowledge and proven experience across multiple development
         domains
       </Chakra.Text>
 
-      <Chakra.Box
-        flex="1"
-        px={4}
-        py={8}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Chakra.Flex px={4} py={8} justifyContent="center" alignItems="center">
         <MotionGrid
           w="full"
           maxW="5xl"
@@ -47,13 +44,12 @@ export const ExpertiseSection = () => {
               icon={expertise.icon}
               description={expertise.description}
               color={expertise.color}
-              borderColor={expertise.borderColor}
               isActive={state.activeCard === expertise.id}
               onClick={() => methods.handleClickActiveCard(expertise.id)}
             />
           ))}
         </MotionGrid>
-      </Chakra.Box>
+      </Chakra.Flex>
     </Chakra.VStack>
   );
 };

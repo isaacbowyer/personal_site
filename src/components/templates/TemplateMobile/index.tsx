@@ -23,7 +23,7 @@ export const TemplateMobile = ({ main }: IProps) => {
           width: "8px",
         },
         "&::-webkit-scrollbar-thumb": {
-          background: theme.colors.blue,
+          background: theme.colors.blue.vivid,
           borderRadius: "24px",
         },
       }}

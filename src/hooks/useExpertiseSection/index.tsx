@@ -1,21 +1,19 @@
 import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
-import { Code } from "@chakra-ui/react";
 import { useState } from "react";
 import { CgSmartphone } from "react-icons/cg";
 import { LuLayoutDashboard } from "react-icons/lu";
+import { FiCode } from "react-icons/fi";
 import { useIsMobile } from "../useIsMobile";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
+import { theme } from "@/theme";
 
 export const useExpertiseSection = () => {
   const { state } = useIsMobile();
-  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [activeCard, setActiveCard] = useState<number>(0);
 
   const handleClickActiveCard = (id: number) => {
-    const newActiveCard = validateOptionsBasedOnBoolean(
-      activeCard === id,
-      0,
-      id
-    );
+    const isAlreadyActive = activeCard === id;
+    const newActiveCard = validateOptionsBasedOnBoolean(isAlreadyActive, 0, id);
     setActiveCard(newActiveCard);
   };
 
@@ -23,29 +21,29 @@ export const useExpertiseSection = () => {
     {
       id: 1,
       title: "Software Engineer",
-      icon: <Code width="8" height="8" />,
+      icon: <FiCode color={theme.colors.white} size="30" />,
       description:
         "Experienced in building cloud-based SaaS products using AI, including GPT-4 for automation and user interaction.",
-      color: "from-blue-500 to-cyan-400",
-      borderColor: "border-blue-400",
+      color: theme.colors.blue.medium,
+      tags: [],
     },
     {
       id: 2,
       title: "Fullstack Web Developer",
-      icon: <LuLayoutDashboard width="8" height="8" />,
+      icon: <LuLayoutDashboard color={theme.colors.white} size="30" />,
       description:
         "Proficient in using JavaScript, TypeScript, React, Next.js, Python, and Django, gained through over 2 years of development.",
-      color: "from-purple-500 to-pink-500",
-      borderColor: "border-purple-400",
+      color: "purple.400",
+      tags: [],
     },
     {
       id: 3,
       title: "Mobile App Developer",
-      icon: <CgSmartphone width="8" height="8" />,
+      icon: <CgSmartphone color={theme.colors.white} size="30" />,
       description:
         "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
-      color: "from-amber-500 to-orange-400",
-      borderColor: "border-amber-400",
+      color: "orange.400",
+      tags: [],
     },
   ];
 

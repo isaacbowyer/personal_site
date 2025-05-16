@@ -15,7 +15,7 @@ export const WebNavBar = () => {
           href="#home"
           label={"SAAC"}
           hasImage
-          color="black"
+          color={theme.colors.black}
           hoverColor={theme.colors.black}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
@@ -30,7 +30,7 @@ export const WebNavBar = () => {
                 href={link.href}
                 label={link.label}
                 color={getCustomLinkColor(hoveredLabel, link.label)}
-                hoverColor={theme.colors.blue}
+                hoverColor={theme.colors.blue.vivid}
                 onMouseEnter={() => setHoveredLabel(link.label)}
                 onMouseLeave={() => setHoveredLabel("")}
                 shouldTransform

@@ -2,13 +2,13 @@ import * as Chakra from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { CustomTag } from "@/components/atoms/CustomTag";
+import { theme } from "@/theme";
 
 interface IProps {
   title: string;
   description: string;
   icon: ReactNode;
   color: string;
-  borderColor: string;
   isActive: boolean;
   onClick: () => void;
 }
@@ -20,7 +20,6 @@ export const ExpertiseCard = ({
   description,
   icon,
   color,
-  borderColor,
   isActive,
   onClick,
 }: IProps) => {
@@ -56,15 +55,14 @@ export const ExpertiseCard = ({
       rounded="xl"
       cursor="pointer"
       border="2px solid"
-      borderColor={borderColor}
-      bg="white"
+      borderColor={color}
+      bg={theme.colors.white}
       transition={{ duration: 0.3, ease: "easeOut" }}
       gridColumn={isActive ? { md: "span 3" } : undefined}
     >
       <MotionBox
         position="absolute"
         inset={0}
-        bgGradient={color}
         opacity={0}
         _groupHover={{ opacity: 0.05 }}
         animate={{ opacity: isActive ? 0.1 : 0 }}
@@ -72,19 +70,21 @@ export const ExpertiseCard = ({
       />
 
       <Chakra.Flex align="start" gap={4}>
-        <MotionBox p={3} bgGradient={color} color="white" rounded="lg">
+        <MotionBox p={3} bg={color} color={theme.colors.white} rounded="lg">
           {icon}
         </MotionBox>
 
         <Chakra.Box flex="1">
           <MotionBox>
-            <Chakra.Heading size="md" mb={2} color="gray.800">
+            <Chakra.Heading size="md" mb={2} color={theme.colors.gray.dark}>
               {title}
             </Chakra.Heading>
           </MotionBox>
 
           <MotionBox>
-            <Chakra.Text color="gray.600">{description}</Chakra.Text>
+            <Chakra.Text color={theme.colors.gray.medium}>
+              {description}
+            </Chakra.Text>
           </MotionBox>
 
           {isActive && (

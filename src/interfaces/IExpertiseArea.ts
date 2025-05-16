@@ -6,5 +6,5 @@ export interface IExpertiseArea {
   icon: ReactNode;
   description: string;
   color: string;
-  borderColor: string;
+  tags: string[];
 }

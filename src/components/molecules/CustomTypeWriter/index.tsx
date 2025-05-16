@@ -19,7 +19,7 @@ export const CustomTypeWriter = ({ staticLabel, animatedWords }: IProps) => {
         as="span"
         display="inline-block"
         borderBottom="2px solid"
-        borderColor={theme.colors.blue}
+        borderColor={theme.colors.blue.vivid}
         whiteSpace="nowrap"
       >
         <Typewriter

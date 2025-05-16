@@ -58,7 +58,7 @@ export const HexagonalProfileImage = ({
   }, [animated]);
 
   const borderColorNormal = borderColor;
-  const borderColorHover = theme.colors.dark_blue;
+  const borderColorHover = theme.colors.blue.vivid;
 
   const width = imageSize || 0;
   const height = Math.round((width * Math.sqrt(3)) / 2);

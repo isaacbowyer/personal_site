@@ -1,18 +1,17 @@
-import { IColor } from "@/interfaces/IColor";
 import { theme } from "@/theme";
 import { Button as ChakraButton, ButtonProps } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface IButton extends ButtonProps {
   children: ReactNode;
-  backGroundColor?: IColor;
-  textColor?: IColor;
+  backGroundColor?: string;
+  textColor?: string;
 }
 
 export const Solid = ({
   children,
-  backGroundColor = "blue",
-  textColor = "black",
+  backGroundColor = theme.colors.blue.light,
+  textColor = theme.colors.black,
   ...props
 }: IButton) => {
   return (
@@ -21,12 +20,12 @@ export const Solid = ({
       color={textColor}
       size="lg"
       fontWeight="regular"
-      bg={theme.colors[backGroundColor]}
+      bg={backGroundColor}
       py="6"
       px="10"
       style={{ transition: "all 0.5s ease" }}
       _hover={{
-        bg: theme.colors.dark_blue,
+        bg: theme.colors.blue.vivid,
         color: theme.colors.white,
       }}
       {...props}

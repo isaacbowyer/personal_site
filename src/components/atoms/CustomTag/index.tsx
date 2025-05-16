@@ -12,7 +12,7 @@ export const CustomTag = ({ label }: IProps) => {
     <MotionTag
       px={3}
       py={1}
-      bg={theme.colors.gray.light}
+      bg={theme.colors.gray.dim}
       rounded="full"
       fontSize="sm"
       color={theme.colors.gray.medium}

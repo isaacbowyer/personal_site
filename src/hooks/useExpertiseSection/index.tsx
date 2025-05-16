@@ -25,7 +25,15 @@ export const useExpertiseSection = () => {
       description:
         "Experienced in building cloud-based SaaS products using AI, including GPT-4 for automation and user interaction.",
       color: theme.colors.blue.medium,
-      tags: [],
+      bgColor: theme.gradients.light_blue,
+      tags: [
+        "AI Integration",
+        "Automation Tools",
+        "SaaS Architecture",
+        "Data Analysis",
+        "DevOps & Cloud",
+        "CI/CD Pipelines",
+      ],
     },
     {
       id: 2,
@@ -33,8 +41,19 @@ export const useExpertiseSection = () => {
       icon: <LuLayoutDashboard color={theme.colors.white} size="30" />,
       description:
         "Proficient in using JavaScript, TypeScript, React, Next.js, Python, and Django, gained through over 2 years of development.",
-      color: "purple.400",
-      tags: [],
+      color: theme.colors.purple,
+      bgColor: theme.gradients.light_purple,
+      tags: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Redux",
+        "Next.js",
+        "Cypress",
+        "Python",
+        "Django",
+        "RESTful APIs",
+      ],
     },
     {
       id: 3,
@@ -42,8 +61,16 @@ export const useExpertiseSection = () => {
       icon: <CgSmartphone color={theme.colors.white} size="30" />,
       description:
         "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
-      color: "orange.400",
-      tags: [],
+      color: theme.colors.orange,
+      bgColor: theme.gradients.light_orange,
+      tags: [
+        "React Native",
+        "Firebase",
+        "iOS",
+        "Android",
+        "UI/UX",
+        "Responsive Design",
+      ],
     },
   ];
 

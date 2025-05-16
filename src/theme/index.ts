@@ -5,7 +5,8 @@ const blue = {
 };
 
 const gray = {
-  light: "#EDF2F7",
+  dim: "#EDF2F7",
+  light: "#A1A1A1",
   medium: "#4A5568",
   dark: "#1A202C",
 };
@@ -21,6 +22,13 @@ const colors = {
   gray: gray,
 };
 
+const gradients = {
+  light_blue: "linear-gradient(to bottom, #E6F4FF, #D0E8FF)",
+  light_purple: "linear-gradient(to bottom, #F3E8FF, #E5D4FF)",
+  light_orange: "linear-gradient(to bottom, #FFF5E6, #FFE9C7)",
+};
+
 export const theme = {
   colors: colors,
+  gradients: gradients,
 };

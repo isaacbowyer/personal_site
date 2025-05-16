@@ -35,8 +35,17 @@ const Large = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
+const Medium = ({ children, color = theme.colors.black, ...props }: IProps) => {
+  return (
+    <ChakraText color={color} fontSize="md" {...props}>
+      {children}
+    </ChakraText>
+  );
+};
+
 export const CustomText = {
   Large,
   Header,
   SubHeader,
+  Medium,
 };

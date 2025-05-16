@@ -23,7 +23,7 @@ export const MobileNavBar = () => {
           href="#home"
           label={"SAAC"}
           hasImage
-          color="black"
+          color={theme.colors.black}
           hoverColor={theme.colors.black}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
@@ -66,8 +66,8 @@ export const MobileNavBar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -60 }}
                 transition={{
-                  delay: 0.4 + index * 0.1, // slower stagger
-                  duration: 0.6, // slower animation
+                  delay: 0.4 + index * 0.1,
+                  duration: 0.6,
                   ease: "easeOut",
                 }}
               >
@@ -75,7 +75,7 @@ export const MobileNavBar = () => {
                   href={link.href}
                   label={link.label}
                   color={getCustomLinkColor(hoveredLabel, link.label)}
-                  hoverColor={theme.colors.blue}
+                  hoverColor={theme.colors.blue.vivid}
                   shouldTransform={false}
                   onMouseEnter={() => setHoveredLabel(link.label)}
                   onMouseLeave={() => setHoveredLabel("")}

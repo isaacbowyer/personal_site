@@ -2,13 +2,12 @@ import * as Chakra from "@chakra-ui/react";
 import NextLink from "next/link";
 import { theme } from "@/theme";
 import { CustomText } from "../CustomText";
-import { IColor } from "@/interfaces/IColor";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 
 interface IProps {
   href: string;
   label: string;
-  color?: IColor;
+  color?: string;
   hoverColor?: string;
   fontWeight?: string;
   hasImage?: boolean;
@@ -21,8 +20,8 @@ interface IProps {
 export const CustomNavLink = ({
   href,
   label,
-  color = "black",
-  hoverColor = theme.colors.blue,
+  color = theme.colors.black,
+  hoverColor = theme.colors.blue.vivid,
   fontWeight = "bold",
   hasImage = false,
   hasPointer = true,
@@ -50,10 +49,11 @@ export const CustomNavLink = ({
             mr="2px"
           />
         )}
-        <CustomText.SubHeader
+        <Chakra.Text
           letterSpacing="0.5px"
           lineHeight="1.25"
           fontWeight={fontWeight}
+          fontSize="2xl"
           color={color}
           _hover={{
             color: hoverColor,
@@ -62,7 +62,7 @@ export const CustomNavLink = ({
           transition="all 0.5s ease"
         >
           {label}
-        </CustomText.SubHeader>
+        </Chakra.Text>
       </Chakra.HStack>
     </Chakra.Link>
   );

@@ -1,14 +1,14 @@
+import * as Chakra from "@chakra-ui/react";
 import { theme } from "@/theme";
 import { getBottomPathForProfileBorder } from "@/utils/getBottomPathForProfileBorder";
 import { getHexPoints } from "@/utils/getHexPoints";
 import { getTopPathForProfileBorder } from "@/utils/getTopPathForProfileBorder";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface IProps {
   src?: string;
   alt?: string;
-  size: number;
   borderColor?: string;
   borderWidth?: number;
   gap?: number;
@@ -17,11 +17,16 @@ interface IProps {
 export const HexagonalProfileImage = ({
   src = "images/profile.svg",
   alt = "profile image",
-  size,
   borderColor = "#74c0fc",
   borderWidth = 10,
   gap = 12,
 }: IProps) => {
+  const imageSize = Chakra.useBreakpointValue({
+    base: 0,
+    md: 450,
+    lg: 650,
+  });
+
   const [isHovered, setIsHovered] = useState(false);
   const [animated, setAnimated] = useState(false);
   const topPathRef = useRef<SVGPathElement>(null);
@@ -32,7 +37,6 @@ export const HexagonalProfileImage = ({
     return () => clearTimeout(timeout);
   }, []);
 
-  // On animation toggle, setup stroke dash arrays to animate border drawing
   useEffect(() => {
     if (!topPathRef.current || !bottomPathRef.current) return;
 
@@ -54,9 +58,9 @@ export const HexagonalProfileImage = ({
   }, [animated]);
 
   const borderColorNormal = borderColor;
-  const borderColorHover = theme.colors.dark_blue;
+  const borderColorHover = theme.colors.blue.vivid;
 
-  const width = size;
+  const width = imageSize || 0;
   const height = Math.round((width * Math.sqrt(3)) / 2);
   const shortStrokeLength = 60;
 

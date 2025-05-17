@@ -8,25 +8,28 @@ const MotionBox = motion(Chakra.Box);
 interface IProps {
   title: string;
   description: string;
+  index: number;
 }
-export const ExpertiseContentContainer = ({ title, description }: IProps) => {
+export const ExpertiseContentContainer = ({
+  title,
+  description,
+  index,
+}: IProps) => {
   return (
     <>
-      <MotionBox>
-        <CustomText.Large
-          mb={2}
-          fontWeight="bold"
-          color={theme.colors.gray.dark}
-        >
-          {title}
-        </CustomText.Large>
-      </MotionBox>
+      <motion.h2
+        className="expertise-card-title"
+        layoutId={`card-title-${index}`}
+      >
+        {title}
+      </motion.h2>
 
-      <MotionBox>
-        <CustomText.Medium color={theme.colors.gray.medium}>
-          {description}
-        </CustomText.Medium>
-      </MotionBox>
+      <motion.p
+        className="expertise-card-description"
+        layoutId={`card-description-${index}`}
+      >
+        {description}
+      </motion.p>
     </>
   );
 };

@@ -1,9 +1,9 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
 import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileImage";
 import { ProfileAvatar } from "@/components/molecules/ProfileAvatar";
 import { HomeSectionActions } from "@/components/molecules/HomeSectionActions";
 import { IIsMobileState } from "@/interfaces/IIsMobileState";
+import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
 
 export const HomeSection = ({ isMobile }: IIsMobileState) => {
   return (
@@ -24,8 +24,7 @@ export const HomeSection = ({ isMobile }: IIsMobileState) => {
           <ProfileAvatar />
         </Chakra.VStack>
 
-        <AnimatedTitle isMobile={isMobile}>ISAAC BOWYER</AnimatedTitle>
-
+        <AnimatedTitleWithHeader title="ISAAC BOWYER" />
         <HomeSectionActions />
       </Chakra.VStack>
 

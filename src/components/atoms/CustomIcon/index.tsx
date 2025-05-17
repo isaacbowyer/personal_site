@@ -16,7 +16,15 @@ export const CustomIcon = ({
   icon,
 }: IProps) => {
   return (
-    <MotionBox p={3} bg={bgColor} color={color} rounded="lg">
+    <MotionBox
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      p={3}
+      bgGradient={bgColor}
+      color={color}
+      rounded="lg"
+    >
       {icon}
     </MotionBox>
   );

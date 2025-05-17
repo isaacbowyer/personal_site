@@ -2,9 +2,10 @@ import * as Chakra from "@chakra-ui/react";
 import { TemplateContainer } from "@/components/templates/TemplateContainer";
 import { HomeSection } from "../components/HomeSection";
 import { ExpertiseSection } from "../components/ExpertiseSection";
-import { ProjectsSection } from "../components/ProjectsSection";
+
 import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { useIsMobileContext } from "@/context/useIsMobile";
+import { ProjectsSection } from "../components/ProjectsSection";
 
 export const Site = () => {
   const { isMobile } = useIsMobileContext();

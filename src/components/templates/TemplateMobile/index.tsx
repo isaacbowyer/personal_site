@@ -44,9 +44,9 @@ export const TemplateMobile = ({ main }: IProps) => {
           <MobileNavBar />
         </Chakra.HStack>
 
-        <Chakra.HStack w="full" h="full">
+        <Chakra.VStack minHeight="100vh" overflow="visible">
           {main}
-        </Chakra.HStack>
+        </Chakra.VStack>
       </Chakra.VStack>
 
       <ScrollToTopButton scrollContainer={scrollRef} />

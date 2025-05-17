@@ -1,33 +1,29 @@
-import * as Chakra from "@chakra-ui/react";
-import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { theme } from "@/theme";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
-import { CustomIcon } from "@/components/atoms/CustomIcon";
 
 interface IProps {
+  index: number;
   title: string;
   description: string;
-  icon: ReactNode;
-  color: string;
-  bgColor: string;
+  icon: React.ReactNode;
+  colorClass: string;
+  borderColor: string;
   isActive: boolean;
-  tags: string[];
   onClick: () => void;
+  tags: string[];
 }
 
-const MotionBox = motion(Chakra.Box);
-
 export const ExpertiseCard = ({
+  index,
   title,
   description,
   icon,
-  color,
-  bgColor,
+  colorClass,
+  borderColor,
   isActive,
-  tags,
   onClick,
+  tags,
 }: IProps) => {
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -40,52 +36,45 @@ export const ExpertiseCard = ({
         ease: "easeOut",
       },
     }),
-    hover: {
-      scale: 1.03,
-      boxShadow: "0 10px 30px -15px rgba(0,0,0,0.15)",
-      transition: { duration: 0.2 },
-    },
   };
 
-  const backgroundColor = isActive ? bgColor : theme.colors.white;
-
   return (
-    <MotionBox
-      layout
+    <motion.div
+      custom={index}
       initial="hidden"
       animate="visible"
-      whileHover="hover"
       variants={variants}
+      layoutId={`card-container-${index}`}
       onClick={onClick}
-      position="relative"
-      overflow="hidden"
-      p={6}
-      rounded="xl"
-      cursor="pointer"
-      border="2px solid"
-      borderColor={color}
-      bg={backgroundColor}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      gridColumn={isActive ? { lg: "span 3" } : undefined}
+      className={`expertise-card ${borderColor} ${
+        isActive ? "expertise-card-active" : ""
+      }`}
     >
-      <MotionBox
-        position="absolute"
-        inset={0}
-        opacity={0}
-        _groupHover={{ opacity: 0.05 }}
+      <motion.div
+        className={`expertise-card-background ${colorClass}`}
+        initial={{ opacity: 0 }}
         animate={{ opacity: isActive ? 0.1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.3 }}
       />
 
-      <Chakra.Flex align="start" gap={4}>
-        <CustomIcon bgColor={color} icon={icon} />
+      <div className="expertise-card-content">
+        <motion.div
+          className={`expertise-icon-container ${colorClass}`}
+          layoutId={`card-icon-${index}`}
+        >
+          {icon}
+        </motion.div>
 
-        <Chakra.Box flex="1">
-          <ExpertiseContentContainer title={title} description={description} />
+        <div className="expertise-card-body">
+          <ExpertiseContentContainer
+            index={index}
+            title={title}
+            description={description}
+          />
 
           {isActive && <ExpertiseTagContainer tags={tags} />}
-        </Chakra.Box>
-      </Chakra.Flex>
-    </MotionBox>
+        </div>
+      </div>
+    </motion.div>
   );
 };

@@ -1,35 +1,27 @@
-import { CustomText } from "@/components/atoms/CustomText";
 import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Chakra.Box);
-
 interface IProps {
   title: string;
   description: string;
-  index: number;
 }
-export const ExpertiseContentContainer = ({
-  title,
-  description,
-  index,
-}: IProps) => {
+
+const MotionText = motion(Chakra.Text);
+
+export const ExpertiseContentContainer = ({ title, description }: IProps) => {
   return (
     <>
-      <motion.h2
-        className="expertise-card-title"
-        layoutId={`card-title-${index}`}
+      <MotionText
+        fontSize={{ base: "l", md: "xl" }}
+        fontWeight="bold"
+        marginBottom={1}
+        color={theme.colors.black}
       >
         {title}
-      </motion.h2>
+      </MotionText>
 
-      <motion.p
-        className="expertise-card-description"
-        layoutId={`card-description-${index}`}
-      >
-        {description}
-      </motion.p>
+      <MotionText color={theme.colors.gray.medium}>{description}</MotionText>
     </>
   );
 };

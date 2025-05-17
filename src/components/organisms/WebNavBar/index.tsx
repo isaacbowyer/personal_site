@@ -9,7 +9,7 @@ export const WebNavBar = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.HStack as="nav" w="full" alignItems="start">
+    <Chakra.HStack as="nav" w="full" alignItems="start" id="home">
       <Chakra.HStack w="full" justifyContent="space-between">
         <CustomNavLink
           href="#home"

@@ -30,13 +30,13 @@ export const AnimatedTitleWithHeader = ({ title, header }: IProps) => {
         <CustomText.Title
           fontFamily="Comic Sans MS, cursive"
           letterSpacing="6px"
-          color={theme.colors.gray.dark}
+          color={theme.colors.black}
         >
           {title}
         </CustomText.Title>
 
         {header && (
-          <CustomText.Header color={theme.colors.gray.dark}>
+          <CustomText.Header color={theme.colors.gray.medium}>
             {header}
           </CustomText.Header>
         )}

@@ -17,7 +17,7 @@ const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
 
 const Header = ({ children, color = theme.colors.black, ...props }: IProps) => {
   return (
-    <ChakraText color={color} fontSize="xl" {...props}>
+    <ChakraText fontSize="xl" color={color} {...props}>
       {children}
     </ChakraText>
   );

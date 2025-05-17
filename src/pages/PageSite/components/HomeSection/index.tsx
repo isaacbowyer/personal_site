@@ -12,7 +12,6 @@ export const HomeSection = ({ isMobile }: IIsMobileState) => {
       gap={8}
       w="full"
       h="full"
-      id="home"
     >
       <Chakra.VStack
         w="full"

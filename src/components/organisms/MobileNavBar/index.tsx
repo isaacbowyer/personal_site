@@ -17,7 +17,7 @@ export const MobileNavBar = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.Box position="relative" w="full" p={4}>
+    <Chakra.Box position="relative" w="full" p={4} id="home">
       <Chakra.HStack justifyContent="space-between" alignItems="center">
         <CustomNavLink
           href="#home"

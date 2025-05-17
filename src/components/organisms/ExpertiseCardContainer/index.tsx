@@ -1,101 +1,56 @@
 import { ExpertiseCard } from "@/components/molecules/ExpertiseCard";
-import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
-import { theme } from "@/theme";
-import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { Dispatch, SetStateAction, useState } from "react";
-import { CgSmartphone } from "react-icons/cg";
-import { FiCode } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
-
+import * as Chakra from "@chakra-ui/react";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 interface IProps {
   activeCard: number;
-  setActiveCard: Dispatch<SetStateAction<number>>;
+  handleClickCard: (index: number) => void;
+  items: IExpertiseArea[];
 }
+
+const MotionGrid = motion(Chakra.Grid);
 
 export const ExpertiseCardContainer = ({
   activeCard,
-  setActiveCard,
+  handleClickCard,
+  items,
 }: IProps) => {
-  const expertiseAreas = [
-    {
-      title: "Software Engineer",
-      icon: <FiCode color={theme.colors.white} size="30" />,
-      description:
-        "Experienced in building cloud-based SaaS products using AI, including GPT-4 for automation and user interaction.",
-      color: "bg-blue-gradient",
-      borderColor: "border-blue",
-      tags: [
-        "AI Integration",
-        "Automation Tools",
-        "SaaS Architecture",
-        "Data Analysis",
-        "DevOps & Cloud",
-        "CI/CD Pipelines",
-      ],
-    },
-    {
-      title: "Fullstack Web Developer",
-      icon: <LuLayoutDashboard color={theme.colors.white} size="30" />,
-      description:
-        "Proficient in using JavaScript, TypeScript, React, Next.js, Python, and Django, gained through over 2 years of development.",
-      color: "bg-purple-gradient",
-      borderColor: "border-purple",
-      tags: [
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Redux",
-        "Next.js",
-        "Python",
-        "Django",
-        "Cypress",
-        "Figma",
-      ],
-    },
-    {
-      title: "Mobile App Developer",
-      icon: <CgSmartphone color={theme.colors.white} size="30" />,
-      description:
-        "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
-      color: "bg-amber-gradient",
-      borderColor: "border-amber",
-      tags: [
-        "React Native",
-        "Firebase",
-        "iOS",
-        "Android",
-        "UI/UX",
-        "Responsive Design",
-      ],
-    },
-  ];
-
   return (
-    <main className="expertise-main">
-      <motion.div
-        className="expertise-grid"
+    <Chakra.VStack
+      flexGrow={1}
+      justifyContent="center"
+      alignItems="center"
+      padding="2rem 1rem"
+      overflow="visible"
+    >
+      <MotionGrid
+        width="100%"
+        maxWidth="1280px"
+        gap={4}
+        position="relative"
+        overflow="visible"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
+        gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
       >
-        {expertiseAreas.map((expertise, index) => {
+        {items.map((expertise, index) => {
           return (
             <ExpertiseCard
               key={index}
-              index={index}
+              id={expertise.id}
               title={expertise.title}
               icon={expertise.icon}
               description={expertise.description}
-              colorClass={expertise.color}
+              bgColor={expertise.backgroundColor}
               borderColor={expertise.borderColor}
-              isActive={activeCard === index}
+              isActive={activeCard === expertise.id}
               tags={expertise.tags}
-              onClick={() => setActiveCard(activeCard === index ? -1 : index)}
+              onClick={() => handleClickCard(expertise.id)}
             />
           );
         })}
-      </motion.div>
-    </main>
+      </MotionGrid>
+    </Chakra.VStack>
   );
 };

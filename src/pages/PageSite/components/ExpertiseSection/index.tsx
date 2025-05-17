@@ -1,24 +1,24 @@
 import * as Chakra from "@chakra-ui/react";
 import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
-import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
-import { IIsMobileState } from "@/interfaces/IIsMobileState";
-import { useState } from "react";
-import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 
-interface IProps extends IIsMobileState {
-  activeCardId: number;
+interface IProps {
+  activeCard: number;
   items: IExpertiseArea[];
-  isMobile: boolean;
   onClickExpertiseCard: (id: number) => void;
 }
 
-export const ExpertiseSection = ({ onClickExpertiseCard }: IProps) => {
-  const { state, methods } = useExpertiseSection();
-  const [activeCard, setActiveCard] = useState<number>(-1);
-
+export const ExpertiseSection = ({
+  activeCard,
+  onClickExpertiseCard,
+  items,
+}: IProps) => {
   return (
-    <Chakra.VStack background="linear-gradient(to bottom right, #f9fafb, #f3f4f6);">
+    <Chakra.VStack
+      overflow="visible"
+      background="linear-gradient(to bottom right,#f9fafb,#f3f4f6);"
+    >
       <AnimatedTitleWithHeader
         title="EXPERTISE"
         header="Specialized knowledge and proven experience across multiple development domains"
@@ -26,7 +26,8 @@ export const ExpertiseSection = ({ onClickExpertiseCard }: IProps) => {
 
       <ExpertiseCardContainer
         activeCard={activeCard}
-        setActiveCard={setActiveCard}
+        handleClickCard={onClickExpertiseCard}
+        items={items}
       />
     </Chakra.VStack>
   );

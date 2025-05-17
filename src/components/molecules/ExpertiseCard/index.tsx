@@ -1,25 +1,29 @@
+import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
+import { theme } from "@/theme";
 
 interface IProps {
-  index: number;
+  id: number;
   title: string;
   description: string;
   icon: React.ReactNode;
-  colorClass: string;
+  bgColor: string;
   borderColor: string;
   isActive: boolean;
   onClick: () => void;
   tags: string[];
 }
 
+const MotionBox = motion(Chakra.Box);
+
 export const ExpertiseCard = ({
-  index,
+  id,
   title,
   description,
   icon,
-  colorClass,
+  bgColor,
   borderColor,
   isActive,
   onClick,
@@ -39,42 +43,45 @@ export const ExpertiseCard = ({
   };
 
   return (
-    <motion.div
-      custom={index}
+    <MotionBox
+      custom={id}
+      layoutId={`card-container-${id}`}
       initial="hidden"
       animate="visible"
       variants={variants}
-      layoutId={`card-container-${index}`}
       onClick={onClick}
-      className={`expertise-card ${borderColor} ${
-        isActive ? "expertise-card-active" : ""
-      }`}
+      borderColor={borderColor}
+      className={`expertise-card ${isActive ? "expertise-card-active" : ""}`}
     >
-      <motion.div
-        className={`expertise-card-background ${colorClass}`}
+      <MotionBox
+        position="absolute"
+        inset={0}
+        opacity={isActive ? 0.1 : 0}
+        background={bgColor}
         initial={{ opacity: 0 }}
         animate={{ opacity: isActive ? 0.1 : 0 }}
         transition={{ duration: 0.3 }}
+        _hover={{
+          opacity: 0.05,
+        }}
       />
 
-      <div className="expertise-card-content">
-        <motion.div
-          className={`expertise-icon-container ${colorClass}`}
-          layoutId={`card-icon-${index}`}
+      <Chakra.HStack alignItems="flex-start" gap={4} width="full">
+        <MotionBox
+          padding={4}
+          borderRadius={10}
+          color={theme.colors.white}
+          background={bgColor}
         >
           {icon}
-        </motion.div>
+        </MotionBox>
 
-        <div className="expertise-card-body">
-          <ExpertiseContentContainer
-            index={index}
-            title={title}
-            description={description}
-          />
+        <Chakra.VStack alignItems="flex-start" width="full">
+          <ExpertiseContentContainer title={title} description={description} />
 
           {isActive && <ExpertiseTagContainer tags={tags} />}
-        </div>
-      </div>
-    </motion.div>
+        </Chakra.VStack>
+      </Chakra.HStack>
+    </MotionBox>
   );
 };

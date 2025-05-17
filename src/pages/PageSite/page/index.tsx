@@ -5,7 +5,7 @@ import { ExpertiseSection } from "../components/ExpertiseSection";
 
 import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { useIsMobileContext } from "@/context/useIsMobile";
-import { ProjectsSection } from "../components/ProjectsSection";
+import { ProjectSection } from "../components/ProjectSection";
 
 export const Site = () => {
   const { isMobile } = useIsMobileContext();
@@ -18,12 +18,11 @@ export const Site = () => {
         <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 10 }}>
           <HomeSection isMobile={isMobile} />
           <ExpertiseSection
-            activeCardId={expertiseState.activeCard}
-            items={expertiseState.expertiseItems}
-            isMobile={isMobile}
+            activeCard={expertiseState.activeCard}
             onClickExpertiseCard={expertiseMethods.handleClickCard}
+            items={expertiseState.expertiseItems}
           />
-          <ProjectsSection isMobile={isMobile} />
+          <ProjectSection />
         </Chakra.VStack>
       }
     />

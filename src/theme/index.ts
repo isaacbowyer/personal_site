@@ -23,9 +23,10 @@ const colors = {
 };
 
 const gradients = {
-  light_blue: "linear-gradient(to bottom, #E6F4FF, #D0E8FF)",
-  light_purple: "linear-gradient(to bottom, #F3E8FF, #E5D4FF)",
-  light_orange: "linear-gradient(to bottom, #FFF5E6, #FFE9C7)",
+  software_engineer_card: "linear-gradient(to bottom, #E6F4FF, #D0E8FF)",
+  fullstack_developer_card: "linear-gradient(to bottom, #F3E8FF, #E5D4FF)",
+  mobile_app_developer_card: "linear-gradient(to bottom, #FFF5E6, #FFE9C7)",
+  scroll_to_top_button: "linear-gradient(to bottom, #1A3D7C, #2365B1, #228BE6)",
 };
 
 export const theme = {

@@ -16,29 +16,32 @@ export const ExpertiseCardContainer = ({
   handleClickCard,
 }: IProps) => {
   return (
-    <Chakra.Flex py={8} justifyContent="center" alignItems="center">
+    <Chakra.Flex paddingTop={8} justifyContent="center" alignItems="center">
       <MotionGrid
+        layout
         w="full"
         maxW="5xl"
-        templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+        templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
         gap={6}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
       >
-        {items.map((expertise) => (
-          <ExpertiseCard
-            key={expertise.id}
-            title={expertise.title}
-            icon={expertise.icon}
-            description={expertise.description}
-            color={expertise.color}
-            tags={expertise.tags}
-            isActive={activeCardId === expertise.id}
-            bgColor={expertise.bgColor}
-            onClick={() => handleClickCard(expertise.id)}
-          />
-        ))}
+        {items.map((expertise) => {
+          return (
+            <ExpertiseCard
+              key={expertise.id}
+              title={expertise.title}
+              icon={expertise.icon}
+              description={expertise.description}
+              color={expertise.color}
+              tags={expertise.tags}
+              isActive={activeCardId === expertise.id}
+              bgColor={expertise.bgColor}
+              onClick={() => handleClickCard(expertise.id)}
+            />
+          );
+        })}
       </MotionGrid>
     </Chakra.Flex>
   );

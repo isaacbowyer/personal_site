@@ -66,7 +66,7 @@ export const ExpertiseCard = ({
       borderColor={color}
       bg={backgroundColor}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      gridColumn={isActive ? { md: "span 3" } : undefined}
+      gridColumn={isActive ? { lg: "span 3" } : undefined}
     >
       <MotionBox
         position="absolute"

@@ -1,12 +1,23 @@
 import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
-import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { theme } from "@/theme";
 import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
+import { IIsMobileState } from "@/interfaces/IIsMobileState";
 
-export const ExpertiseSection = () => {
-  const { state, methods } = useExpertiseSection();
+interface IProps extends IIsMobileState {
+  activeCardId: number;
+  items: IExpertiseArea[];
+  isMobile: boolean;
+  onClickExpertiseCard: (id: number) => void;
+}
 
+export const ExpertiseSection = ({
+  activeCardId,
+  items,
+  isMobile,
+  onClickExpertiseCard,
+}: IProps) => {
   return (
     <Chakra.VStack
       w="full"
@@ -14,7 +25,7 @@ export const ExpertiseSection = () => {
       align={{ base: "center", md: "flex-start" }}
       id="expertise"
     >
-      <AnimatedTitle isMobile={state.isMobile}>EXPERTISE</AnimatedTitle>
+      <AnimatedTitle isMobile={isMobile}>EXPERTISE</AnimatedTitle>
 
       <Chakra.Text
         color={theme.colors.gray.medium}
@@ -26,9 +37,9 @@ export const ExpertiseSection = () => {
       </Chakra.Text>
 
       <ExpertiseCardContainer
-        items={state.expertiseItems}
-        activeCardId={state.activeCard}
-        handleClickCard={methods.handleClickActiveCard}
+        items={items}
+        activeCardId={activeCardId}
+        handleClickCard={onClickExpertiseCard}
       />
     </Chakra.VStack>
   );

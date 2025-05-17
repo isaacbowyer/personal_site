@@ -3,15 +3,14 @@ import { useState } from "react";
 import { CgSmartphone } from "react-icons/cg";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FiCode } from "react-icons/fi";
-import { useIsMobile } from "../useIsMobile";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import { theme } from "@/theme";
+import { useIsMobileContext } from "@/context/useIsMobile";
 
 export const useExpertiseSection = () => {
-  const { state } = useIsMobile();
   const [activeCard, setActiveCard] = useState<number>(0);
 
-  const handleClickActiveCard = (id: number) => {
+  const handleClickCard = (id: number) => {
     const isAlreadyActive = activeCard === id;
     const newActiveCard = validateOptionsBasedOnBoolean(isAlreadyActive, 0, id);
     setActiveCard(newActiveCard);
@@ -25,7 +24,7 @@ export const useExpertiseSection = () => {
       description:
         "Experienced in building cloud-based SaaS products using AI, including GPT-4 for automation and user interaction.",
       color: theme.colors.blue.medium,
-      bgColor: theme.gradients.light_blue,
+      bgColor: theme.gradients.software_engineer_card,
       tags: [
         "AI Integration",
         "Automation Tools",
@@ -42,7 +41,7 @@ export const useExpertiseSection = () => {
       description:
         "Proficient in using JavaScript, TypeScript, React, Next.js, Python, and Django, gained through over 2 years of development.",
       color: theme.colors.purple,
-      bgColor: theme.gradients.light_purple,
+      bgColor: theme.gradients.fullstack_developer_card,
       tags: [
         "JavaScript",
         "TypeScript",
@@ -62,7 +61,7 @@ export const useExpertiseSection = () => {
       description:
         "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
       color: theme.colors.orange,
-      bgColor: theme.gradients.light_orange,
+      bgColor: theme.gradients.mobile_app_developer_card,
       tags: [
         "React Native",
         "Firebase",
@@ -78,10 +77,9 @@ export const useExpertiseSection = () => {
     state: {
       activeCard: activeCard,
       expertiseItems: EXPERTISE_AREAS,
-      isMobile: state.isMobile,
     },
     methods: {
-      handleClickActiveCard,
+      handleClickCard: handleClickCard,
     },
   };
 };

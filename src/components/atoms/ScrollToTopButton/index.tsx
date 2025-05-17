@@ -1,4 +1,4 @@
-import React, { useEffect, useState, RefObject } from "react";
+import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -57,7 +57,7 @@ export const ScrollToTopButton = ({
           borderRadius="full"
           color="white"
           boxShadow="lg"
-          bgGradient="linear-gradient(to bottom, #1A3D7C, #2365B1, #228BE6)"
+          bgGradient={theme.gradients.scroll_to_top_button}
           boxSize="50px"
           initial={{ opacity: 0, y: 80, scale: 0.5, rotate: 180 }}
           animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}

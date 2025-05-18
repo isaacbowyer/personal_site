@@ -1,12 +1,12 @@
-import { CustomTag } from "@/components/atoms/CustomTag";
 import * as Chakra from "@chakra-ui/react";
+import { CustomTag } from "@/components/atoms/CustomTag";
 import { motion } from "framer-motion";
-
-const MotionBox = motion(Chakra.Box);
 
 interface IProps {
   tags: string[];
 }
+
+const MotionBox = motion(Chakra.Box);
 
 export const ExpertiseTagContainer = ({ tags }: IProps) => {
   return (
@@ -14,13 +14,17 @@ export const ExpertiseTagContainer = ({ tags }: IProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.3 }}
-      mt={6}
+      marginTop={4}
+      width="full"
     >
-      <Chakra.SimpleGrid columns={{ base: 1, md: 3 }} gap={4} mt={4}>
+      <Chakra.Grid
+        gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+        gap={2}
+      >
         {tags.map((tag, index) => (
           <CustomTag key={index} label={tag} />
         ))}
-      </Chakra.SimpleGrid>
+      </Chakra.Grid>
     </MotionBox>
   );
 };

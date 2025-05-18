@@ -1,4 +1,4 @@
-import React, { useEffect, useState, RefObject } from "react";
+import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";

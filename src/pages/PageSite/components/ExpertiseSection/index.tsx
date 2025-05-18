@@ -1,34 +1,33 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitle } from "@/components/atoms/AnimatedTitle";
-import { useExpertiseSection } from "@/hooks/useExpertiseSection";
-import { theme } from "@/theme";
 import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
+import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 
-export const ExpertiseSection = () => {
-  const { state, methods } = useExpertiseSection();
+interface IProps {
+  activeCard: number;
+  items: IExpertiseArea[];
+  onClickExpertiseCard: (id: number) => void;
+}
 
+export const ExpertiseSection = ({
+  activeCard,
+  onClickExpertiseCard,
+  items,
+}: IProps) => {
   return (
     <Chakra.VStack
-      w="full"
-      h="full"
-      align={{ base: "center", md: "flex-start" }}
-      id="expertise"
+      overflow="visible"
+      background="linear-gradient(to bottom right,#f9fafb,#f3f4f6);"
     >
-      <AnimatedTitle isMobile={state.isMobile}>EXPERTISE</AnimatedTitle>
-
-      <Chakra.Text
-        color={theme.colors.gray.medium}
-        textAlign={{ base: "center", md: "start" }}
-        fontSize={{ base: "lg", md: "xl" }}
-      >
-        Specialized knowledge and proven experience across multiple development
-        domains
-      </Chakra.Text>
+      <AnimatedTitleWithHeader
+        title="EXPERTISE"
+        header="Specialized knowledge and proven experience across multiple development domains"
+      />
 
       <ExpertiseCardContainer
-        items={state.expertiseItems}
-        activeCardId={state.activeCard}
-        handleClickCard={methods.handleClickActiveCard}
+        activeCard={activeCard}
+        handleClickCard={onClickExpertiseCard}
+        items={items}
       />
     </Chakra.VStack>
   );

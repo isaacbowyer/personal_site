@@ -7,18 +7,20 @@ interface IProps extends TextProps {
   color?: string;
 }
 
-const Header = ({
-  children,
-  color = theme.colors.gray.medium,
-  ...props
-}: IProps) => {
-  <ChakraText
-    color={color}
-    textAlign={{ base: "center", md: "start" }}
-    fontSize={{ base: "lg", md: "xl" }}
-  >
-    {children}
-  </ChakraText>;
+const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
+  return (
+    <ChakraText color={color} fontSize="7xl" fontWeight="bold" {...props}>
+      {children}
+    </ChakraText>
+  );
+};
+
+const Header = ({ children, color = theme.colors.black, ...props }: IProps) => {
+  return (
+    <ChakraText fontSize="xl" color={color} {...props}>
+      {children}
+    </ChakraText>
+  );
 };
 
 const Large = ({ children, color = theme.colors.black, ...props }: IProps) => {
@@ -38,6 +40,7 @@ const Medium = ({ children, color = theme.colors.black, ...props }: IProps) => {
 };
 
 export const CustomText = {
+  Title,
   Header,
   Large,
   Medium,

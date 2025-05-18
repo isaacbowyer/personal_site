@@ -51,7 +51,21 @@ export const ExpertiseCard = ({
       variants={variants}
       onClick={onClick}
       borderColor={borderColor}
-      className={`expertise-card ${isActive ? "expertise-card-active" : ""}`}
+      cursor="pointer"
+      position="relative"
+      overflow="visible"
+      bg="white"
+      border="2px solid"
+      p="1.5rem"
+      borderRadius="0.75rem"
+      style={{
+        transition: "all 0.3s ease",
+      }}
+      _hover={{
+        transform: "scale(1.03)",
+        boxShadow: "0 10px 30px -15px rgba(0, 0, 0, 0.15)",
+      }}
+      gridColumn={{ base: "auto", md: isActive ? "span 3" : "auto" }}
     >
       <MotionBox
         position="absolute"

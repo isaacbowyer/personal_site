@@ -23,13 +23,16 @@ export const ProjectCard = ({
   backgroundColor,
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showAllTags, setShowAllTags] = useState(false);
 
   return (
     <Link href={link} passHref>
       <Chakra.VStack
-        minH="490px"
-        height="490px" // <-- fix height here
         borderRadius="xl"
+        width="100%"
+        height="100%"
+        maxW="400px"
+        minH="520px"
         boxShadow="lg"
         overflow="hidden"
         position="relative"
@@ -37,84 +40,87 @@ export const ProjectCard = ({
         cursor="pointer"
         role="group"
         tabIndex={0}
-        border="1.5px solid"
-        borderColor="gray.200"
         _hover={{
-          transform: "translateY(-8px)",
-          boxShadow: "xl",
-          borderColor: "blue.600",
-        }}
-        width="100%"
-        maxW="400px"
-        mx="auto"
-        transition="transform 0.2s, box-shadow 0.2s, border-color 0.2s"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        style={{
           transform: isHovered ? "translateY(-8px)" : "none",
-          borderColor: isHovered ? theme.colors.black : theme.colors.gray.light,
-          boxShadow: isHovered ? "xl" : "",
+          boxShadow: "xl",
+          border: `1.8px solid ${theme.colors.black}`,
+        }}
+        transition="all 0.3s ease-in-out"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          setShowAllTags(false);
         }}
       >
         <Chakra.Box
           position="relative"
           w="full"
-          h="240px"
           bgGradient={backgroundColor}
           borderTopRadius="xl"
           overflow="hidden"
+          pt={4}
+          pb={4}
         >
           {/* Tech badges */}
           <Chakra.HStack
-            position="absolute"
-            top={3}
-            right={3}
+            position="relative"
             gap={2}
             flexWrap="wrap"
-            justify="end"
+            justify="flex-end"
             zIndex={2}
+            px={4}
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setShowAllTags(!showAllTags);
+            }}
+            cursor="pointer"
+            pointerEvents="auto"
           >
-            {technologies.slice(0, 2).map((tech, i) => (
+            {(showAllTags ? technologies : technologies.slice(0, 2)).map(
+              (tech, i) => (
+                <Chakra.Badge
+                  key={i}
+                  px={3}
+                  py={1}
+                  bg="whiteAlpha.300"
+                  backdropFilter="blur(4px)"
+                  color="white"
+                  fontSize="xs"
+                  borderRadius="full"
+                  fontWeight="medium"
+                >
+                  {tech}
+                </Chakra.Badge>
+              )
+            )}
+            {!showAllTags && technologies.length > 2 && (
               <Chakra.Badge
-                key={i}
                 px={3}
                 py={1}
-                bg="whiteAlpha.300"
+                bg="whiteAlpha.600"
                 backdropFilter="blur(4px)"
                 color="white"
                 fontSize="xs"
                 borderRadius="full"
                 fontWeight="medium"
+                _hover={{ bg: "whiteAlpha.800" }}
+                cursor="pointer"
               >
-                {tech}
-              </Chakra.Badge>
-            ))}
-            {technologies.length > 2 && (
-              <Chakra.Badge
-                px={3}
-                py={1}
-                bg="whiteAlpha.300"
-                backdropFilter="blur(4px)"
-                color="white"
-                fontSize="xs"
-                borderRadius="full"
-                fontWeight="medium"
-              >
-                +{technologies.length - 2}
+                +{technologies.length - 2} ▼
               </Chakra.Badge>
             )}
           </Chakra.HStack>
 
-          {/* Image */}
+          {/* Image that flows with layout */}
           <Chakra.Image
             src={imageUrl}
             alt={title}
             objectFit="contain"
-            position="absolute"
-            bottom={"5%"}
-            left="50%"
-            transform="translateX(-50%)"
+            mx="auto"
+            mt={4}
             maxH="170px"
+            transition="margin 0.3s ease"
           />
         </Chakra.Box>
 
@@ -130,8 +136,7 @@ export const ProjectCard = ({
           <Chakra.Text
             fontSize="xl"
             fontWeight="bold"
-            color="gray.800"
-            _hover={{ color: "blue.600" }}
+            color={isHovered ? "blue.600" : "gray.800"}
             transition="color 0.2s"
           >
             {title}

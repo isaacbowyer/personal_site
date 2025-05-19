@@ -112,7 +112,6 @@ export const ProjectCard = ({
             )}
           </Chakra.HStack>
 
-          {/* Image that flows with layout */}
           <Chakra.Image
             src={imageUrl}
             alt={title}
@@ -124,7 +123,6 @@ export const ProjectCard = ({
           />
         </Chakra.Box>
 
-        {/* CONTENT */}
         <Chakra.VStack
           align="start"
           p={6}

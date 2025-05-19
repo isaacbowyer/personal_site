@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
 import { theme } from "@/theme";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 interface IProps {
   id: number;
@@ -30,25 +31,20 @@ export const ExpertiseCard = ({
   tags,
 }: IProps) => {
   const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
     <MotionBox
       custom={id}
-      layoutId={`card-container-${id}`}
-      initial="hidden"
-      animate="visible"
       variants={variants}
+      layoutId={`card-container-${id}`}
       onClick={onClick}
       borderColor={borderColor}
       cursor="pointer"
@@ -79,6 +75,30 @@ export const ExpertiseCard = ({
           opacity: 0.05,
         }}
       />
+
+      <Chakra.IconButton
+        size="sm"
+        position="absolute"
+        top={-5}
+        right={-3}
+        zIndex={2}
+        bg={bgColor}
+        border="1px solid black"
+        borderRadius="full"
+        _hover={{
+          bg: bgColor,
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick();
+        }}
+      >
+        {isActive ? (
+          <FiMinus color="white" size={16} />
+        ) : (
+          <FiPlus color="white" size={16} />
+        )}
+      </Chakra.IconButton>
 
       <Chakra.HStack alignItems="flex-start" gap={4} width="full">
         <MotionBox

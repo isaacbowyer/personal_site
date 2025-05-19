@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CustomText } from "../CustomText";
+import { CustomText } from "../../atoms/CustomText";
 import * as Chakra from "@chakra-ui/react";
 import { theme } from "@/theme";
 

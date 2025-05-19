@@ -9,7 +9,12 @@ interface IProps extends TextProps {
 
 const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
   return (
-    <ChakraText color={color} fontSize="7xl" fontWeight="bold" {...props}>
+    <ChakraText
+      color={color}
+      fontSize={{ base: "5xl", md: "7xl" }}
+      fontWeight="bold"
+      {...props}
+    >
       {children}
     </ChakraText>
   );

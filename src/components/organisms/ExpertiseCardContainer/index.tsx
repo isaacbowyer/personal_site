@@ -10,6 +10,15 @@ interface IProps {
 
 const MotionGrid = motion(Chakra.Grid);
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
 export const ExpertiseCardContainer = ({
   activeCard,
   handleClickCard,
@@ -26,30 +35,29 @@ export const ExpertiseCardContainer = ({
       <MotionGrid
         width="100%"
         maxWidth="1280px"
-        gap={4}
+        gap={8}
         position="relative"
         overflow="visible"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
         gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.8 }}
+        variants={containerVariants}
       >
-        {items.map((expertise, index) => {
-          return (
-            <ExpertiseCard
-              key={index}
-              id={expertise.id}
-              title={expertise.title}
-              icon={expertise.icon}
-              description={expertise.description}
-              bgColor={expertise.backgroundColor}
-              borderColor={expertise.borderColor}
-              isActive={activeCard === expertise.id}
-              tags={expertise.tags}
-              onClick={() => handleClickCard(expertise.id)}
-            />
-          );
-        })}
+        {items.map((expertise) => (
+          <ExpertiseCard
+            key={expertise.id}
+            id={expertise.id}
+            title={expertise.title}
+            icon={expertise.icon}
+            description={expertise.description}
+            bgColor={expertise.backgroundColor}
+            borderColor={expertise.borderColor}
+            isActive={activeCard === expertise.id}
+            tags={expertise.tags}
+            onClick={() => handleClickCard(expertise.id)}
+          />
+        ))}
       </MotionGrid>
     </Chakra.VStack>
   );

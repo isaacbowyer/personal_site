@@ -3,15 +3,14 @@ import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileIm
 import { ProfileAvatar } from "@/components/molecules/ProfileAvatar";
 import { HomeSectionActions } from "@/components/molecules/HomeSectionActions";
 import { IIsMobileState } from "@/interfaces/IIsMobileState";
-import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 
 export const HomeSection = ({ isMobile }: IIsMobileState) => {
   return (
     <Chakra.Grid
       templateColumns={{ base: "1fr", md: "2fr 3fr" }}
       gap={8}
-      w="full"
-      h="full"
+      width="full"
     >
       <Chakra.VStack
         w="full"

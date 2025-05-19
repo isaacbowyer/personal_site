@@ -3,7 +3,7 @@ import { HexagonalProfileImage } from "@/components/molecules/HexagonalProfileIm
 import { ProfileAvatar } from "@/components/molecules/ProfileAvatar";
 import { HomeSectionActions } from "@/components/molecules/HomeSectionActions";
 import { IIsMobileState } from "@/interfaces/IIsMobileState";
-import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 
 export const HomeSection = ({ isMobile }: IIsMobileState) => {
   return (

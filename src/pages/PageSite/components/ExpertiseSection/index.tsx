@@ -1,6 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
-import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 import { useMemo, useState } from "react";
 

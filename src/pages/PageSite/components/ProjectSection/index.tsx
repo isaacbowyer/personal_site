@@ -1,5 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitleWithHeader } from "@/components/atoms/AnimatedTitleWithHeader";
+import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { ProjectCard } from "@/components/molecules/ProjectCard";
 import { motion } from "framer-motion";
 import { IProject } from "@/interfaces/IProject";

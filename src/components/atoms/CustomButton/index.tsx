@@ -6,17 +6,19 @@ interface IButton extends ButtonProps {
   children: ReactNode;
   backGroundColor?: string;
   textColor?: string;
+  borderRadius?: string;
 }
 
 export const Solid = ({
   children,
   backGroundColor = theme.colors.blue.light,
   textColor = theme.colors.black,
+  borderRadius = "20px",
   ...props
 }: IButton) => {
   return (
     <ChakraButton
-      borderRadius="20px"
+      borderRadius={borderRadius}
       color={textColor}
       size="lg"
       fontWeight="regular"

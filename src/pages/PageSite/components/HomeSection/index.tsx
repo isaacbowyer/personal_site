@@ -10,8 +10,8 @@ export const HomeSection = ({ isMobile }: IIsMobileState) => {
     <Chakra.Grid
       templateColumns={{ base: "1fr", md: "2fr 3fr" }}
       gap={8}
-      w="full"
-      h="full"
+      height="100vh"
+      width="full"
     >
       <Chakra.VStack
         w="full"

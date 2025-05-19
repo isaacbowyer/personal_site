@@ -18,6 +18,7 @@ export const ExpertiseSection = ({
     <Chakra.VStack
       overflow="visible"
       background="linear-gradient(to bottom right,#f9fafb,#f3f4f6);"
+      id="expertise"
     >
       <AnimatedTitleWithHeader
         title="EXPERTISE"

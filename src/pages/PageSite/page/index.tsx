@@ -6,6 +6,8 @@ import { useExpertiseSection } from "@/hooks/useExpertiseSection";
 import { useIsMobileContext } from "@/context/useIsMobile";
 import { ProjectSection } from "../components/ProjectSection";
 import { useProjectsSection } from "@/hooks/useProjectsSection";
+import { WorkSection } from "../components/WorkSection";
+import { useWorkSection } from "@/hooks/useWorkSection";
 
 export const Site = () => {
   const { isMobile } = useIsMobileContext();
@@ -13,6 +15,7 @@ export const Site = () => {
     useExpertiseSection();
   const { state: projectsState, methods: projectsMethods } =
     useProjectsSection();
+  const { state: workState } = useWorkSection();
 
   return (
     <TemplateContainer
@@ -33,6 +36,8 @@ export const Site = () => {
             categoryCounts={projectsState.categoryCounts}
             handleSetActiveFilter={projectsMethods.handleChangeActiveFilter}
           />
+
+          <WorkSection experienceItems={workState.workItems} />
         </Chakra.VStack>
       }
     />

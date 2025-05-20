@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
 import { theme } from "@/theme";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 
 interface IProps {
   id: number;
@@ -18,6 +18,7 @@ interface IProps {
 }
 
 const MotionBox = motion(Chakra.Box);
+const MotionIcon = motion(Chakra.Icon);
 
 export const ExpertiseCard = ({
   id,
@@ -93,11 +94,13 @@ export const ExpertiseCard = ({
           onClick();
         }}
       >
-        {isActive ? (
-          <FiMinus color="white" size={16} />
-        ) : (
-          <FiPlus color="white" size={16} />
-        )}
+        <MotionIcon
+          as={HiOutlineChevronUp}
+          color={theme.colors.white}
+          animate={{ rotate: isActive ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          boxSize={4}
+        />
       </Chakra.IconButton>
 
       <Chakra.HStack alignItems="flex-start" gap={4} width="full">

@@ -36,7 +36,7 @@ export const AnimatedTitleWithHeader = ({ title, header }: IProps) => {
         </CustomText.Title>
 
         {header && (
-          <CustomText.Header color={theme.colors.gray.medium}>
+          <CustomText.Header width="90%" color={theme.colors.gray.medium}>
             {header}
           </CustomText.Header>
         )}

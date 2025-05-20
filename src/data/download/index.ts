@@ -1,5 +1,5 @@
 const CV_URL = process.env.NEXT_PUBLIC_CV_URL || "";
 
-export const download = {
+export const DOWNLOAD = {
   cv: CV_URL,
 };

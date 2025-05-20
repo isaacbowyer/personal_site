@@ -3,6 +3,7 @@ import { theme } from "@/theme";
 import { ReactNode, useRef } from "react";
 import { MobileNavBar } from "@/components/organisms/MobileNavBar";
 import { ScrollToTopButton } from "@/components/atoms/ScrollToTopButton";
+import { useRouter } from "next/router";
 
 interface IProps {
   main: ReactNode;
@@ -10,6 +11,8 @@ interface IProps {
 
 export const TemplateMobile = ({ main }: IProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const isMainPage = router.pathname === "/";
 
   return (
     <Chakra.VStack
@@ -32,19 +35,12 @@ export const TemplateMobile = ({ main }: IProps) => {
         },
       }}
     >
-      <Chakra.VStack
-        maxW="1200px"
-        mx="auto"
-        px={{ base: 4, md: 6 }}
-        w="full"
-        h="full"
-        justifyContent="space-between"
-      >
-        <Chakra.HStack w="full">
+      <Chakra.VStack w="full" h="full" justifyContent="space-between">
+        <Chakra.HStack w="full" maxW={"1200px"} mx={"auto"}>
           <MobileNavBar />
         </Chakra.HStack>
 
-        <Chakra.VStack minHeight="100vh" overflow="visible">
+        <Chakra.VStack w="full" minHeight="100vh" overflow="visible">
           {main}
         </Chakra.VStack>
       </Chakra.VStack>

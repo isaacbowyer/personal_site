@@ -2,7 +2,7 @@ import * as Chakra from "@chakra-ui/react";
 import { CustomTypeWriter } from "../CustomTypeWriter";
 import { ButtonLink } from "../ButtonLink";
 import { RiDownload2Fill } from "react-icons/ri";
-import { download } from "@/data/download";
+import { DOWNLOAD } from "@/data/download";
 
 export const HomeSectionActions = () => {
   return (
@@ -21,7 +21,7 @@ export const HomeSectionActions = () => {
       />
 
       <ButtonLink
-        href={download.cv}
+        href={DOWNLOAD.cv}
         label={"Download CV"}
         isDownload={true}
         icon={<RiDownload2Fill />}

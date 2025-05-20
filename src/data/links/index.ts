@@ -1,12 +1,20 @@
 import { INavLink } from "@/interfaces/INavLink";
 
 const NAV_LINKS: INavLink[] = [
-  { href: "#expertise", label: "EXPERTISE" },
-  { href: "#projects", label: "PROJECTS" },
-  { href: "#work", label: "WORK" },
-  { href: "#contact", label: "CONTACT" },
+  { href: "/#expertise", label: "EXPERTISE" },
+  { href: "/#projects", label: "PROJECTS" },
+  { href: "/#work", label: "WORK" },
+  { href: "/#contact", label: "CONTACT" },
 ];
 
-export const links = {
-  NAV_LINKS: NAV_LINKS,
+const HOME_LINK = "#home";
+
+const PROJECT_LINKS = {
+  OCCUPATIONAL_HEALTH_APP: "/projects/occupational-health-app/",
+};
+
+export const LINKS = {
+  NAV_BAR: NAV_LINKS,
+  PROJECTS: PROJECT_LINKS,
+  HOME: HOME_LINK,
 };

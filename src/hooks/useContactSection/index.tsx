@@ -1,4 +1,5 @@
 import { IContact } from "@/interfaces/IContact";
+import { sendEmail } from "@/utils/sendEmail";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -19,7 +20,7 @@ export const useContactSection = () => {
     },
     {
       id: 3,
-      title: "References",
+      title: "Recommendations",
       icon: FaUser,
       url: "https://www.linkedin.com/in/isaacbowyer/details/recommendations/",
     },
@@ -30,9 +31,21 @@ export const useContactSection = () => {
     },
   ];
 
+  const handleOnClick = (index: number) => {
+    const contact = CONTACTS[index];
+    if (contact.url) {
+      window.open(contact.url, "_blank");
+    } else {
+      sendEmail();
+    }
+  };
+
   return {
     state: {
       contactItems: CONTACTS,
+    },
+    methods: {
+      handleClick: handleOnClick,
     },
   };
 };

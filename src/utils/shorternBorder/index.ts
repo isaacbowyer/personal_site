@@ -1,4 +1,4 @@
-export const shorten = (
+export const shortenBorder = (
   from: [number, number],
   to: [number, number],
   len: number

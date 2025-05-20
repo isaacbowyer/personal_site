@@ -1,19 +1,31 @@
 import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
-import { IWorkExperience } from "@/interfaces/IWorkExperience";
-import { theme } from "@/theme";
-import { WorkItemsContainer } from "@/components/organisms/WorkItemsContainer";
+import { IContact } from "@/interfaces/IContact";
+import { ContactCardContainer } from "@/components/organisms/ContatCardContainer";
 
 interface IProps {
-  contactItems: IWorkExperience[];
+  contactItems: IContact[];
+  handleOnClick: (index: number) => void;
 }
 
-export const ContactSection = ({ contactItems }: IProps) => {
+export const ContactSection = ({ contactItems, handleOnClick }: IProps) => {
   return (
-    <Chakra.VStack w="full" id="contact" gap={8}>
-      <AnimatedTitleWithHeader title="CONTACT" />
+    <Chakra.VStack
+      width="full"
+      height="full"
+      paddingBottom={4}
+      id="contact"
+      gap={8}
+    >
+      <AnimatedTitleWithHeader
+        title="CONTACT"
+        header="I'm always open to new opportunities and collaborations. Feel free to drop me an email or connect with me on my socials."
+      />
 
-      <Chakra.Flex></Chakra.Flex>
+      <ContactCardContainer
+        items={contactItems}
+        handleOnClick={handleOnClick}
+      />
     </Chakra.VStack>
   );
 };

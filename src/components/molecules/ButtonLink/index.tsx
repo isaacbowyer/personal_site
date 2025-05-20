@@ -1,6 +1,6 @@
 import { CustomButton } from "@/components/atoms/CustomButton";
+import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface IProps {
@@ -9,8 +9,6 @@ interface IProps {
   icon?: ReactNode;
   isDownload?: boolean;
 }
-
-const MotionBox = motion(Chakra.Box);
 
 export const ButtonLink = ({
   href,
@@ -24,7 +22,12 @@ export const ButtonLink = ({
       download={isDownload}
       _hover={{ textDecoration: "none" }}
     >
-      <CustomButton.Solid variant="solid" fontWeight="bold">
+      <CustomButton.Solid
+        color={theme.colors.white}
+        backgroundColor={theme.colors.blue.vivid}
+        variant="solid"
+        fontWeight="bold"
+      >
         {label} {icon && icon}
       </CustomButton.Solid>
     </Chakra.Link>

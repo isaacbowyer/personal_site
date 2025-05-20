@@ -1,0 +1,9 @@
+const DEFAULT_EMAIL_ADDRESS = "isaacbowyer@googlemail.com";
+const DEFAULT_EMAIL_SUBJECT = "";
+const DEFAULT_EMAIL_MESSAGE = "";
+
+export const EMAIL_CONFIG = {
+  DEFAULT_EMAIL_ADDRESS,
+  DEFAULT_EMAIL_SUBJECT,
+  DEFAULT_EMAIL_MESSAGE,
+};

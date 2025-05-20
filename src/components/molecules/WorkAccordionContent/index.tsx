@@ -91,7 +91,7 @@ export const WorkAccordionContent = ({
                   cursor="default"
                   transition="all 0.3s ease-in-out"
                   _hover={{
-                    backgroundColor: theme.colors.blue.vivid,
+                    backgroundColor: theme.colors.blue.dark,
                     color: theme.colors.white,
                     borderColor: theme.colors.white,
                   }}

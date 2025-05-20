@@ -4,7 +4,7 @@ export const useWorkSection = () => {
   const workItems: IWorkExperience[] = [
     {
       id: 1,
-      title: "Software Developer @ Guildhawk",
+      title: "Software Engineer @ Guildhawk",
       location: "London, UK",
       period: "2024–2025",
       companyDescription:
@@ -32,7 +32,7 @@ export const useWorkSection = () => {
     },
     {
       id: 2,
-      title: "Junior Software Developer @ ELAROS",
+      title: "Junior Software Engineer @ ELAROS",
       location: "Sheffield, UK",
       period: "2023-2024",
       companyDescription:

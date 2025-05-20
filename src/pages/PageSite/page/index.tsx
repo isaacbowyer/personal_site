@@ -8,6 +8,8 @@ import { ProjectSection } from "../components/ProjectSection";
 import { useProjectsSection } from "@/hooks/useProjectsSection";
 import { WorkSection } from "../components/WorkSection";
 import { useWorkSection } from "@/hooks/useWorkSection";
+import { ContactSection } from "../components/ContactSection";
+import { useContactSection } from "@/hooks/useContactSection";
 
 export const Site = () => {
   const { isMobile } = useIsMobileContext();
@@ -16,17 +18,18 @@ export const Site = () => {
   const { state: projectsState, methods: projectsMethods } =
     useProjectsSection();
   const { state: workState } = useWorkSection();
+  const { state: contactState, methods: contactMethods } = useContactSection();
 
   return (
     <TemplateContainer
       main={
-        <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 40 }}>
+        <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 28 }}>
           <HomeSection isMobile={isMobile} />
 
           <ExpertiseSection
             activeCard={expertiseState.activeCard}
             onClickExpertiseCard={expertiseMethods.handleClickCard}
-            items={expertiseState.expertiseItems}
+            expertiseItems={expertiseState.expertiseItems}
           />
 
           <ProjectSection
@@ -38,6 +41,11 @@ export const Site = () => {
           />
 
           <WorkSection experienceItems={workState.workItems} />
+
+          <ContactSection
+            contactItems={contactState.contactItems}
+            handleOnClick={contactMethods.handleClick}
+          />
         </Chakra.VStack>
       }
     />

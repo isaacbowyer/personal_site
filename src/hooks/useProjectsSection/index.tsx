@@ -12,7 +12,7 @@ export const useProjectsSection = () => {
     setActiveFilter(category);
   };
 
-  const projects: IProject[] = [
+  const PROJECTS: IProject[] = [
     {
       id: 1,
       title: "Occupational Health (OH) App",
@@ -54,10 +54,10 @@ export const useProjectsSection = () => {
 
   const categories: ICategory[] = ["All", "Mobile Apps", "Web Apps"];
 
-  const filteredItems = getProjects(projects, activeFilter);
+  const filteredItems = getProjects(PROJECTS, activeFilter);
 
   const categoryCounts = getProjectCategoryCounts({
-    projects: projects,
+    projects: PROJECTS,
     categories: categories,
     activeFilter: activeFilter,
   });

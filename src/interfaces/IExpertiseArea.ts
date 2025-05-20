@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { IconType } from "react-icons";
 
 export interface IExpertiseArea {
   id: number;
   title: string;
-  icon: ReactNode;
+  icon: IconType;
   description: string;
   backgroundColor: string;
   borderColor: string;

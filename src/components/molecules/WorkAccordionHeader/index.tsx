@@ -24,7 +24,7 @@ export const WorkAccordionHeader = ({
     <Chakra.Box
       width="full"
       backgroundColor={
-        isOpen ? theme.colors.blue.vivid : theme.colors.blue.medium
+        isOpen ? theme.colors.blue.dark : theme.colors.blue.vivid
       }
       borderRadius={isOpen ? "8px 8px 0 0" : "8px"}
       px={5}
@@ -32,7 +32,7 @@ export const WorkAccordionHeader = ({
       cursor="pointer"
       transition="background 0.3s"
       onClick={() => handleChangeIsOpen(!isOpen)}
-      _hover={{ backgroundColor: theme.colors.blue.vivid }}
+      _hover={{ backgroundColor: theme.colors.blue.dark }}
     >
       <Chakra.Flex
         position="relative"

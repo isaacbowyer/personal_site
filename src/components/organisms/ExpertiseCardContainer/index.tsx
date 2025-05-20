@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
 import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 import { ExpertiseCard } from "@/components/molecules/ExpertiseCard";
+import { theme } from "@/theme";
 interface IProps {
   activeCard: number;
   handleClickCard: (index: number) => void;
@@ -49,7 +50,7 @@ export const ExpertiseCardContainer = ({
             key={expertise.id}
             id={expertise.id}
             title={expertise.title}
-            icon={expertise.icon}
+            icon={<expertise.icon color={theme.colors.white} size="30" />}
             description={expertise.description}
             bgColor={expertise.backgroundColor}
             borderColor={expertise.borderColor}

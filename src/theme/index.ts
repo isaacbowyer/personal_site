@@ -2,7 +2,7 @@ const blue = {
   light: "#77C7FF",
   medium: "#60a5fa",
   vivid: "#228BE6",
-  dark: "#1e40af",
+  dark: "#1E3A8A",
 };
 
 const gray = {

@@ -28,7 +28,7 @@ export const useProjectsSection = () => {
         "Expo",
       ],
       backgroundColor: theme.colors.gradients.light_blue,
-      link: "#expertise",
+      link: "/projects/occupational-health-app",
       category: "Mobile Apps",
     },
     {

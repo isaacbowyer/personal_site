@@ -2,7 +2,7 @@ import * as Chakra from "@chakra-ui/react";
 import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
 import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
-import { useMemo, useState } from "react";
+import { theme } from "@/theme";
 
 interface IProps {
   activeCard: number;
@@ -16,23 +16,21 @@ export const ExpertiseSection = ({
   items,
 }: IProps) => {
   return (
-    <>
-      <Chakra.VStack
-        overflow="visible"
-        background="linear-gradient(to bottom right,#f9fafb,#f3f4f6);"
-        id="expertise"
-      >
-        <AnimatedTitleWithHeader
-          title="EXPERTISE"
-          header="Specialized knowledge and proven experience across multiple development domains"
-        />
+    <Chakra.VStack
+      overflow="visible"
+      background={theme.colors.gradients.gray}
+      id="expertise"
+    >
+      <AnimatedTitleWithHeader
+        title="EXPERTISE"
+        header="Hands-on experience across multiple development domains"
+      />
 
-        <ExpertiseCardContainer
-          activeCard={activeCard}
-          handleClickCard={onClickExpertiseCard}
-          items={items}
-        />
-      </Chakra.VStack>
-    </>
+      <ExpertiseCardContainer
+        activeCard={activeCard}
+        handleClickCard={onClickExpertiseCard}
+        items={items}
+      />
+    </Chakra.VStack>
   );
 };

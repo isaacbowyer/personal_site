@@ -1,7 +1,7 @@
-import { ExpertiseCard } from "@/components/molecules/ExpertiseCard";
 import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
 import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
+import { ExpertiseCard } from "@/components/molecules/ExpertiseCard";
 interface IProps {
   activeCard: number;
   handleClickCard: (index: number) => void;

@@ -47,15 +47,14 @@ export const ExpertiseCard = ({
       variants={variants}
       layoutId={`card-container-${id}`}
       onClick={onClick}
-      borderColor={borderColor}
       cursor="pointer"
       position="relative"
       overflow="visible"
       bg="white"
-      border="2px solid"
       p="1.5rem"
       borderRadius="0.75rem"
       style={{
+        border: `2px solid ${borderColor}`,
         transition: "all 0.3s ease",
       }}
       _hover={{

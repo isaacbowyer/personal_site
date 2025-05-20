@@ -8,6 +8,7 @@ import { ProjectSection } from "../components/ProjectSection";
 import { useProjectsSection } from "@/hooks/useProjectsSection";
 import { WorkSection } from "../components/WorkSection";
 import { useWorkSection } from "@/hooks/useWorkSection";
+import { ContactSection } from "../components/ContactSection";
 
 export const Site = () => {
   const { isMobile } = useIsMobileContext();
@@ -26,7 +27,7 @@ export const Site = () => {
           <ExpertiseSection
             activeCard={expertiseState.activeCard}
             onClickExpertiseCard={expertiseMethods.handleClickCard}
-            items={expertiseState.expertiseItems}
+            expertiseItems={expertiseState.expertiseItems}
           />
 
           <ProjectSection
@@ -38,6 +39,8 @@ export const Site = () => {
           />
 
           <WorkSection experienceItems={workState.workItems} />
+
+          <ContactSection contactItems={[]} />
         </Chakra.VStack>
       }
     />

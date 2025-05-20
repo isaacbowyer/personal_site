@@ -6,14 +6,14 @@ import { theme } from "@/theme";
 
 interface IProps {
   activeCard: number;
-  items: IExpertiseArea[];
+  expertiseItems: IExpertiseArea[];
   onClickExpertiseCard: (id: number) => void;
 }
 
 export const ExpertiseSection = ({
   activeCard,
   onClickExpertiseCard,
-  items,
+  expertiseItems,
 }: IProps) => {
   return (
     <Chakra.VStack
@@ -29,7 +29,7 @@ export const ExpertiseSection = ({
       <ExpertiseCardContainer
         activeCard={activeCard}
         handleClickCard={onClickExpertiseCard}
-        items={items}
+        items={expertiseItems}
       />
     </Chakra.VStack>
   );

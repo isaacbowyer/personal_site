@@ -1,7 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
-import { WorkAccordion } from "@/components/molecules/WorkAccordion";
 import { theme } from "@/theme";
 import { WorkItemsContainer } from "@/components/organisms/WorkItemsContainer";
 
@@ -16,6 +15,7 @@ export const WorkSection = ({ experienceItems }: IProps) => {
       id="work"
       width="full"
       gap={8}
+      paddingBottom={8}
     >
       <AnimatedTitleWithHeader title="WORK EXPERIENCE" />
 

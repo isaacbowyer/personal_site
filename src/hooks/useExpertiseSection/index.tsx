@@ -24,7 +24,7 @@ export const useExpertiseSection = () => {
     {
       id: 1,
       title: "Software Engineer",
-      icon: <FiCode color={theme.colors.white} size="30" />,
+      icon: FiCode,
       description:
         "Experienced in building cloud-based SaaS products using AI technologies, including OpenAI APIs for automation and user interaction.",
       backgroundColor: "linear-gradient(to bottom right, #3b82f6, #22d3ee)",
@@ -41,7 +41,7 @@ export const useExpertiseSection = () => {
     {
       id: 2,
       title: "Fullstack Web Developer",
-      icon: <LuLayoutDashboard color={theme.colors.white} size="30" />,
+      icon: LuLayoutDashboard,
       description:
         "Proficient in using JavaScript, TypeScript, React, Next.js, Python, and Django, gained through over 3 years of development.",
       backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",
@@ -61,7 +61,7 @@ export const useExpertiseSection = () => {
     {
       id: 3,
       title: "Mobile App Developer",
-      icon: <CgSmartphone color={theme.colors.white} size="30" />,
+      icon: CgSmartphone,
       description:
         "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
       backgroundColor: "linear-gradient(to bottom right, #f59e0b, #fb923c)",

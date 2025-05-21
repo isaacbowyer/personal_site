@@ -35,12 +35,18 @@ export const TemplateMobile = ({ main }: IProps) => {
         },
       }}
     >
-      <Chakra.VStack w="full" h="full" justifyContent="space-between">
-        <Chakra.HStack w="full" maxW={"1200px"} mx={"auto"}>
+      <Chakra.VStack
+        maxW="1200px"
+        mx="auto"
+        px={4}
+        h="full"
+        justifyContent="space-between"
+      >
+        <Chakra.HStack w="full" mx={"auto"}>
           <MobileNavBar />
         </Chakra.HStack>
 
-        <Chakra.VStack w="full" minHeight="100vh" overflow="visible">
+        <Chakra.VStack w="full" h="full" overflow="visible">
           {main}
         </Chakra.VStack>
       </Chakra.VStack>

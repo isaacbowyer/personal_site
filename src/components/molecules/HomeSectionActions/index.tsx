@@ -9,7 +9,7 @@ export const HomeSectionActions = () => {
     <Chakra.VStack
       w="full"
       align={{ base: "center", md: "flex-start" }}
-      gap={{ base: 24, md: 32 }}
+      gap={{ base: 20, md: 32 }}
     >
       <CustomTypeWriter
         staticLabel="I'm a"

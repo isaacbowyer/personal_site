@@ -7,10 +7,10 @@ const NAV_LINKS: INavLink[] = [
   { href: "/#contact", label: "CONTACT" },
 ];
 
-const HOME_LINK = "#home";
+const HOME_LINK = "/#home";
 
 const PROJECT_LINKS = {
-  OCCUPATIONAL_HEALTH_APP: "/projects/occupational-health-app/",
+  OCCUPATIONAL_HEALTH_APP: "/projects/project/1/",
 };
 
 export const LINKS = {

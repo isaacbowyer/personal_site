@@ -16,7 +16,7 @@ interface IProps {
 
 export const ProfileAvatar = ({
   src = "images/profile.png",
-  size = 130,
+  size = 180,
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 

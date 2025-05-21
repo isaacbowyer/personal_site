@@ -30,7 +30,7 @@ export const ExpertiseCardContainer = ({
       flexGrow={1}
       justifyContent="center"
       alignItems="center"
-      padding="2rem 1rem"
+      paddingX={4}
       overflow="visible"
     >
       <MotionGrid

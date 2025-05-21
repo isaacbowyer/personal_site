@@ -46,7 +46,15 @@ export const ProjectsCardContainer = ({ projects, activeFilter }: IProps) => {
     >
       {projects.map((project) => (
         <MotionBox key={project.id} variants={cardVariants}>
-          <ProjectCard {...project} />
+          <ProjectCard
+            id={project.id}
+            title={project.title}
+            description={project.description}
+            projectImageUrl={project.images.previewImage}
+            technologies={project.technologies}
+            link={project.link}
+            backgroundColor={project.backgroundColor}
+          />
         </MotionBox>
       ))}
     </MotionSimpleGrid>

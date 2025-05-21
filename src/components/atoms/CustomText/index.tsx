@@ -11,7 +11,7 @@ const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
   return (
     <ChakraText
       color={color}
-      fontSize={{ base: "5xl", md: "7xl" }}
+      fontSize={{ base: "3xl", md: "7xl" }}
       fontWeight="bold"
       {...props}
     >
@@ -44,9 +44,18 @@ const Medium = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
+const Small = ({ children, color = theme.colors.black, ...props }: IProps) => {
+  return (
+    <ChakraText color={color} fontSize="sm" {...props}>
+      {children}
+    </ChakraText>
+  );
+};
+
 export const CustomText = {
   Title,
   Header,
   Large,
   Medium,
+  Small,
 };

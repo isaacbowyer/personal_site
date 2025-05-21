@@ -5,6 +5,7 @@ import { ICategory } from "@/interfaces/ICategory";
 import { ICategoryCount } from "@/interfaces/ICategoryCount";
 import { AdvancedProjectFilter } from "@/components/organisms/AdvancedProjectFilter";
 import { ProjectsCardContainer } from "@/components/organisms/ProjectCardContainer";
+
 interface IProps {
   projects: IProject[];
   categoryCounts: ICategoryCount;
@@ -12,6 +13,7 @@ interface IProps {
   activeFilter: ICategory;
   handleSetActiveFilter: (category: ICategory) => void;
 }
+
 export const ProjectSection = ({
   projects,
   categories,

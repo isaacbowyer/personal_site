@@ -1,6 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { links } from "@/data/links";
+import { LINKS } from "@/data/links";
 import { theme } from "@/theme";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,7 +20,7 @@ export const MobileNavBar = () => {
     <Chakra.Box position="relative" w="full" p={4} id="home">
       <Chakra.HStack justifyContent="space-between" alignItems="center">
         <CustomNavLink
-          href="#home"
+          href={LINKS.HOME}
           label={"SAAC"}
           hasImage
           color={theme.colors.black}
@@ -59,7 +59,7 @@ export const MobileNavBar = () => {
             borderRadius="md"
             transition={{ duration: 0.3 }}
           >
-            {links.NAV_LINKS.map((link, index) => (
+            {LINKS.NAV_BAR.map((link, index) => (
               <MotionBox
                 key={link.label}
                 initial={{ opacity: 0, x: -200 }}

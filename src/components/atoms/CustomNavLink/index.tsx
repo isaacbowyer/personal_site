@@ -1,7 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import NextLink from "next/link";
 import { theme } from "@/theme";
-import { CustomText } from "../CustomText";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 
 interface IProps {

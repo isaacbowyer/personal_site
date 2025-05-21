@@ -9,7 +9,7 @@ interface IProps {
   id: number;
   title: string;
   description: string;
-  imageUrl: string;
+  projectImageUrl: string;
   technologies: string[];
   link: string;
   backgroundColor: string;
@@ -18,7 +18,7 @@ interface IProps {
 export const ProjectCard = ({
   title,
   description,
-  imageUrl,
+  projectImageUrl,
   technologies,
   link,
   backgroundColor,
@@ -71,7 +71,7 @@ export const ProjectCard = ({
           />
 
           <Chakra.Image
-            src={imageUrl}
+            src={projectImageUrl}
             alt={title}
             objectFit="contain"
             mx="auto"

@@ -10,7 +10,6 @@ interface IProps {
 export const WorkSection = ({ experienceItems }: IProps) => {
   return (
     <Chakra.VStack
-      overflow="visible"
       background={theme.colors.gradients.gray}
       id="work"
       width="full"

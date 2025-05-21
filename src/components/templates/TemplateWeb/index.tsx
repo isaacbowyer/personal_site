@@ -31,7 +31,7 @@ export const TemplateWeb = ({ main }: IProps) => {
       <Chakra.VStack
         maxW="1200px"
         mx="auto"
-        px={{ base: 4, md: 6 }}
+        px={4}
         w="full"
         h="full"
         justifyContent="space-between"
@@ -40,7 +40,7 @@ export const TemplateWeb = ({ main }: IProps) => {
           <WebNavBar />
         </Chakra.HStack>
 
-        <Chakra.VStack minHeight="100vh" overflow="visible">
+        <Chakra.VStack w="full" h="full" overflow="visible">
           {main}
         </Chakra.VStack>
       </Chakra.VStack>

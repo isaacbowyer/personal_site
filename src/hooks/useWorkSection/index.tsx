@@ -80,6 +80,5 @@ export const useWorkSection = () => {
     state: {
       workItems: workItems,
     },
-    methods: {},
   };
 };

@@ -17,9 +17,11 @@ export const ExpertiseSection = ({
 }: IProps) => {
   return (
     <Chakra.VStack
-      overflow="visible"
+      width="full"
       background={theme.colors.gradients.gray}
       id="expertise"
+      gap={8}
+      paddingBottom={8}
     >
       <AnimatedTitleWithHeader
         title="EXPERTISE"

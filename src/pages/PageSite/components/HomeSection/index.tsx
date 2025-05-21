@@ -11,9 +11,12 @@ export const HomeSection = ({ isMobile }: IIsMobileState) => {
       templateColumns={{ base: "1fr", md: "2fr 3fr" }}
       gap={8}
       width="full"
+      h="full"
+      marginBottom={{ base: 24, md: 20, lg: 0 }}
     >
       <Chakra.VStack
         w="full"
+        h="full"
         align={{ base: "center", md: "flex-start" }}
         gap={{ base: 16, md: 24 }}
         textAlign={{ base: "center", md: "left" }}

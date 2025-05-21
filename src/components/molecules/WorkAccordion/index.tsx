@@ -1,7 +1,7 @@
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
 import * as Chakra from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { WorkAccordionHeader } from "../WorkAccordionHeader";
 import { WorkAccordionContent } from "../WorkAccordionContent";
 

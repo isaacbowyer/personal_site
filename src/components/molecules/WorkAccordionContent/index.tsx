@@ -5,6 +5,7 @@ import { theme } from "@/theme";
 
 const MotionVStack = motion(Chakra.VStack);
 const MotionHStack = motion(Chakra.HStack);
+const MotionBox = motion(Chakra.Box);
 
 interface IProps {
   isOpen: boolean;
@@ -64,7 +65,7 @@ export const WorkAccordionContent = ({
             }}
           >
             {skills.map((skill) => (
-              <motion.div
+              <MotionBox
                 key={skill}
                 variants={{
                   hidden: { opacity: 0, scale: 0.9 },
@@ -98,7 +99,7 @@ export const WorkAccordionContent = ({
                 >
                   {skill}
                 </Chakra.Badge>
-              </motion.div>
+              </MotionBox>
             ))}
           </MotionHStack>
         </MotionVStack>

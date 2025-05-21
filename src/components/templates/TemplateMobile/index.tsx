@@ -3,7 +3,6 @@ import { theme } from "@/theme";
 import { ReactNode, useRef } from "react";
 import { MobileNavBar } from "@/components/organisms/MobileNavBar";
 import { ScrollToTopButton } from "@/components/atoms/ScrollToTopButton";
-import { useRouter } from "next/router";
 
 interface IProps {
   main: ReactNode;

@@ -10,15 +10,15 @@ interface IProps {
 export const WorkSection = ({ experienceItems }: IProps) => {
   return (
     <Chakra.VStack
+      width="full"
       background={theme.colors.gradients.gray}
       id="work"
-      width="full"
-      gap={8}
-      paddingBottom={8}
     >
-      <AnimatedTitleWithHeader title="WORK EXPERIENCE" />
+      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
+        <AnimatedTitleWithHeader title="WORK EXPERIENCE" />
 
-      <WorkItemsContainer items={experienceItems} />
+        <WorkItemsContainer items={experienceItems} />
+      </Chakra.VStack>
     </Chakra.VStack>
   );
 };

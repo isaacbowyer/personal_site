@@ -20,7 +20,7 @@ export const useContactSection = () => {
     },
     {
       id: 3,
-      title: "Recommendations",
+      title: "References",
       icon: FaUser,
       url: "https://www.linkedin.com/in/isaacbowyer/details/recommendations/",
     },

@@ -1,4 +1,3 @@
-import { CustomText } from "@/components/atoms/CustomText";
 import { ButtonLink } from "@/components/molecules/ButtonLink";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 import * as Chakra from "@chakra-ui/react";
@@ -16,15 +15,13 @@ export const ProjectHomeSection = ({
 }: IProps) => {
   return (
     <Chakra.Grid
-      templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+      templateColumns={{ base: "1fr", lg: "1fr 2fr" }}
       gap={8}
       width="full"
-      h="full"
+      maxW="1200px"
       id="home"
     >
       <Chakra.VStack
-        w="full"
-        h="full"
         align={{ base: "center", md: "flex-start" }}
         gap={{ base: 16, md: 24 }}
         textAlign={{ base: "center", md: "left" }}

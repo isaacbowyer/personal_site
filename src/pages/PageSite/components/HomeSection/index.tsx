@@ -34,7 +34,7 @@ export const HomeSection = () => {
 
         <Chakra.VStack
           align={{ base: "center", md: "flex-start" }}
-          gap={{ base: 28, sm: 20 }}
+          gap={{ base: 28, sm: 32 }}
         >
           <CustomTypeWriter
             staticLabel="I'm a"

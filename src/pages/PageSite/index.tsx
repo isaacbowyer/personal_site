@@ -14,7 +14,7 @@ export const PageSite = () => {
     <TemplateContainer
       main={
         <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 28 }}>
-          <HomeSection isMobile={state.isMobile} />
+          <HomeSection />
 
           <ExpertiseSection
             activeCard={state.activeExpertiseItem}

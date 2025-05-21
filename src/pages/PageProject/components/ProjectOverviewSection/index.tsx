@@ -1,5 +1,3 @@
-import { CustomText } from "@/components/atoms/CustomText";
-import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
@@ -39,8 +37,12 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
   const isInView = useInView(ref, { amount: 0.4, once: true });
 
   return (
-    <Chakra.Box py={4} bg={theme.colors.gradients.gray} id="overview">
-      <Chakra.VStack p={12} width="full" gap={4} alignItems="flex-start">
+    <Chakra.VStack
+      width="full"
+      background={theme.colors.gradients.gray}
+      id="overview"
+    >
+      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
         <TitleWithHeader title="OVERVIEW" header={overview} />
 
         <AnimatePresence>
@@ -95,6 +97,6 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
           </MotionVStack>
         </AnimatePresence>
       </Chakra.VStack>
-    </Chakra.Box>
+    </Chakra.VStack>
   );
 };

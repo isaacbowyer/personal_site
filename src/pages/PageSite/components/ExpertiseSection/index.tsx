@@ -20,19 +20,19 @@ export const ExpertiseSection = ({
       width="full"
       background={theme.colors.gradients.gray}
       id="expertise"
-      gap={8}
-      paddingBottom={8}
     >
-      <AnimatedTitleWithHeader
-        title="EXPERTISE"
-        header="Hands-on experience across multiple development domains"
-      />
+      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
+        <AnimatedTitleWithHeader
+          title="EXPERTISE"
+          header="Hands-on experience across multiple development domains"
+        />
 
-      <ExpertiseCardContainer
-        activeCard={activeCard}
-        handleClickCard={onClickExpertiseCard}
-        items={expertiseItems}
-      />
+        <ExpertiseCardContainer
+          activeCard={activeCard}
+          handleClickCard={onClickExpertiseCard}
+          items={expertiseItems}
+        />
+      </Chakra.VStack>
     </Chakra.VStack>
   );
 };

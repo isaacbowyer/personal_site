@@ -12,7 +12,6 @@ interface IProps {
 export const TemplateMobile = ({ main }: IProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const isMainPage = router.pathname === "/";
 
   return (
     <Chakra.VStack
@@ -35,14 +34,8 @@ export const TemplateMobile = ({ main }: IProps) => {
         },
       }}
     >
-      <Chakra.VStack
-        maxW="1200px"
-        mx="auto"
-        px={4}
-        h="full"
-        justifyContent="space-between"
-      >
-        <Chakra.HStack w="full" mx={"auto"}>
+      <Chakra.VStack w="full" h="full" justifyContent="space-between">
+        <Chakra.HStack w="full" maxW="1200px" mx="auto">
           <MobileNavBar />
         </Chakra.HStack>
 

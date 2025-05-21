@@ -22,20 +22,25 @@ export const ProjectSection = ({
   handleSetActiveFilter,
 }: IProps) => {
   return (
-    <Chakra.VStack w="full" id="projects" gap={8}>
-      <AnimatedTitleWithHeader
-        title="PROJECTS"
-        header="Innovative solutions I've designed and developed, showcasing real-world applications of my technical skills."
-      />
+    <Chakra.VStack width="full" id="projects">
+      <Chakra.VStack width="full" maxW="1200px" gap={8}>
+        <AnimatedTitleWithHeader
+          title="PROJECTS"
+          header="Innovative solutions I've designed and developed, showcasing real-world applications of my technical skills."
+        />
 
-      <AdvancedProjectFilter
-        activeFilter={activeFilter}
-        categories={categories}
-        handleChangeActiveFilter={handleSetActiveFilter}
-        categoryCounts={categoryCounts}
-      />
+        <AdvancedProjectFilter
+          activeFilter={activeFilter}
+          categories={categories}
+          handleChangeActiveFilter={handleSetActiveFilter}
+          categoryCounts={categoryCounts}
+        />
 
-      <ProjectsCardContainer projects={projects} activeFilter={activeFilter} />
+        <ProjectsCardContainer
+          projects={projects}
+          activeFilter={activeFilter}
+        />
+      </Chakra.VStack>
     </Chakra.VStack>
   );
 };

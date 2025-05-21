@@ -109,7 +109,8 @@ export const ProjectCard = ({
               gap={1}
               fontWeight="bold"
               transition="opacity 0.3s ease"
-              opacity={isHovered ? 1 : 0}
+              display={{ base: "flex", md: "inline-flex" }}
+              opacity={{ base: 1, md: isHovered ? 1 : 0 }}
             >
               <Chakra.Text>View Project</Chakra.Text>
               <BsArrowRight />

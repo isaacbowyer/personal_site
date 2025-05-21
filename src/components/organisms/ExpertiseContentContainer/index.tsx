@@ -13,10 +13,11 @@ export const ExpertiseContentContainer = ({ title, description }: IProps) => {
   return (
     <>
       <MotionText
-        fontSize={{ base: "l", md: "xl" }}
+        fontSize={{ base: "lg", md: "xl" }}
         fontWeight="bold"
         marginBottom={1}
         color={theme.colors.black}
+        width="90%"
       >
         {title}
       </MotionText>

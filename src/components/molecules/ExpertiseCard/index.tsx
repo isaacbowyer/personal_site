@@ -77,10 +77,10 @@ export const ExpertiseCard = ({
       />
 
       <Chakra.IconButton
-        size="sm"
+        size={{ base: "xs", md: "sm" }}
         position="absolute"
-        top={-5}
-        right={-3}
+        top={{ base: 2, md: -5 }}
+        right={{ base: 2, md: -3 }}
         zIndex={2}
         bg={bgColor}
         border="1px solid black"

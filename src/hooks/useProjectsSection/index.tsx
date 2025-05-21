@@ -1,5 +1,3 @@
-import { theme } from "@/theme";
-import { IProject } from "@/interfaces/IProject";
 import { useState } from "react";
 import { getProjects } from "@/utils/getProjects";
 import { getProjectCategoryCounts } from "@/utils/getProjectCategoryCounts";

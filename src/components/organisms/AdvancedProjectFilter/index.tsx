@@ -26,8 +26,9 @@ export const AdvancedProjectFilter = ({
       </Chakra.Text>
 
       <Chakra.Wrap gap={2} justify={{ base: "center", md: "start" }} w="full">
-        {categories.map((cat) => (
+        {categories.map((cat, index) => (
           <FilterCategoryButton
+            key={index}
             item={cat}
             categoryCounts={categoryCounts}
             activeFilter={activeFilter}

@@ -11,7 +11,6 @@ interface IProps {
 
 export const TemplateMobile = ({ main }: IProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
 
   return (
     <Chakra.VStack

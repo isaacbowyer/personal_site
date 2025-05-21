@@ -7,7 +7,7 @@ import { ProjectHomeSection } from "./components/ProjectHomeSection";
 import { ProjectClientSection } from "./components/ProjectClientSection";
 
 export const PageProject = () => {
-  const { state, methods } = usePageProject();
+  const { state } = usePageProject();
 
   return (
     <TemplateContainer

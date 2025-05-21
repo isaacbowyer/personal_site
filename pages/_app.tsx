@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
-import { Provider as ChakraProvider } from "../components/ui/provider";
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+
 import Head from "next/head";
 import { IsMobileProvider } from "@/context/useIsMobile";
 import { useEffect, useState } from "react";
@@ -31,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router]);
 
   return (
-    <ChakraProvider>
+    <ChakraProvider value={defaultSystem}>
       <IsMobileProvider>
         <Head>
           <title>Isaac Bowyer</title>

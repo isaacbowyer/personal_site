@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-
+import { Analytics } from "@vercel/analytics/next";
 import Head from "next/head";
 import { IsMobileProvider } from "@/context/useIsMobile";
 import { useEffect, useState } from "react";
@@ -46,6 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
 
         {loading ? <CustomLoadingSpinner /> : <Component {...pageProps} />}
+        <Analytics />
       </IsMobileProvider>
     </ChakraProvider>
   );

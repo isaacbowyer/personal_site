@@ -9,15 +9,15 @@ interface IProps {
 
 export const ContactCardContainer = ({ items, handleOnClick }: IProps) => {
   return (
-    <Chakra.Box
+    <Chakra.HStack
       width="full"
-      display="flex"
+      height="full"
       justifyContent={{ base: "center", md: "flex-start" }}
     >
       <Chakra.SimpleGrid
-        columns={{ base: 1, sm: 2, md: 4 }}
+        justifyContent={{ base: "center", md: "flex-start" }}
+        columns={{ base: 2, md: 4 }}
         gap={10}
-        justifyItems={{ base: "center", md: "start" }}
       >
         {items.map((item, index) => (
           <ContactCard
@@ -28,6 +28,6 @@ export const ContactCardContainer = ({ items, handleOnClick }: IProps) => {
           />
         ))}
       </Chakra.SimpleGrid>
-    </Chakra.Box>
+    </Chakra.HStack>
   );
 };

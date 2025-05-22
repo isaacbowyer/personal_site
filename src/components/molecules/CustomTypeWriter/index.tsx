@@ -26,9 +26,9 @@ export const CustomTypeWriter = ({ staticLabel, animatedWords }: IProps) => {
           words={animatedWords}
           loop
           cursor
-          typeSpeed={80}
-          deleteSpeed={60}
-          delaySpeed={3000}
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1500}
         />
       </Chakra.Box>
     </Chakra.Text>

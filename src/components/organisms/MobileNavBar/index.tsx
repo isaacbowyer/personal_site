@@ -8,6 +8,7 @@ import { CustomNavLink } from "@/components/atoms/CustomNavLink";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
+import { CustomLogo } from "@/components/molecules/CustomLogo";
 
 const MotionVStack = motion(Chakra.VStack);
 const MotionBox = motion(Chakra.Box);
@@ -19,15 +20,10 @@ export const MobileNavBar = () => {
   return (
     <Chakra.Box position="relative" w="full" p={4} id="home">
       <Chakra.HStack justifyContent="space-between" alignItems="center">
-        <CustomNavLink
-          href={LINKS.HOME}
-          label={"SAAC"}
-          hasImage
-          color={theme.colors.black}
-          hoverColor={theme.colors.black}
+        <CustomLogo
+          isHovered={hoveredLabel === "HOME"}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
-          hasPointer={false}
         />
 
         <Chakra.IconButton

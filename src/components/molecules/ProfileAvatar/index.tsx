@@ -16,7 +16,7 @@ export const ProfileAvatar = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const borderActive = theme.colors.blue.vivid;
+  const borderActive = theme.colors.blue.dark;
   const borderInactive = theme.colors.blue.light;
 
   return (

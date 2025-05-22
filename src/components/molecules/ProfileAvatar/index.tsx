@@ -2,12 +2,8 @@ import { AnimatedBorder } from "@/components/atoms/AnimatedBorder";
 import { CustomAvatar } from "@/components/atoms/CustomAvatar";
 import { IBorderPostion } from "@/interfaces/IBorderPosition";
 import { theme } from "@/theme";
-import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { useState } from "react";
-
-const MotionBox = motion(Chakra.Box);
 
 interface IProps {
   src?: string;
@@ -29,10 +25,10 @@ export const ProfileAvatar = ({
       position="relative"
       w={`${size}px`}
       h={`${size}px`}
-      onMouseEnter={(e) => {
+      onMouseEnter={() => {
         setIsHovered(true);
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={() => {
         setIsHovered(false);
       }}
     >

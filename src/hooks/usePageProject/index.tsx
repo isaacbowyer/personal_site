@@ -15,7 +15,7 @@ export const usePageProject = () => {
     if (!project || project.id !== 1) {
       router.replace("/404");
     }
-  }, [project]);
+  }, [project, router]);
 
   const clientFeedback: IClientFeedback = {
     comment: project?.clientFeedback?.comment || "",

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { theme } from "@/theme";
 
 const MotionIconButton = motion(IconButton);
 

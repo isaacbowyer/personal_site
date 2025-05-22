@@ -46,7 +46,7 @@ export const ProjectClientSection = ({
               mx="auto"
             >
               <Chakra.Text fontSize="1.3rem" fontStyle="italic" mb={8}>
-                "{comment}"
+                {`"${comment}"`}
               </Chakra.Text>
 
               <Chakra.Flex align="center">

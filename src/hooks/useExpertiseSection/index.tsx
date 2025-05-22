@@ -4,7 +4,6 @@ import { CgSmartphone } from "react-icons/cg";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FiCode } from "react-icons/fi";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
-import { theme } from "@/theme";
 
 const DEFAULT_ACTIVE_CARD = 0;
 export const useExpertiseSection = () => {

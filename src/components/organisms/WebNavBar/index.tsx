@@ -1,4 +1,5 @@
 import { CustomNavLink } from "@/components/atoms/CustomNavLink";
+import { CustomLogo } from "@/components/molecules/CustomLogo";
 import { LINKS } from "@/data/links";
 import { theme } from "@/theme";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
@@ -11,15 +12,10 @@ export const WebNavBar = () => {
   return (
     <Chakra.HStack as="nav" w="full" alignItems="start" id="home">
       <Chakra.HStack w="full" justifyContent="space-between">
-        <CustomNavLink
-          href={LINKS.HOME}
-          label={"SAAC"}
-          hasImage
-          color={theme.colors.black}
-          hoverColor={theme.colors.black}
+        <CustomLogo
+          isHovered={hoveredLabel === "HOME"}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
-          hasPointer={false}
         />
 
         <Chakra.HStack as="ul" listStyleType="none" gap={6}>

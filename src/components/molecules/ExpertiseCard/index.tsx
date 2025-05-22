@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
 import { theme } from "@/theme";
-import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { HiOutlineChevronDown } from "react-icons/hi";
 
 interface IProps {
   id: number;
@@ -94,7 +94,7 @@ export const ExpertiseCard = ({
         }}
       >
         <MotionIcon
-          as={HiOutlineChevronUp}
+          as={HiOutlineChevronDown}
           color={theme.colors.white}
           animate={{ rotate: isActive ? 180 : 0 }}
           transition={{ duration: 0.3 }}

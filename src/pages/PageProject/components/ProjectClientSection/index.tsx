@@ -29,7 +29,7 @@ export const ProjectClientSection = ({
       paddingBottom={4}
     >
       <Chakra.Box w="full" maxW="1200px">
-        <Chakra.VStack gap={4}>
+        <Chakra.VStack align={{ base: "center", md: "start" }} gap={4}>
           <TitleWithHeader title="CLIENT TESTIMONIAL" />
 
           <Chakra.Container maxW="1200px" px={8}>

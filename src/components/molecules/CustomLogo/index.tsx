@@ -59,7 +59,7 @@ export const CustomLogo = ({
           ISAAC BOWYER
         </CustomText.Medium>
         <CustomText.Small color={theme.colors.gray.medium}>
-          SOFTWARE DEVELOPER
+          BSc COMPUTER SCIENCE
         </CustomText.Small>
       </Chakra.VStack>
     </Chakra.Link>

@@ -1,6 +1,7 @@
 import { WorkAccordion } from "@/components/molecules/WorkAccordion";
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
 import * as Chakra from "@chakra-ui/react";
+
 interface IProps {
   items: IWorkExperience[];
 }

@@ -1,7 +1,7 @@
 import * as Chakra from "@chakra-ui/react";
 import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IContact } from "@/interfaces/IContact";
-import { ContactCardContainer } from "@/components/organisms/ContatCardContainer";
+import { ContactCardContainer } from "@/components/organisms/ContactCardContainer";
 
 interface IProps {
   contactItems: IContact[];

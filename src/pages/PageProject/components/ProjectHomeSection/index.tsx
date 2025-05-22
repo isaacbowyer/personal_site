@@ -19,7 +19,7 @@ export const ProjectHomeSection = ({
       overflow="hidden"
       width="full"
       bg="gray.50"
-      py={{ base: 20, md: 32 }}
+      py={{ base: 20, md: 24 }}
       minH={{ base: "600px", md: "700px" }}
       _before={{
         content: `""`,
@@ -48,7 +48,7 @@ export const ProjectHomeSection = ({
           gap={{ base: 16, md: 24 }}
           textAlign={{ base: "center", md: "left" }}
         >
-          <TitleWithHeader title={title.toUpperCase()} header={description} />
+          <TitleWithHeader title={title} header={description} />
           <ButtonLink href="#gallery" label="View Project Images" />
         </Chakra.VStack>
 
@@ -56,7 +56,6 @@ export const ProjectHomeSection = ({
           display={{ base: "none", lg: "flex" }}
           align="center"
           justify="center"
-          mt={4}
         >
           <Chakra.Image
             src={featuredImageUrl}

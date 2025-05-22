@@ -9,7 +9,6 @@ interface IProps {
   color?: string;
   hoverColor?: string;
   fontWeight?: string;
-  hasImage?: boolean;
   shouldTransform?: boolean;
   hasPointer?: boolean;
   onMouseEnter?: () => void;
@@ -22,7 +21,6 @@ export const CustomNavLink = ({
   color = theme.colors.black,
   hoverColor = theme.colors.blue.vivid,
   fontWeight = "bold",
-  hasImage = false,
   hasPointer = true,
   onMouseEnter,
   onMouseLeave,
@@ -39,30 +37,20 @@ export const CustomNavLink = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Chakra.HStack gap={1}>
-        {hasImage && (
-          <Chakra.Image
-            src="/images/home.svg"
-            width="45px"
-            height="60px"
-            mr="2px"
-          />
-        )}
-        <Chakra.Text
-          letterSpacing="0.5px"
-          lineHeight="1.25"
-          fontWeight={fontWeight}
-          fontSize="2xl"
-          color={color}
-          _hover={{
-            color: hoverColor,
-            transform: hasImage ? "" : "translateY(-5px)",
-          }}
-          transition="all 0.5s ease"
-        >
-          {label}
-        </Chakra.Text>
-      </Chakra.HStack>
+      <Chakra.Text
+        letterSpacing="0.5px"
+        lineHeight="1.25"
+        fontWeight={fontWeight}
+        fontSize="2xl"
+        color={color}
+        _hover={{
+          color: hoverColor,
+          transform: "translateY(-5px)",
+        }}
+        transition="all 0.5s ease"
+      >
+        {label}
+      </Chakra.Text>
     </Chakra.Link>
   );
 };

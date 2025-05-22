@@ -16,7 +16,9 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
       onClick={handleOnClick}
       gap={2}
       cursor="pointer"
-      textAlign="center"
+      alignItems="center"
+      justifyItems="center"
+      width="full"
     >
       <Chakra.Box
         bg={theme.colors.blue.medium}
@@ -26,9 +28,6 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
         }}
         borderRadius="full"
         p={3}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
       >
         <Chakra.Icon as={icon} boxSize={6} color={theme.colors.white} />
       </Chakra.Box>

@@ -1,8 +1,8 @@
 import * as Chakra from "@chakra-ui/react";
-import { HiOutlineChevronUp } from "react-icons/hi";
 import { CustomText } from "../../atoms/CustomText";
 import { theme } from "@/theme";
 import { motion } from "framer-motion";
+import { HiOutlineChevronDown } from "react-icons/hi";
 
 const MotionIcon = motion(Chakra.Icon);
 
@@ -85,7 +85,7 @@ export const WorkAccordionHeader = ({
           _focus={{ boxShadow: "none", outline: "none" }}
         >
           <MotionIcon
-            as={HiOutlineChevronUp}
+            as={HiOutlineChevronDown}
             position={{ base: "absolute", md: "static" }}
             color={theme.colors.white}
             animate={{ rotate: isOpen ? 180 : 0 }}

@@ -16,7 +16,7 @@ export const TitleWithHeader = ({ title, header }: IProps) => {
       textAlign={{ base: "center", md: "left" }}
     >
       <CustomText.Title
-        fontFamily="Comic Sans MS, cursive"
+        fontFamily="sans-serif"
         letterSpacing="6px"
         color={theme.colors.black}
       >

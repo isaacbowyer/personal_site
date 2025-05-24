@@ -83,7 +83,6 @@ export const ExpertiseCard = ({
         right={{ base: 2, md: -3 }}
         zIndex={2}
         bg={bgColor}
-        border="1px solid black"
         borderRadius="full"
         _hover={{
           bg: bgColor,

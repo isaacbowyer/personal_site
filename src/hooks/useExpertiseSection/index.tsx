@@ -63,7 +63,7 @@ export const useExpertiseSection = () => {
       icon: CgSmartphone,
       description:
         "Skilled in building cross-platform mobile apps with React Native and Firebase, focusing on responsive UI/UX for iOS and Android.",
-      backgroundColor: "linear-gradient(to bottom right, #f59e0b, #fb923c)",
+      backgroundColor: "linear-gradient(to bottom right, #f97316, #facc15)",
       borderColor: "#fbbf24",
       tags: [
         "React Native",

@@ -8,6 +8,7 @@ import NextLink from "next/link";
 interface IProps {
   isHovered: boolean;
   href?: string;
+  size?: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
@@ -15,6 +16,7 @@ interface IProps {
 export const CustomLogo = ({
   isHovered,
   href = LINKS.HOME,
+  size = "60px",
   onMouseEnter,
   onMouseLeave,
 }: IProps) => {
@@ -38,8 +40,8 @@ export const CustomLogo = ({
             "/logos/icon-dark.png",
             "/logos/icon-light.png"
           )}
-          width="70px"
-          height="70px"
+          width={size}
+          height={size}
         />
       </Chakra.HStack>
       <Chakra.VStack

@@ -42,7 +42,7 @@ export const ExpertiseCardContainer = ({
         gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.6 }}
         variants={containerVariants}
       >
         {items.map((expertise) => (

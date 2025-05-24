@@ -24,7 +24,7 @@ export const HexagonalProfileImage = ({
   const imageSize = Chakra.useBreakpointValue({
     base: 0,
     md: 450,
-    lg: 650,
+    lg: 620,
   });
 
   const [isHovered, setIsHovered] = useState(false);

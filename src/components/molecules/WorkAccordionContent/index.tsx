@@ -32,7 +32,7 @@ export const WorkAccordionContent = ({
           borderBottomRightRadius="8px"
           alignItems="start"
           width="full"
-          bg="white"
+          bg={theme.colors.gray.dim}
           px={5}
           py={4}
           gap={8}
@@ -91,11 +91,6 @@ export const WorkAccordionContent = ({
                   whiteSpace="nowrap"
                   cursor="default"
                   transition="all 0.3s ease-in-out"
-                  _hover={{
-                    backgroundColor: theme.colors.blue.dark,
-                    color: theme.colors.white,
-                    borderColor: theme.colors.white,
-                  }}
                 >
                   {skill}
                 </Chakra.Badge>

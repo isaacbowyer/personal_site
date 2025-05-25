@@ -1,4 +1,5 @@
 import { IBorderPostion } from "@/interfaces/IBorderPosition";
+import { theme } from "@/theme";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -8,16 +9,16 @@ const MotionBox = motion(Chakra.Box);
 interface IProps {
   position: IBorderPostion;
   isHovered: boolean;
-  activeColor: string;
-  inActiveColor: string;
+  activeColor?: string;
+  inActiveColor?: string;
   delay?: number;
 }
 
 export const AnimatedBorder = ({
   position,
   isHovered,
-  activeColor,
-  inActiveColor,
+  activeColor = theme.colors.blue.light,
+  inActiveColor = theme.colors.white,
   delay = 0,
 }: IProps) => {
   const color = validateOptionsBasedOnBoolean(

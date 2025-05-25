@@ -1,7 +1,13 @@
 import { theme } from "@/theme";
 
-export const getCustomLinkColor = (hoveredLabel: string, label: string) => {
-  return hoveredLabel && hoveredLabel !== label
-    ? theme.colors.gray.light
-    : theme.colors.black;
+interface IProps {
+  hoveredLabel: string;
+  label: string;
+  hoverColor: string;
+  color: string;
+}
+export const getCustomLinkColor = (props: IProps) => {
+  return props.hoveredLabel && props.hoveredLabel !== props.label
+    ? props.hoverColor
+    : props.color;
 };

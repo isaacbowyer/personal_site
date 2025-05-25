@@ -4,14 +4,11 @@ import { motion } from "framer-motion";
 const MotionAvatarRoot = motion(Chakra.Avatar.Root);
 
 interface IProps {
-  src?: string;
+  src: string;
   size?: number;
 }
 
-export const CustomAvatar = ({
-  src = "images/profile.png",
-  size = 120,
-}: IProps) => {
+export const CustomAvatar = ({ src, size = 120 }: IProps) => {
   return (
     <MotionAvatarRoot
       width={`${size}px`}
@@ -20,7 +17,14 @@ export const CustomAvatar = ({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <Chakra.Avatar.Image src={src} />
+      <Chakra.Image
+        src={src}
+        width="100%"
+        height="100%"
+        objectFit="cover"
+        objectPosition="50% 30%"
+        borderRadius="full"
+      />
     </MotionAvatarRoot>
   );
 };

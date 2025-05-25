@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
-import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 import { ExpertiseCard } from "@/components/molecules/ExpertiseCard";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 import { theme } from "@/theme";
+import { motion } from "framer-motion";
+
 interface IProps {
   activeCard: number;
   handleClickCard: (index: number) => void;
@@ -15,7 +16,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
     },
   },
 };
@@ -30,12 +32,13 @@ export const ExpertiseCardContainer = ({
       flexGrow={1}
       justifyContent="center"
       alignItems="center"
-      paddingX={4}
       overflow="visible"
     >
       <MotionGrid
+        as={motion.div}
+        layout
         width="100%"
-        maxWidth="1280px"
+        maxWidth="1200px"
         gap={8}
         position="relative"
         overflow="visible"
@@ -44,6 +47,7 @@ export const ExpertiseCardContainer = ({
         whileInView="visible"
         viewport={{ once: true, amount: 0.6 }}
         variants={containerVariants}
+        transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
       >
         {items.map((expertise) => (
           <ExpertiseCard

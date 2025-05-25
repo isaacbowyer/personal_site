@@ -37,8 +37,8 @@ export const CustomLogo = ({
         <Chakra.Image
           src={validateOptionsBasedOnBoolean(
             isHovered,
-            "/logos/icon-dark.png",
-            "/logos/icon-light.png"
+            "/logos/icon-light.png",
+            "/logos/icon-white.png"
           )}
           width={size}
           height={size}
@@ -54,13 +54,13 @@ export const CustomLogo = ({
           fontWeight="bold"
           color={validateOptionsBasedOnBoolean(
             isHovered,
-            theme.colors.blue.dark,
-            theme.colors.blue.vivid
+            theme.colors.blue.light,
+            theme.colors.white
           )}
         >
           ISAAC BOWYER
         </CustomText.Medium>
-        <CustomText.Small color={theme.colors.gray.medium}>
+        <CustomText.Small color={theme.colors.gray.light}>
           BSc COMPUTER SCIENCE
         </CustomText.Small>
       </Chakra.VStack>

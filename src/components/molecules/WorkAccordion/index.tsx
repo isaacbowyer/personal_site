@@ -27,7 +27,7 @@ export const WorkAccordion = ({ workItem, index }: IProps) => {
   }, [isInView, index]);
 
   return (
-    <Chakra.VStack ref={ref} width="full" px={4} gap={0}>
+    <Chakra.VStack ref={ref} width="full" gap={0}>
       {/* HEADER */}
       <WorkAccordionHeader
         title={workItem.title}

@@ -13,7 +13,7 @@ export const PageSite = () => {
   return (
     <TemplateContainer
       main={
-        <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 28 }}>
+        <Chakra.VStack w="full" h="full">
           <HomeSection />
 
           <ExpertiseSection
@@ -32,10 +32,10 @@ export const PageSite = () => {
 
           <WorkSection experienceItems={state.workItems} />
 
-          <ContactSection
+          {/* <ContactSection
             contactItems={state.contactItems}
             handleOnClick={methods.handleClickContactItem}
-          />
+          />   */}
         </Chakra.VStack>
       }
     />

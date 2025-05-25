@@ -18,7 +18,7 @@ export const MobileNavBar = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.Box position="relative" w="full" p={4} id="home">
+    <Chakra.Box position="relative" w="full" p={4}>
       <Chakra.HStack justifyContent="space-between" alignItems="center">
         <CustomLogo
           isHovered={hoveredLabel === "HOME"}
@@ -31,6 +31,10 @@ export const MobileNavBar = () => {
           onClick={isOpen ? onClose : onOpen}
           variant="ghost"
           size="lg"
+          color="white"
+          _hover={{ background: "transparent" }}
+          _focus={{ boxShadow: "none", background: "transparent" }}
+          _active={{ background: "transparent" }}
         >
           {isOpen ? <IoClose size={24} /> : <RxHamburgerMenu size={24} />}
         </Chakra.IconButton>
@@ -70,7 +74,12 @@ export const MobileNavBar = () => {
                 <CustomNavLink
                   href={link.href}
                   label={link.label}
-                  color={getCustomLinkColor(hoveredLabel, link.label)}
+                  color={getCustomLinkColor({
+                    hoverColor: theme.colors.gray.light,
+                    color: theme.colors.black,
+                    label: link.label,
+                    hoveredLabel: hoveredLabel,
+                  })}
                   hoverColor={theme.colors.blue.vivid}
                   shouldTransform={false}
                   onMouseEnter={() => setHoveredLabel(link.label)}

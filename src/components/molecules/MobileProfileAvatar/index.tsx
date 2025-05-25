@@ -1,7 +1,6 @@
 import { AnimatedBorder } from "@/components/atoms/AnimatedBorder";
 import { CustomAvatar } from "@/components/atoms/CustomAvatar";
 import { IBorderPostion } from "@/interfaces/IBorderPosition";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -10,14 +9,11 @@ interface IProps {
   size?: number;
 }
 
-export const ProfileAvatar = ({
-  src = "images/profile.png",
+export const MobileProfileAvatar = ({
+  src = "images/profile2.png",
   size = 180,
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const borderActive = theme.colors.blue.dark;
-  const borderInactive = theme.colors.blue.light;
 
   return (
     <Chakra.Center
@@ -39,8 +35,6 @@ export const ProfileAvatar = ({
           key={pos}
           position={pos as IBorderPostion}
           isHovered={isHovered}
-          activeColor={borderActive}
-          inActiveColor={borderInactive}
           delay={i * 0.3}
         />
       ))}

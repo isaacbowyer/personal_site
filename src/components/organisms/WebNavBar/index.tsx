@@ -10,7 +10,7 @@ export const WebNavBar = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.HStack as="nav" w="full" alignItems="start" id="home">
+    <Chakra.HStack as="nav" w="full" alignItems="start">
       <Chakra.HStack w="full" justifyContent="space-between">
         <CustomLogo
           isHovered={hoveredLabel === "HOME"}
@@ -25,8 +25,13 @@ export const WebNavBar = () => {
                 key={link.label}
                 href={link.href}
                 label={link.label}
-                color={getCustomLinkColor(hoveredLabel, link.label)}
-                hoverColor={theme.colors.blue.vivid}
+                color={getCustomLinkColor({
+                  hoverColor: theme.colors.gray.light,
+                  color: theme.colors.white,
+                  label: link.label,
+                  hoveredLabel: hoveredLabel,
+                })}
+                hoverColor={theme.colors.blue.light}
                 onMouseEnter={() => setHoveredLabel(link.label)}
                 onMouseLeave={() => setHoveredLabel("")}
                 shouldTransform

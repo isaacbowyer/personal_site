@@ -9,22 +9,20 @@ import { useState, useEffect, useRef } from "react";
 interface IProps {
   src?: string;
   alt?: string;
-  borderColor?: string;
   borderWidth?: number;
   gap?: number;
 }
 
-export const HexagonalProfileImage = ({
-  src = "images/profile.svg",
+export const WebProfileAvatar = ({
+  src = "images/profile2.png",
   alt = "profile image",
-  borderColor = "#74c0fc",
   borderWidth = 10,
   gap = 12,
 }: IProps) => {
   const imageSize = Chakra.useBreakpointValue({
     base: 0,
-    md: 450,
-    lg: 620,
+    md: 500,
+    lg: 600,
   });
 
   const [isHovered, setIsHovered] = useState(false);
@@ -57,8 +55,8 @@ export const HexagonalProfileImage = ({
     });
   }, [animated]);
 
-  const borderColorNormal = borderColor;
-  const borderColorHover = theme.colors.blue.dark;
+  const borderColorNormal = theme.colors.white;
+  const borderColorHover = theme.colors.blue.light;
 
   const width = imageSize || 0;
   const height = Math.round((width * Math.sqrt(3)) / 2);
@@ -181,8 +179,10 @@ export const HexagonalProfileImage = ({
 
         <image
           href={src}
-          width={width}
-          height={height}
+          width="490"
+          height="720"
+          x="30"
+          y="0"
           preserveAspectRatio="xMidYMid slice"
           clipPath="url(#hexRevealClip)"
         />

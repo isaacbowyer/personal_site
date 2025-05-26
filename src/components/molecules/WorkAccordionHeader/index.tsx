@@ -3,11 +3,13 @@ import { CustomText } from "../../atoms/CustomText";
 import { theme } from "@/theme";
 import { motion } from "framer-motion";
 import { HiOutlineChevronDown } from "react-icons/hi";
+import { BiMapPin } from "react-icons/bi";
 
 const MotionIcon = motion(Chakra.Icon);
 
 interface IProps {
   title: string;
+  company: string;
   location: string;
   period: string;
   isOpen: boolean;
@@ -15,6 +17,7 @@ interface IProps {
 }
 export const WorkAccordionHeader = ({
   title,
+  company,
   location,
   period,
   isOpen,
@@ -23,8 +26,10 @@ export const WorkAccordionHeader = ({
   return (
     <Chakra.Box
       width="full"
-      backgroundColor={
-        isOpen ? theme.colors.blue.dark : theme.colors.blue.vivid
+      background={
+        isOpen
+          ? "linear-gradient(to right, #63B3ED, #9F7AEA)"
+          : theme.colors.blue.vivid
       }
       borderRadius={isOpen ? "8px 8px 0 0" : "8px"}
       px={5}
@@ -32,7 +37,9 @@ export const WorkAccordionHeader = ({
       cursor="pointer"
       transition="background 0.3s"
       onClick={() => handleChangeIsOpen(!isOpen)}
-      _hover={{ backgroundColor: theme.colors.blue.dark }}
+      _hover={{
+        background: "linear-gradient(to right, #63B3ED, #9F7AEA)",
+      }}
     >
       <Chakra.Flex
         position="relative"
@@ -48,7 +55,7 @@ export const WorkAccordionHeader = ({
           fontSize={{ base: "md", md: "lg" }}
           width={{ base: "90%", md: "full" }}
         >
-          {title}
+          {title} @ {company}
         </CustomText.Header>
 
         <Chakra.HStack
@@ -57,9 +64,12 @@ export const WorkAccordionHeader = ({
           flexWrap="wrap"
           justify={{ base: "flex-start", md: "center" }}
         >
-          <CustomText.Large color={theme.colors.white}>
-            {location}
-          </CustomText.Large>
+          <Chakra.HStack color={theme.colors.white} gap={2}>
+            <BiMapPin size={16} />
+            <CustomText.Large color={theme.colors.white}>
+              {location}
+            </CustomText.Large>
+          </Chakra.HStack>
 
           <Chakra.Badge
             px={3}

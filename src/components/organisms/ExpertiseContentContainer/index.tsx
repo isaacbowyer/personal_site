@@ -17,12 +17,20 @@ export const ExpertiseContentContainer = ({ title, description }: IProps) => {
         fontWeight="bold"
         marginBottom={1}
         color={theme.colors.black}
-        width="90%"
+        width="80%"
+        whileHover={{ x: 2 }}
+        transition={{ duration: 0.2 }}
       >
         {title}
       </MotionText>
 
-      <MotionText color={theme.colors.gray.medium}>{description}</MotionText>
+      <MotionText
+        color={theme.colors.gray.medium}
+        whileHover={{ x: 2 }}
+        transition={{ duration: 0.2 }}
+      >
+        {description}
+      </MotionText>
     </>
   );
 };

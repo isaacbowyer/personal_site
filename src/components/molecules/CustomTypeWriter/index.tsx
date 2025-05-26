@@ -9,16 +9,13 @@ interface IProps {
 
 export const CustomTypeWriter = ({ staticLabel, animatedWords }: IProps) => {
   return (
-    <Chakra.Text
-      color="black"
-      fontWeight="bold"
-      fontSize={{ base: "xl", md: "2xl" }}
-    >
+    <Chakra.Text color="gray.300" fontWeight="light" fontSize={"2xl"}>
       {staticLabel}{" "}
       <Chakra.Box
         as="span"
         display="inline-block"
         borderBottom="2px solid"
+        color={theme.colors.blue.vivid}
         borderColor={theme.colors.blue.vivid}
         whiteSpace="nowrap"
       >

@@ -11,6 +11,7 @@ const HOME_LINK = "/#home";
 
 const PROJECT_LINKS = {
   OCCUPATIONAL_HEALTH_APP: "/projects/project/1/",
+  GAI_TRANSLATE: "https://www.gaitranslate.ai/",
 };
 
 export const LINKS = {

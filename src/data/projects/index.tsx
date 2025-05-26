@@ -7,7 +7,7 @@ export const PROJECTS: IProject[] = [
     id: 1,
     title: "Occupational Health App",
     description:
-      "A cross-platform mobile application designed to support individuals recovering from Long COVID",
+      "A cross-platform mobile app developed for ELAROS to assist individuals recovering from Long COVID, helping them regain their health and return to work effectively.",
     overview:
       "A Dissertation mobile application in collaboration with ELAROS, this mobile app supports individuals recovering from Long COVID by enabling self-management and facilitating their return to work. Built using React Native and Firebase, I focused on cross-platform compatibility, responsive UI/UX, and clean architecture principles. Following the success of this POC, the client integrated it into their production pipeline.",
     images: {
@@ -38,6 +38,36 @@ export const PROJECTS: IProject[] = [
   },
   {
     id: 2,
+    title: "GAI Translate",
+    description:
+      "An AI-powered tool that streamlined translation workflows and expert reviews in 60+ languages for B2B clients. This project became a key revenue-generating asset for Guildhawk.",
+    overview: "",
+    images: {
+      previewImage: "/images/projects/gai_translate/project.png",
+      featuredImage: "",
+      galleryImages: [],
+    },
+    technologies: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Chakra UI",
+      "Python",
+      "Django",
+      "OpenAI",
+      "Azure",
+    ],
+    backgroundColor: theme.colors.gradients.purple,
+    link: LINKS.PROJECTS.GAI_TRANSLATE,
+    category: "Web Apps",
+    clientFeedback: {
+      comment: "",
+      name: "",
+      role: "",
+    },
+  },
+  {
+    id: 3,
     title: "Personal Website",
     description:
       "A professional personal portfolio website designed to highlight my projects, demonstrate my expertise, present my work experience, and provide easy access to contact information.",

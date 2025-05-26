@@ -8,6 +8,7 @@ import NextLink from "next/link";
 interface IProps {
   isHovered: boolean;
   href?: string;
+  size?: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
@@ -15,6 +16,7 @@ interface IProps {
 export const CustomLogo = ({
   isHovered,
   href = LINKS.HOME,
+  size = "60px",
   onMouseEnter,
   onMouseLeave,
 }: IProps) => {
@@ -33,13 +35,10 @@ export const CustomLogo = ({
     >
       <Chakra.HStack gap={4}>
         <Chakra.Image
-          src={validateOptionsBasedOnBoolean(
-            isHovered,
-            "/logos/icon-dark.png",
-            "/logos/icon-light.png"
-          )}
-          width="70px"
-          height="70px"
+          src={"/logos/logo-light.png"}
+          width={size}
+          height={size}
+          borderRadius={16}
         />
       </Chakra.HStack>
       <Chakra.VStack
@@ -52,13 +51,13 @@ export const CustomLogo = ({
           fontWeight="bold"
           color={validateOptionsBasedOnBoolean(
             isHovered,
-            theme.colors.blue.dark,
-            theme.colors.blue.vivid
+            theme.colors.blue.light,
+            theme.colors.white
           )}
         >
           ISAAC BOWYER
         </CustomText.Medium>
-        <CustomText.Small color={theme.colors.gray.medium}>
+        <CustomText.Small color={theme.colors.gray.light}>
           BSc COMPUTER SCIENCE
         </CustomText.Small>
       </Chakra.VStack>

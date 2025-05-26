@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   comment: string;

@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 interface IProps {
   href: string;
   label: string;
+  bgGradient?: string;
+  hoverBgGradient?: string;
   icon?: ReactNode;
   isDownload?: boolean;
 }
@@ -12,6 +14,8 @@ export const ButtonLink = ({
   href,
   label,
   icon,
+  bgGradient = "linear-gradient(to right, #63B3ED, #9F7AEA)",
+  hoverBgGradient = "linear-gradient(to right, #3182CE, #805AD5)",
   isDownload = false,
 }: IProps) => {
   return (
@@ -23,9 +27,9 @@ export const ButtonLink = ({
       <Chakra.Button
         pt="4"
         size="lg"
-        backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
+        backgroundGradient={bgGradient}
         _hover={{
-          bgGradient: "linear-gradient(to right, #3182CE, #805AD5)",
+          bgGradient: hoverBgGradient,
           transform: "scale(1.05)",
         }}
         color="white"

@@ -4,8 +4,8 @@ import { ICategoryCount } from "@/interfaces/ICategoryCount";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   categories: ICategory[];

@@ -1,18 +1,20 @@
 import { useIsMobileContext } from "@/context/useIsMobile";
 import { PROJECTS } from "@/data/projects";
 import { IClientFeedback } from "@/interfaces/IClientFeedback";
-import { findItemById } from "@/utils/findProjectById";
+import { findItemByName } from "@/utils/findProjectById";
+import { transformProductQueryUrl } from "@/utils/transformProductQueryUrl";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export const usePageProject = () => {
   const { isMobile } = useIsMobileContext();
   const router = useRouter();
-  const projectId = Number(router.query.id);
-  const project = findItemById(PROJECTS, projectId);
+  const queryProject = String(router.query.slug);
+  const projectName = transformProductQueryUrl(queryProject);
+  const project = findItemByName(PROJECTS, projectName);
 
   useEffect(() => {
-    if (!project || project.id !== 1) {
+    if (!project || project.title !== projectName) {
       router.replace("/404");
     }
   }, [project, router]);
@@ -22,6 +24,7 @@ export const usePageProject = () => {
     name: project?.clientFeedback?.name || "",
     role: project?.clientFeedback?.role || "",
   };
+
   return {
     state: {
       isMobile: isMobile,

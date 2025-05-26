@@ -7,7 +7,7 @@ interface IProps {
   description: string;
 }
 
-const MotionText = motion(Chakra.Text);
+const MotionText = motion.create(Chakra.Text);
 
 export const ExpertiseContentContainer = ({ title, description }: IProps) => {
   return (

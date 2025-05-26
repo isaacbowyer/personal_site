@@ -1,6 +1,6 @@
-export const findItemById = <T extends { id: number }>(
+export const findItemByName = <T extends { title: string }>(
   items: T[],
-  id: number
+  title: string
 ): T | undefined => {
-  return items.find((item) => item.id === id);
+  return items.find((item) => item.title === title);
 };

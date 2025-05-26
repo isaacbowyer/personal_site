@@ -9,7 +9,7 @@ export const PROJECTS: IProject[] = [
     description:
       "A cross-platform mobile app developed for ELAROS to assist individuals recovering from Long COVID, helping them regain their health and return to work effectively.",
     overview:
-      "A Dissertation mobile application in collaboration with ELAROS, this mobile app supports individuals recovering from Long COVID by enabling self-management and facilitating their return to work. Built using React Native and Firebase, I focused on cross-platform compatibility, responsive UI/UX, and clean architecture principles. Following the success of this POC, the client integrated it into their production pipeline.",
+      "A dissertation mobile application developed in collaboration with ELAROS. This solution supports individuals recovering from Long COVID through self-assessments and facilitating their successful return to work. \n\n Built using React Native and Firebase, I focused on delivering cross-platform compatibility, responsive UI/UX design, and clean architecture principles like atomic design. The PoC received strong client feedback and was later integrated into the final product.",
     images: {
       previewImage: "/images/projects/occupational_health_app/project.png",
       featuredImage: "/images/projects/occupational_health_app/featured.png",

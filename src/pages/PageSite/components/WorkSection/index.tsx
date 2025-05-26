@@ -8,7 +8,7 @@ interface IProps {
   experienceItems: IWorkExperience[];
 }
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const WorkSection = ({ experienceItems }: IProps) => {
   return (

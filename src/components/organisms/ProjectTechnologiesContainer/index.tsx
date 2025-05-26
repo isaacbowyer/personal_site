@@ -1,7 +1,7 @@
 import * as Chakra from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionBadge = motion(Chakra.Badge);
+const MotionBadge = motion.create(Chakra.Badge);
 
 interface IProps {
   shouldShowAllTags: boolean;

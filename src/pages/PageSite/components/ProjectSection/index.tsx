@@ -14,7 +14,7 @@ interface IProps {
   handleSetActiveFilter: (category: ICategory) => void;
 }
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const ProjectSection = ({
   projects,

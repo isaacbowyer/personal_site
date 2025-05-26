@@ -8,9 +8,9 @@ import {
 } from "@/interfaces/IWorkExperienceSkills";
 import { BiCode } from "react-icons/bi";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionHStack = motion(Chakra.HStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionHStack = motion.create(Chakra.HStack);
+const MotionBox = motion.create(Chakra.Box);
 
 const skillCategoryColors = {
   frontend: {

@@ -3,7 +3,7 @@ import { CustomText } from "../../atoms/CustomText";
 import * as Chakra from "@chakra-ui/react";
 import { theme } from "@/theme";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   title: string;

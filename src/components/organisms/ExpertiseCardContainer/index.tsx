@@ -10,7 +10,7 @@ interface IProps {
   items: IExpertiseArea[];
 }
 
-const MotionGrid = motion(Chakra.Grid);
+const MotionGrid = motion.create(Chakra.Grid);
 
 const containerVariants = {
   hidden: {

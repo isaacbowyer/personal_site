@@ -1,7 +1,7 @@
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionAvatarRoot = motion(Chakra.Avatar.Root);
+const MotionAvatarRoot = motion.create(Chakra.Avatar.Root);
 
 interface IProps {
   src: string;

@@ -18,8 +18,8 @@ interface IProps {
   tags: string[];
 }
 
-const MotionBox = motion(Chakra.Box);
-const MotionIcon = motion(Chakra.Icon);
+const MotionBox = motion.create(Chakra.Box);
+const MotionIcon = motion.create(Chakra.Icon);
 
 export const ExpertiseCard = ({
   id,

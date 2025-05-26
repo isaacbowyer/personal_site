@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { keyframes } from "@emotion/react";
 import { CodeBackground } from "@/components/molecules/CodeBackground";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 const spinSlow = keyframes`
   0% { transform: rotate(0deg) }

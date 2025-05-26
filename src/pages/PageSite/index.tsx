@@ -6,7 +6,6 @@ import { ProjectSection } from "./components/ProjectSection";
 import { WorkSection } from "./components/WorkSection";
 import { usePageSite } from "@/hooks/usePageSite";
 import { ContactSection } from "./components/ContactSection";
-import { theme } from "@/theme";
 
 export const PageSite = () => {
   const { state, methods } = usePageSite();

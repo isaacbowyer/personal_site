@@ -1,12 +1,10 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IProject } from "@/interfaces/IProject";
 import { ICategory } from "@/interfaces/ICategory";
 import { ICategoryCount } from "@/interfaces/ICategoryCount";
 import { AdvancedProjectFilter } from "@/components/organisms/AdvancedProjectFilter";
 import { ProjectsCardContainer } from "@/components/organisms/ProjectCardContainer";
 import { motion } from "framer-motion";
-import { theme } from "@/theme";
 
 interface IProps {
   projects: IProject[];
@@ -68,8 +66,9 @@ export const ProjectSection = ({
             />
 
             <Chakra.Text color="gray.300" fontSize="lg">
-              Innovative solutions I've designed and developed, showcasing
-              real-world applications of my technical skills.
+              {
+                "Innovative solutions I've designed and developed, showcasing real-world applications of my technical skills."
+              }
             </Chakra.Text>
           </Chakra.VStack>
         </MotionBox>

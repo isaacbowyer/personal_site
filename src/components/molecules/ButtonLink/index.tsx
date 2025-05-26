@@ -1,5 +1,3 @@
-import { CustomButton } from "@/components/atoms/CustomButton";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { ReactNode } from "react";
 

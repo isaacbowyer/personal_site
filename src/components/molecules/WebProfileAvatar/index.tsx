@@ -5,7 +5,6 @@ import { getHexPoints } from "@/utils/getHexPoints";
 import { getTopPathForProfileBorder } from "@/utils/getTopPathForProfileBorder";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import { useState, useEffect, useRef } from "react";
-import NextLink from "next/link";
 
 interface IProps {
   src?: string;

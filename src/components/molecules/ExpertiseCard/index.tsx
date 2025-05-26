@@ -1,5 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
 import { theme } from "@/theme";

@@ -1,5 +1,3 @@
-import { theme } from "@/theme";
-
 interface IProps {
   hoveredLabel: string;
   label: string;

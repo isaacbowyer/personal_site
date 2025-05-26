@@ -57,7 +57,7 @@ export const ProjectsCardContainer = ({ projects, activeFilter }: IProps) => {
       viewport={{ once: true, amount: 0.2 }}
       key={activeFilter}
     >
-      {projects.map((project, index) => (
+      {projects.map((project) => (
         <MotionBox
           key={project.id}
           variants={cardVariants}

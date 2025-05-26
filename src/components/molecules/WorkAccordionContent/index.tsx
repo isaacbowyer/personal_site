@@ -107,7 +107,7 @@ export const WorkAccordionContent = ({
           </Chakra.VStack>
 
           <Chakra.VStack alignItems="flex-start" width="full" height="full">
-            <Chakra.HStack gap={2}>
+            <Chakra.HStack gap={2} align={"center"}>
               <BiCode size={24} className="text-gray-600" />
               <CustomText.Header fontWeight="bold">
                 Technologies

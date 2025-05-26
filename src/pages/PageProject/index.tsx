@@ -24,13 +24,13 @@ export const PageProject = () => {
             overview={state.overview}
           />
 
-          {/* <ProjectGallerySection images={state.galleryImageUrls} />
+          <ProjectGallerySection images={state.galleryImageUrls} />
 
-          <ProjectClientSection
+          {/* <ProjectClientSection
             clientName={state.clientFeedback.name}
             clientRole={state.clientFeedback.role}
             comment={state.clientFeedback.comment}
-          /> */}
+          />  */}
         </Chakra.VStack>
       }
     />

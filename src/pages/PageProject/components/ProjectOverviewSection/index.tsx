@@ -1,9 +1,8 @@
 import { CustomText } from "@/components/atoms/CustomText";
-import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
+import { ProductTechStack } from "@/components/organisms/ProductTechStack";
 import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { BiCode } from "react-icons/bi";
 
 interface IProps {
@@ -11,8 +10,6 @@ interface IProps {
   technologies: string[];
 }
 
-const MotionVStack = motion.create(Chakra.VStack);
-const MotionHStack = motion.create(Chakra.HStack);
 const MotionBox = motion.create(Chakra.Box);
 
 export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
@@ -33,7 +30,7 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
         background: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(102,126,234,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');`,
       }}
     >
-      <Chakra.VStack id="overview" w="full" maxW="1200px" minH="100vh" gap={8}>
+      <Chakra.VStack id="overview" w="full" maxW="1200px" gap={8}>
         <MotionBox
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,8 +70,8 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
           opacity={1}
           p={8}
           rounded="lg"
-          borderLeftWidth="4px"
-          borderLeftColor="blue.400"
+          borderX="4px solid"
+          borderColor="blue.400"
           mb={6}
           width="full"
           zIndex={1}
@@ -87,7 +84,7 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
         <Chakra.HStack
           gap={2}
           textAlign={{ base: "center", md: "start" }}
-          align={{ base: "center", md: "start" }}
+          align={"center"}
           justifyContent={{ base: "center", md: "start" }}
           w="full"
         >
@@ -96,6 +93,8 @@ export const ProjectOverviewSection = ({ overview, technologies }: IProps) => {
             Technologies & Tools
           </CustomText.Header>
         </Chakra.HStack>
+
+        <ProductTechStack technologies={technologies} />
       </Chakra.VStack>
     </Chakra.VStack>
   );

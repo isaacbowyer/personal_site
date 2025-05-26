@@ -31,6 +31,7 @@ export const WorkAccordion = ({ workItem, index }: IProps) => {
       {/* HEADER */}
       <WorkAccordionHeader
         title={workItem.title}
+        company={workItem.company}
         location={workItem.location}
         period={workItem.period}
         isOpen={isOpen}

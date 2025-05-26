@@ -32,10 +32,10 @@ export const PageSite = () => {
 
           <WorkSection experienceItems={state.workItems} />
 
-          {/* <ContactSection
+          <ContactSection
             contactItems={state.contactItems}
             handleOnClick={methods.handleClickContactItem}
-          />   */}
+          />
         </Chakra.VStack>
       }
     />

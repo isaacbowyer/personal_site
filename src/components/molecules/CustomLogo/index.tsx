@@ -35,13 +35,10 @@ export const CustomLogo = ({
     >
       <Chakra.HStack gap={4}>
         <Chakra.Image
-          src={validateOptionsBasedOnBoolean(
-            isHovered,
-            "/logos/icon-light.png",
-            "/logos/icon-white.png"
-          )}
+          src={"/logos/logo-light.png"}
           width={size}
           height={size}
+          borderRadius={16}
         />
       </Chakra.HStack>
       <Chakra.VStack

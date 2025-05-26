@@ -10,7 +10,7 @@ interface IProps {
 }
 
 export const MobileProfileAvatar = ({
-  src = "images/profile2.png",
+  src = "images/profile.png",
   size = 180,
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);

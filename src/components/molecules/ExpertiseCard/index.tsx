@@ -37,7 +37,7 @@ export const ExpertiseCard = ({
   const cardVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.95,
+      scale: 0.3,
       y: 20,
     },
     visible: {
@@ -45,8 +45,13 @@ export const ExpertiseCard = ({
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smoother animation
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        scale: {
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+        },
       },
     },
     hover: {
@@ -72,17 +77,18 @@ export const ExpertiseCard = ({
 
   return (
     <MotionBox
+      custom={id}
       variants={cardVariants}
       initial="hidden"
       animate="visible"
       whileHover="hover"
-      layoutId={`card-${id}`} // Simplified layoutId
+      layoutId={`card-${id}`}
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       cursor="pointer"
       position="relative"
-      overflow="visible" // Changed back to visible for chevron visibility
+      overflow="visible"
       bg="white"
       p="1.5rem"
       borderRadius="0.75rem"
@@ -97,7 +103,6 @@ export const ExpertiseCard = ({
       transitionDuration="0.2s"
       transitionTimingFunction="ease"
     >
-      {/* Background overlay with better animation */}
       <MotionBox
         position="absolute"
         inset={0}
@@ -109,7 +114,6 @@ export const ExpertiseCard = ({
         borderRadius="0.75rem"
       />
 
-      {/* Improved chevron button */}
       <MotionBox
         boxSize={{ base: "2rem", md: "2.5rem" }}
         position="absolute"
@@ -140,14 +144,7 @@ export const ExpertiseCard = ({
         />
       </MotionBox>
 
-      <Chakra.HStack
-        alignItems="flex-start"
-        gap={4}
-        width="full"
-        position="relative"
-        zIndex={1}
-      >
-        {/* Icon container with hover effect */}
+      <Chakra.HStack alignItems="flex-start" gap={4} width="full">
         <MotionBox
           padding={4}
           borderRadius={10}
@@ -165,33 +162,7 @@ export const ExpertiseCard = ({
         <Chakra.VStack alignItems="flex-start" width="full" gap={3}>
           <ExpertiseContentContainer title={title} description={description} />
 
-          {/* Improved tags animation */}
-          <AnimatePresence mode="wait">
-            {isActive && (
-              <motion.div
-                initial={{ opacity: 0, height: 0, y: -10 }}
-                animate={{
-                  opacity: 1,
-                  height: "auto",
-                  y: 0,
-                  transition: {
-                    duration: 0.3,
-                    ease: "easeOut",
-                    height: { duration: 0.2 },
-                  },
-                }}
-                exit={{
-                  opacity: 0,
-                  height: 0,
-                  y: -10,
-                  transition: { duration: 0.2 },
-                }}
-                style={{ width: "100%", overflow: "hidden" }}
-              >
-                <ExpertiseTagContainer tags={tags} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {isActive && <ExpertiseTagContainer tags={tags} />}
         </Chakra.VStack>
       </Chakra.HStack>
     </MotionBox>

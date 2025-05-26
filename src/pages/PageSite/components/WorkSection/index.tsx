@@ -1,5 +1,4 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
 import { theme } from "@/theme";
 import { WorkItemsContainer } from "@/components/organisms/WorkItemsContainer";

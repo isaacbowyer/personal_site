@@ -17,7 +17,7 @@ export const ExpertiseContentContainer = ({ title, description }: IProps) => {
         fontWeight="bold"
         marginBottom={1}
         color={theme.colors.black}
-        width="90%"
+        width="80%"
         whileHover={{ x: 2 }}
         transition={{ duration: 0.2 }}
       >

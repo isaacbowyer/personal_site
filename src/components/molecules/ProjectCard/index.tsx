@@ -29,8 +29,8 @@ export const ProjectCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
 
-  const headerHeight = showAllTags ? "300px" : "250px";
-  const isMobile = Chakra.useBreakpointValue({ base: true, md: false });
+  const headerHeight = showAllTags ? "320px" : "250px";
+  const isMobile = Chakra.useBreakpointValue({ base: true, sm: false });
 
   return (
     <Link href={link} passHref>

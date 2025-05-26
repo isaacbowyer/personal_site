@@ -45,7 +45,7 @@ const buttonColors = {
 
 const gradients = {
   sunset:
-    "linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4, #fbc7a4, #f6d365)",
+    "linear-gradient(to bottom, #ff7f50, #ff944d, #ffab66, #ffc285, #ffd8a3)",
   light_blue: "linear-gradient(to bottom, #4A90E2, #7AB8F5, #B3D9FF)",
   blue: "linear-gradient(to bottom right, #3b82f6, #22d3ee)",
   purple: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",

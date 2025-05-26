@@ -14,7 +14,7 @@ interface IProps {
 }
 
 export const WebProfileAvatar = ({
-  src = "images/profile2.png",
+  src = "images/profile.png",
   alt = "profile image",
   borderWidth = 10,
   gap = 12,
@@ -181,7 +181,7 @@ export const WebProfileAvatar = ({
           href={src}
           width="490"
           height="720"
-          x="30"
+          x="45"
           y="0"
           preserveAspectRatio="xMidYMid slice"
           clipPath="url(#hexRevealClip)"

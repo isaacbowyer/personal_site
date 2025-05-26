@@ -13,10 +13,14 @@ interface IProps {
 const MotionGrid = motion(Chakra.Grid);
 
 const containerVariants = {
-  hidden: {},
+  hidden: {
+    opacity: 0,
+  },
   visible: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      duration: 0.4,
+      staggerChildren: 0.2,
       delayChildren: 0.1,
     },
   },
@@ -35,7 +39,6 @@ export const ExpertiseCardContainer = ({
       overflow="visible"
     >
       <MotionGrid
-        as={motion.div}
         layout
         width="100%"
         maxWidth="1200px"
@@ -45,9 +48,8 @@ export const ExpertiseCardContainer = ({
         gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
-        transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
       >
         {items.map((expertise) => (
           <ExpertiseCard

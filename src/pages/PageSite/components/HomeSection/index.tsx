@@ -44,6 +44,7 @@ export const HomeSection = () => {
       width="full"
       backgroundGradient="linear-gradient(to bottom right, #1a202c, #2d3748, #1a202c)"
       position="relative"
+      px={4}
     >
       <Chakra.Box
         position="absolute"

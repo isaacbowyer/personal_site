@@ -4,8 +4,9 @@ import { HomeSection } from "./components/HomeSection";
 import { ExpertiseSection } from "./components/ExpertiseSection";
 import { ProjectSection } from "./components/ProjectSection";
 import { WorkSection } from "./components/WorkSection";
-import { ContactSection } from "./components/ContactSection";
 import { usePageSite } from "@/hooks/usePageSite";
+import { ContactSection } from "./components/ContactSection";
+import { theme } from "@/theme";
 
 export const PageSite = () => {
   const { state, methods } = usePageSite();
@@ -13,7 +14,7 @@ export const PageSite = () => {
   return (
     <TemplateContainer
       main={
-        <Chakra.VStack w="full" h="full">
+        <Chakra.VStack w="full" h="full" gap={0}>
           <HomeSection />
 
           <ExpertiseSection

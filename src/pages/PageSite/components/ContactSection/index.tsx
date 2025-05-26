@@ -1,9 +1,7 @@
 import * as Chakra from "@chakra-ui/react";
-import { AnimatedTitleWithHeader } from "@/components/molecules/AnimatedTitleWithHeader";
 import { IContact } from "@/interfaces/IContact";
 import { ContactCardContainer } from "@/components/organisms/ContactCardContainer";
 import { motion } from "framer-motion";
-import { keyframes } from "@emotion/react";
 import { ParticleBackground } from "@/components/molecules/ParticleBackground";
 
 interface IProps {
@@ -20,6 +18,7 @@ export const ContactSection = ({ contactItems, handleOnClick }: IProps) => {
       position="relative"
       py={8}
       px={4}
+      id="contact"
     >
       <ParticleBackground />
       <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>

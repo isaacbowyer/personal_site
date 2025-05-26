@@ -72,7 +72,7 @@ export const HomeSection = () => {
         display={{ sm: "none", md: "flex" }}
       />
 
-      <Chakra.HStack w="full" maxW="1200px" mx="auto">
+      <Chakra.HStack w="full" maxW="1200px" mx="auto" id="nav">
         {isDrawer ? <MobileNavBar /> : <WebNavBar />}
       </Chakra.HStack>
 

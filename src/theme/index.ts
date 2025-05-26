@@ -50,7 +50,7 @@ const gradients = {
   blue: "linear-gradient(to bottom right, #3b82f6, #22d3ee)",
   purple: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",
   orange: "linear-gradient(to bottom right, #f59e0b, #fb923c)",
-  gray: "linear-gradient(to bottom right,#f9fafb,#f3f4f6)",
+  gray: "linear-gradient(to bottom right, #f9fafb, #f3f4f6)",
 };
 
 export const theme = {

@@ -5,6 +5,7 @@ import { getHexPoints } from "@/utils/getHexPoints";
 import { getTopPathForProfileBorder } from "@/utils/getTopPathForProfileBorder";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import { useState, useEffect, useRef } from "react";
+import NextLink from "next/link";
 
 interface IProps {
   src?: string;
@@ -69,124 +70,138 @@ export const WebProfileAvatar = ({
   const polygonPoints = innerPoints.map(([x, y]) => `${x},${y}`).join(" ");
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width,
-        height,
-        userSelect: "none",
-        transition: "all 0.3s ease",
-      }}
-      aria-label={alt}
-      role="img"
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.05)";
-        setIsHovered(true);
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        setIsHovered(false);
+    <Chakra.Link
+      href={"#contact"}
+      _focus={{ boxShadow: "none", outline: "none" }}
+      _hover={{
+        textDecoration: "none",
       }}
     >
-      {/* Border Layer */}
-      <svg
-        width={width}
-        height={height}
+      <div
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 2,
-          overflow: "visible",
+          position: "relative",
+          width,
+          height,
+          userSelect: "none",
+          transition: "all 0.3s ease",
+        }}
+        aria-label={alt}
+        role="img"
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.05)";
+          setIsHovered(true);
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+          setIsHovered(false);
         }}
       >
-        <defs>
-          <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow
-              dx="0"
-              dy="2"
-              stdDeviation="3"
-              floodColor="#000"
-              floodOpacity="0.25"
-            />
-          </filter>
-        </defs>
-
-        {/* Top and bottom borders */}
-        <path
-          ref={topPathRef}
-          d={getTopPathForProfileBorder(outerPoints, shortStrokeLength)}
-          fill="none"
-          stroke={validateOptionsBasedOnBoolean(
-            isHovered,
-            borderColorHover,
-            borderColorNormal
-          )}
-          strokeWidth={borderWidth}
-          strokeLinejoin="round"
-          strokeLinecap="round"
-          filter="url(#dropShadow)"
+        {/* Border Layer */}
+        <svg
+          width={width}
+          height={height}
           style={{
-            strokeDasharray: 0,
-            strokeDashoffset: 0,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 2,
+            overflow: "visible",
           }}
-        />
-        <path
-          ref={bottomPathRef}
-          d={getBottomPathForProfileBorder(outerPoints, shortStrokeLength)}
-          fill="none"
-          stroke={validateOptionsBasedOnBoolean(
-            isHovered,
-            borderColorHover,
-            borderColorNormal
-          )}
-          strokeWidth={borderWidth}
-          strokeLinejoin="round"
-          strokeLinecap="round"
-          filter="url(#dropShadow)"
+        >
+          <defs>
+            <filter
+              id="dropShadow"
+              x="-20%"
+              y="-20%"
+              width="140%"
+              height="140%"
+            >
+              <feDropShadow
+                dx="0"
+                dy="2"
+                stdDeviation="3"
+                floodColor="#000"
+                floodOpacity="0.25"
+              />
+            </filter>
+          </defs>
+
+          {/* Top and bottom borders */}
+          <path
+            ref={topPathRef}
+            d={getTopPathForProfileBorder(outerPoints, shortStrokeLength)}
+            fill="none"
+            stroke={validateOptionsBasedOnBoolean(
+              isHovered,
+              borderColorHover,
+              borderColorNormal
+            )}
+            strokeWidth={borderWidth}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            filter="url(#dropShadow)"
+            style={{
+              strokeDasharray: 0,
+              strokeDashoffset: 0,
+            }}
+          />
+          <path
+            ref={bottomPathRef}
+            d={getBottomPathForProfileBorder(outerPoints, shortStrokeLength)}
+            fill="none"
+            stroke={validateOptionsBasedOnBoolean(
+              isHovered,
+              borderColorHover,
+              borderColorNormal
+            )}
+            strokeWidth={borderWidth}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            filter="url(#dropShadow)"
+            style={{
+              strokeDasharray: 0,
+              strokeDashoffset: 0,
+            }}
+          />
+        </svg>
+
+        {/* Image with animated hex reveal */}
+        <svg
+          width={width}
+          height={height}
           style={{
-            strokeDasharray: 0,
-            strokeDashoffset: 0,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 3,
+            overflow: "visible",
           }}
-        />
-      </svg>
+        >
+          <defs>
+            <clipPath id="hexRevealClip">
+              <polygon
+                points={polygonPoints}
+                style={{
+                  transformOrigin: "center center",
+                  transformBox: "fill-box",
+                  transform: animated ? "scale(1)" : "scale(0)",
+                  transition: "transform 1s ease-out",
+                }}
+              />
+            </clipPath>
+          </defs>
 
-      {/* Image with animated hex reveal */}
-      <svg
-        width={width}
-        height={height}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 3,
-          overflow: "visible",
-        }}
-      >
-        <defs>
-          <clipPath id="hexRevealClip">
-            <polygon
-              points={polygonPoints}
-              style={{
-                transformOrigin: "center center",
-                transformBox: "fill-box",
-                transform: animated ? "scale(1)" : "scale(0)",
-                transition: "transform 1s ease-out",
-              }}
-            />
-          </clipPath>
-        </defs>
-
-        <image
-          href={src}
-          width="490"
-          height="720"
-          x="45"
-          y="0"
-          preserveAspectRatio="xMidYMid slice"
-          clipPath="url(#hexRevealClip)"
-        />
-      </svg>
-    </div>
+          <image
+            href={src}
+            width="490"
+            height="720"
+            x="45"
+            y="0"
+            preserveAspectRatio="xMidYMid slice"
+            clipPath="url(#hexRevealClip)"
+          />
+        </svg>
+      </div>
+    </Chakra.Link>
   );
 };

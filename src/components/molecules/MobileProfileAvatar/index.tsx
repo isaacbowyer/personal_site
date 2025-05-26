@@ -16,28 +16,36 @@ export const MobileProfileAvatar = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Chakra.Center
-      marginTop="20px"
-      position="relative"
-      w={`${size}px`}
-      h={`${size}px`}
-      onMouseEnter={() => {
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
+    <Chakra.Link
+      href={"#contact"}
+      _focus={{ boxShadow: "none", outline: "none" }}
+      _hover={{
+        textDecoration: "none",
       }}
     >
-      <CustomAvatar size={size} src={src} />
+      <Chakra.Center
+        marginTop="20px"
+        position="relative"
+        w={`${size}px`}
+        h={`${size}px`}
+        onMouseEnter={() => {
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+        }}
+      >
+        <CustomAvatar size={size} src={src} />
 
-      {["top", "bottom", "left", "right"].map((pos, i) => (
-        <AnimatedBorder
-          key={pos}
-          position={pos as IBorderPostion}
-          isHovered={isHovered}
-          delay={i * 0.3}
-        />
-      ))}
-    </Chakra.Center>
+        {["top", "bottom", "left", "right"].map((pos, i) => (
+          <AnimatedBorder
+            key={pos}
+            position={pos as IBorderPostion}
+            isHovered={isHovered}
+            delay={i * 0.3}
+          />
+        ))}
+      </Chakra.Center>
+    </Chakra.Link>
   );
 };

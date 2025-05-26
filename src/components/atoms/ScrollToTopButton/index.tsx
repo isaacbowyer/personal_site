@@ -35,9 +35,9 @@ export const ScrollToTopButton = ({
   }, [scrollContainer]);
 
   const scrollToTop = () => {
-    const homeElement = document.getElementById("home");
-    if (homeElement) {
-      homeElement.scrollIntoView({ behavior: "smooth" });
+    const topElement = document.getElementById("nav");
+    if (topElement) {
+      topElement.scrollIntoView({ behavior: "smooth" });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

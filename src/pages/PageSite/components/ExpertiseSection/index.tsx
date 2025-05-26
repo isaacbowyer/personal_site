@@ -20,7 +20,7 @@ export const ExpertiseSection = ({
   return (
     <Chakra.VStack
       width="full"
-      background={theme.colors.gradients.gray}
+      backgroundGradient={theme.colors.gradients.gray}
       id="expertise"
     >
       <Chakra.VStack w="full" maxW="1200px" gap={8} py={8} px={4}>

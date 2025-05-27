@@ -1,6 +1,6 @@
-import * as React from "react";
 import * as Chakra from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
+import { ClientAvatar } from "../ClientAvatar";
 
 const cardFloat = keyframes`
   0%, 100% { transform: translateY(0px); }
@@ -16,14 +16,12 @@ interface IProps {
   comment: string;
   clientName: string;
   clientRole: string;
-  clientInitals: string;
 }
 
 export const TestimonialCard = ({
   comment,
   clientName,
   clientRole,
-  clientInitals,
 }: IProps) => {
   return (
     <Chakra.Box
@@ -37,7 +35,6 @@ export const TestimonialCard = ({
       overflow="hidden"
       animation={`${cardFloat} 6s ease-in-out infinite`}
     >
-      {/* Quote Mark */}
       <Chakra.Text
         fontSize="4rem"
         color="#77C7FF"
@@ -60,34 +57,7 @@ export const TestimonialCard = ({
         {comment}
       </Chakra.Text>
 
-      <Chakra.Flex
-        align="center"
-        justify="center"
-        gap={4}
-        direction={{ base: "column", md: "row" }}
-      >
-        {/* Avatar */}
-        <Chakra.Center
-          w={{ base: "60px", md: "80px" }}
-          h={{ base: "60px", md: "80px" }}
-          borderRadius="50%"
-          background="#f8f9fa"
-          fontSize={{ base: "xl", md: "2xl" }}
-          fontWeight="bold"
-          color="#77C7FF"
-        >
-          {clientInitals}
-        </Chakra.Center>
-
-        <Chakra.Box textAlign={{ base: "center", md: "start" }} gap={2}>
-          <Chakra.Text as="h3" fontSize="xl" fontWeight="bold">
-            {clientName}
-          </Chakra.Text>
-          <Chakra.Text color="#94a3b8" fontSize="lg">
-            {clientRole}
-          </Chakra.Text>
-        </Chakra.Box>
-      </Chakra.Flex>
+      <ClientAvatar name={clientName} role={clientRole} />
     </Chakra.Box>
   );
 };

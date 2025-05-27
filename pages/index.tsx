@@ -1,7 +1,7 @@
-import { PageSite } from "@/pages/PageSite";
+import { PageMain } from "@/pages/PageMain";
 
 const index = () => {
-  return <PageSite />;
+  return <PageMain />;
 };
 
 export default index;

@@ -1,5 +1,7 @@
 import { ICategory } from "@/interfaces/ICategory";
 import { ICategoryCount } from "@/interfaces/ICategoryCount";
+import { getFilterBtnBadgeStyles } from "@/utils/getFilterBtnBadgeStyles";
+import { getFilterBtnStyles } from "@/utils/getFilterBtnStyles";
 import * as Chakra from "@chakra-ui/react";
 
 interface IProps {
@@ -17,6 +19,9 @@ export const FilterCategoryButton = ({
 }: IProps) => {
   const isActive = activeFilter === item;
 
+  const { normalState, hoverState } = getFilterBtnStyles(isActive);
+
+  const { color, bgColor } = getFilterBtnBadgeStyles(isActive);
   return (
     <Chakra.WrapItem>
       <Chakra.Button
@@ -25,26 +30,18 @@ export const FilterCategoryButton = ({
         px={6}
         py={3}
         border="1px solid"
-        borderColor={isActive ? "transparent" : "rgba(255, 255, 255, 0.1)"}
-        bg={
-          isActive
-            ? "linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 212, 0.2))"
-            : "rgba(255, 255, 255, 0.05)"
-        }
+        borderColor={normalState.borderColor}
+        bg={normalState.bgColor}
         backdropFilter="blur(10px)"
-        color={isActive ? "white" : "gray.300"}
-        fontWeight={isActive ? "700" : "500"}
+        color={normalState.color}
+        fontWeight="bold"
         borderRadius="full"
         overflow="hidden"
         _hover={{
-          bg: isActive
-            ? "linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 0, 212, 0.3))"
-            : "rgba(255, 255, 255, 0.1)",
-          borderColor: isActive ? "transparent" : "rgba(255, 255, 255, 0.2)",
+          bg: hoverState.bgColor,
+          borderColor: hoverState.borderColor,
           transform: "translateY(-2px)",
-          shadow: isActive
-            ? "0 10px 30px rgba(0, 212, 255, 0.3)"
-            : "0 5px 20px rgba(255, 255, 255, 0.1)",
+          shadow: hoverState.shadow,
         }}
         _active={{
           transform: "translateY(0px)",
@@ -74,10 +71,8 @@ export const FilterCategoryButton = ({
             {item}
           </Chakra.Text>
           <Chakra.Badge
-            bg={
-              isActive ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"
-            }
-            color={isActive ? "white" : "gray.400"}
+            bg={bgColor}
+            color={color}
             borderRadius="full"
             px={2}
             fontSize="xs"

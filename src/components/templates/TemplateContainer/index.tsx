@@ -1,6 +1,5 @@
 import { ReactNode, useRef } from "react";
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 import { ScrollToTopButton } from "@/components/atoms/ScrollToTopButton";
 interface IProps {
   main: ReactNode;
@@ -16,7 +15,7 @@ export const TemplateContainer = ({ main }: IProps) => {
       h="100vh"
       w="100vw"
       justifyContent="space-between"
-      background={theme.colors.white}
+      background={"#FFF"}
       css={{
         "&::-webkit-scrollbar": {
           width: "8px",
@@ -25,7 +24,7 @@ export const TemplateContainer = ({ main }: IProps) => {
           width: "8px",
         },
         "&::-webkit-scrollbar-thumb": {
-          background: theme.colors.blue.light,
+          background: "#77C7FF",
           borderRadius: "24px",
         },
       }}

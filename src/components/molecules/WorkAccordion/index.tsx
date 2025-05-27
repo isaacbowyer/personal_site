@@ -19,7 +19,6 @@ export const WorkAccordion = ({ workItem, index }: IProps) => {
     amount: 0.9,
   });
 
-  // Auto-open first accordion when scrolled into view (once)
   useEffect(() => {
     if (index === 0 && isInView) {
       setIsOpen(true);

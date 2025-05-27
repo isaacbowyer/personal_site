@@ -1,7 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { LINKS } from "@/data/links";
-import { theme } from "@/theme";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CustomNavLink } from "@/components/atoms/CustomNavLink";
@@ -75,12 +74,12 @@ export const MobileNavBar = () => {
                   href={link.href}
                   label={link.label}
                   color={getCustomLinkColor({
-                    hoverColor: theme.colors.gray.light,
-                    color: theme.colors.black,
+                    hoverColor: "#A1A1A1",
+                    color: "#111",
                     label: link.label,
                     hoveredLabel: hoveredLabel,
                   })}
-                  hoverColor={theme.colors.blue.vivid}
+                  hoverColor={"#228BE6"}
                   shouldTransform={false}
                   onMouseEnter={() => setHoveredLabel(link.label)}
                   onMouseLeave={() => setHoveredLabel("")}

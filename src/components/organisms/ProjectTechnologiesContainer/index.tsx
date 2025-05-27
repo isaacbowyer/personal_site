@@ -6,7 +6,7 @@ const MotionBadge = motion.create(Chakra.Badge);
 interface IProps {
   shouldShowAllTags: boolean;
   technologies: string[];
-  handleChangeShouldShowAllTags: (shouldShow: boolean) => void;
+  handleChangeShouldShowAllTags: () => void;
 }
 
 export const ProjectTechnologiesContainer = ({
@@ -29,7 +29,7 @@ export const ProjectTechnologiesContainer = ({
       onClick={(e) => {
         e.stopPropagation();
         e.preventDefault();
-        handleChangeShouldShowAllTags(!shouldShowAllTags);
+        handleChangeShouldShowAllTags();
       }}
       cursor="pointer"
       pointerEvents="auto"

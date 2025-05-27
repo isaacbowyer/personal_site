@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
 import * as Chakra from "@chakra-ui/react";
 import { useState } from "react";
-import { ProjectTechnologiesContainer } from "@/components/organisms/ProjectTechnologiesContainer";
 import { motion } from "framer-motion";
+import { ProjectCardHeader } from "../ProjectCardHeader";
+import { ProjectCardContent } from "../ProjectCardContent";
+import { useIsMobileContext } from "@/context/useIsMobile";
 
 const MotionVStack = motion.create(Chakra.VStack);
-const MotionBox = motion.create(Chakra.Box);
-
 interface IProps {
   id: number;
   title: string;
@@ -28,10 +27,7 @@ export const ProjectCard = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
-
-  const headerHeight = showAllTags ? "320px" : "250px";
-  const isMobile = Chakra.useBreakpointValue({ base: true, sm: false });
-
+  const { isMobile } = useIsMobileContext();
   return (
     <Link href={link} passHref>
       <MotionVStack
@@ -78,140 +74,24 @@ export const ProjectCard = ({
           borderRadius: "2xl",
         }}
       >
-        <Chakra.Box
-          position="relative"
-          w="full"
-          h={headerHeight}
-          borderTopRadius="2xl"
-          overflow="hidden"
-          bgGradient={backgroundColor || "linear(135deg, #667eea, #764ba2)"}
-          p={6}
-          display="flex"
-          flexDirection="column"
-          justifyContent="space-between"
-        >
-          <ProjectTechnologiesContainer
-            shouldShowAllTags={showAllTags}
-            technologies={technologies}
-            handleChangeShouldShowAllTags={(shouldShow: boolean) =>
-              setShowAllTags(shouldShow)
-            }
-          />
-
-          <Chakra.Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flex={1}
-          >
-            <MotionBox
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              <Chakra.Image
-                src={projectImageUrl}
-                alt={title}
-                objectFit="contain"
-                maxH="160px"
-                maxW="full"
-                borderRadius="lg"
-                shadow="0 8px 25px rgba(0, 0, 0, 0.3)"
-                transition="all 0.3s ease"
-                filter={isHovered ? "brightness(1.1)" : "brightness(1)"}
-              />
-            </MotionBox>
-          </Chakra.Box>
-        </Chakra.Box>
+        <ProjectCardHeader
+          bgColor={backgroundColor}
+          technologies={technologies}
+          imageUrl={projectImageUrl}
+          title={title}
+          isHovered={isHovered}
+          shouldShowAllTags={showAllTags}
+          onClickShowTags={() => setShowAllTags(!showAllTags)}
+        />
 
         {/* Content Section */}
-        <Chakra.VStack
-          align="start"
-          p={8}
-          gap={6}
-          flex="1"
-          position="relative"
-          w="full"
-        >
-          <Chakra.VStack align="start" gap={3} w="full">
-            <Chakra.Text
-              fontSize="2xl"
-              fontWeight="800"
-              lineHeight={1.3}
-              color={isHovered && !isMobile ? "transparent" : "white"}
-              bgGradient={
-                isHovered && !isMobile
-                  ? "linear-gradient(to right, #00D4FF, #FF00D4)"
-                  : "none"
-              }
-              bgClip={isHovered ? "text" : undefined}
-              transition="all 0.3s ease"
-            >
-              {title}
-            </Chakra.Text>
-
-            <Chakra.Box
-              w={isHovered && !isMobile ? "60px" : "30px"}
-              h="2px"
-              bg={isHovered && !isMobile ? "transparent" : "white"}
-              bgGradient={
-                isHovered && !isMobile
-                  ? "linear-gradient(to right, #00D4FF, #FF00D4)"
-                  : undefined
-              }
-              transition="width 0.3s ease, background 0.3s ease"
-            />
-          </Chakra.VStack>
-
-          <Chakra.Text
-            fontSize="md"
-            color="gray.300"
-            lineHeight={1.6}
-            flexGrow={1}
-          >
-            {description}
-          </Chakra.Text>
-
-          {/* View Project Link */}
-          {!!link && (
-            <MotionBox
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isHovered || isMobile ? 1 : 0.7,
-                x: isHovered || isMobile ? 0 : -20,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <Chakra.HStack
-                as="span"
-                color="#00D4FF"
-                gap={2}
-                fontWeight="700"
-                fontSize="sm"
-                textTransform="uppercase"
-                letterSpacing="1px"
-                p={3}
-                borderRadius="full"
-                bg="rgba(0, 212, 255, 0.1)"
-                border="1px solid"
-                borderColor="rgba(0, 212, 255, 0.3)"
-                transition="all 0.3s ease"
-                _hover={{
-                  bg: "rgba(0, 212, 255, 0.2)",
-                  borderColor: "rgba(0, 212, 255, 0.5)",
-                  transform: "translateX(5px)",
-                }}
-              >
-                <Chakra.Text>View Project</Chakra.Text>
-                <MotionBox
-                  animate={{ x: isHovered ? 5 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <BsArrowRight />
-                </MotionBox>
-              </Chakra.HStack>
-            </MotionBox>
-          )}
-        </Chakra.VStack>
+        <ProjectCardContent
+          isHovered={isHovered}
+          isMobile={!!isMobile}
+          shouldDisplayButton={!!link}
+          title={title}
+          description={description}
+        />
       </MotionVStack>
     </Link>
   );

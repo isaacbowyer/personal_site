@@ -1,7 +1,6 @@
 import { CustomNavLink } from "@/components/atoms/CustomNavLink";
 import { CustomLogo } from "@/components/molecules/CustomLogo";
 import { LINKS } from "@/data/links";
-import { theme } from "@/theme";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
@@ -43,7 +42,7 @@ export const WebNavBar = ({ isLightMode = false }: IProps) => {
                   label: link.label,
                   hoveredLabel: hoveredLabel,
                 })}
-                hoverColor={theme.colors.blue.light}
+                hoverColor={"#77C7FF"}
                 onMouseEnter={() => setHoveredLabel(link.label)}
                 onMouseLeave={() => setHoveredLabel("")}
                 shouldTransform

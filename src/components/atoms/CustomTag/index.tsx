@@ -1,15 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 
 interface IProps {
   label: string;
+  bgColor?: string;
+  color?: string;
 }
 
 const MotionSpan = motion.create(Chakra.Span);
 
-export const CustomTag = ({ label }: IProps) => (
+export const CustomTag = ({
+  label,
+  bgColor = "#EDF2F7",
+  color = "#4A5568",
+}: IProps) => (
   <MotionSpan
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}
@@ -18,8 +23,8 @@ export const CustomTag = ({ label }: IProps) => (
     paddingY={1}
     marginRight={1}
     marginBottom={1}
-    backgroundColor={theme.colors.gray.dim}
-    color={theme.colors.gray.medium}
+    backgroundColor={bgColor}
+    color={color}
     rounded="full"
     fontSize="sm"
   >

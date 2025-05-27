@@ -11,7 +11,7 @@ export const useWorkSection = () => {
       companyDescription:
         "A UK-based company delivering AI-powered digital translation solutions to clients worldwide.",
       jobDescription:
-        "Worked across the full stack to develop GAI Translate, an AI-powered machine translation SaaS application for B2B clients. The platform automated translation workflows and simplified expert review processes, becoming a key revenue-generating product for the company",
+        "Worked across the full stack to develop GAI Translate, an AI-powered machine translation SaaS application for B2B clients. The platform automated translation workflows and simplified expert review processes, becoming a key revenue-generating product for the company.",
       skills: {
         frontend: [
           "JavaScript",

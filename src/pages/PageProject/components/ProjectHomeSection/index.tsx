@@ -1,6 +1,11 @@
-import { ButtonLink } from "@/components/molecules/ButtonLink";
-import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 import * as Chakra from "@chakra-ui/react";
+import { ButtonLink } from "@/components/molecules/ButtonLink";
+import { FloatingCirclesBackground } from "@/components/molecules/FloatingCirclesBackground";
+import { NavBarContainer } from "@/components/molecules/NavBarContainer";
+import { BiChevronRight } from "react-icons/bi";
+import { ProjectHomeTitle } from "@/components/molecules/ProjectHomeTitle";
+import { ProjectFeaturedImage } from "@/components/atoms/ProjectFeaturedImage";
+import { TemplateProductSectionContainer } from "@/components/templates/TemplateProjectSectionContainer";
 
 interface IProps {
   title: string;
@@ -14,57 +19,44 @@ export const ProjectHomeSection = ({
   description,
 }: IProps) => {
   return (
-    <Chakra.Box
-      position="relative"
-      overflow="hidden"
-      width="full"
-      bg="gray.50"
-      py={{ base: 20, md: 24 }}
-      minH={{ base: "600px", md: "700px" }}
-      _before={{
-        content: `""`,
-        position: "absolute",
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        bg: "blue.500",
-        clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%)",
-        opacity: 0.1,
-        zIndex: 0,
-      }}
-    >
-      <Chakra.Grid
-        templateColumns={{ base: "1fr", lg: "1fr 2fr" }}
-        gap={8}
-        maxW="1200px"
-        mx="auto"
-        px={4}
-        position="relative"
-        zIndex={1}
-      >
-        <Chakra.VStack
-          align={{ base: "center", md: "flex-start" }}
-          gap={{ base: 16, md: 24 }}
-          textAlign={{ base: "center", md: "left" }}
-        >
-          <TitleWithHeader title={title} header={description} />
-          <ButtonLink href="#gallery" label="View Project Images" />
-        </Chakra.VStack>
+    <TemplateProductSectionContainer
+      bgGradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      bgImage={`url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'><path d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/></pattern></defs><rect width='100' height='100' fill='url(%23grid)'/></svg>")`}
+      isHomeSection={true}
+      main={
+        <Chakra.VStack zIndex={1} position="relative">
+          <NavBarContainer isLightMode />
 
-        <Chakra.VStack
-          display={{ base: "none", lg: "flex" }}
-          align="center"
-          justify="center"
-        >
-          <Chakra.Image
-            src={featuredImageUrl}
-            maxH="800px"
-            transition="transform 0.3s ease"
-            _hover={{ transform: "scale(1.05)" }}
-          />
+          <FloatingCirclesBackground />
+
+          <Chakra.Grid
+            templateColumns={{ base: "1fr", lg: "1fr 2fr" }}
+            maxW="1200px"
+            width="full"
+            minH="100vh"
+            id="home"
+          >
+            <Chakra.VStack
+              width="full"
+              align={{ base: "center", md: "flex-start" }}
+              justifyContent="center"
+              gap={16}
+            >
+              <ProjectHomeTitle title={title} description={description} />
+
+              <ButtonLink
+                href="#gallery"
+                label="View Project Images"
+                icon={<BiChevronRight />}
+                bgGradient="linear-gradient(to right, #A0F0FF, #BDBDFF)"
+                hoverBgGradient="linear-gradient(to right, #7DE2FF, #A3A3FF)"
+              />
+            </Chakra.VStack>
+
+            <ProjectFeaturedImage imageUrl={featuredImageUrl} />
+          </Chakra.Grid>
         </Chakra.VStack>
-      </Chakra.Grid>
-    </Chakra.Box>
+      }
+    />
   );
 };

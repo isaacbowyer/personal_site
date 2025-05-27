@@ -1,7 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { LINKS } from "@/data/links";
-import { theme } from "@/theme";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CustomNavLink } from "@/components/atoms/CustomNavLink";
@@ -10,15 +9,15 @@ import { IoClose } from "react-icons/io5";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
 import { CustomLogo } from "@/components/molecules/CustomLogo";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionBox = motion.create(Chakra.Box);
 
 export const MobileNavBar = () => {
   const { open: isOpen, onOpen, onClose } = useDisclosure();
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
   return (
-    <Chakra.Box position="relative" w="full" p={4} id="home">
+    <Chakra.Box position="relative" w="full" p={4}>
       <Chakra.HStack justifyContent="space-between" alignItems="center">
         <CustomLogo
           isHovered={hoveredLabel === "HOME"}
@@ -31,6 +30,10 @@ export const MobileNavBar = () => {
           onClick={isOpen ? onClose : onOpen}
           variant="ghost"
           size="lg"
+          color="white"
+          _hover={{ background: "transparent" }}
+          _focus={{ boxShadow: "none", background: "transparent" }}
+          _active={{ background: "transparent" }}
         >
           {isOpen ? <IoClose size={24} /> : <RxHamburgerMenu size={24} />}
         </Chakra.IconButton>
@@ -70,8 +73,13 @@ export const MobileNavBar = () => {
                 <CustomNavLink
                   href={link.href}
                   label={link.label}
-                  color={getCustomLinkColor(hoveredLabel, link.label)}
-                  hoverColor={theme.colors.blue.vivid}
+                  color={getCustomLinkColor({
+                    hoverColor: "#A1A1A1",
+                    color: "#111",
+                    label: link.label,
+                    hoveredLabel: hoveredLabel,
+                  })}
+                  hoverColor={"#228BE6"}
                   shouldTransform={false}
                   onMouseEnter={() => setHoveredLabel(link.label)}
                   onMouseLeave={() => setHoveredLabel("")}

@@ -1,9 +1,9 @@
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
-import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
-import { theme } from "@/theme";
-import { HiOutlineChevronDown } from "react-icons/hi";
+import { ExpertiseCardTagContainer } from "@/components/organisms/ExpertiseCardTagContainer";
+import { ExpertiseCardContent } from "@/components/organisms/ExpertiseCardContent";
+import { useState } from "react";
+import { ExpertiseCardChevron } from "../ExpertiseCardChevron";
 
 interface IProps {
   id: number;
@@ -17,8 +17,7 @@ interface IProps {
   tags: string[];
 }
 
-const MotionBox = motion(Chakra.Box);
-const MotionIcon = motion(Chakra.Icon);
+const MotionBox = motion.create(Chakra.Box);
 
 export const ExpertiseCard = ({
   id,
@@ -31,91 +30,108 @@ export const ExpertiseCard = ({
   onClick,
   tags,
 }: IProps) => {
-  const variants = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
+  const [isHovered, setIsHovered] = useState(false);
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.3,
+      y: 20,
+    },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        scale: {
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+        },
+      },
     },
+    hover: {
+      scale: 1.02,
+      y: -4,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const backgroundVariants = {
+    default: { opacity: 0 },
+    hover: { opacity: 0.08 },
+    active: { opacity: 0.12 },
   };
 
   return (
     <MotionBox
       custom={id}
-      variants={variants}
-      layoutId={`card-container-${id}`}
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      whileHover="hover"
+      layoutId={`card-${id}`}
       onClick={onClick}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       cursor="pointer"
       position="relative"
       overflow="visible"
       bg="white"
       p="1.5rem"
       borderRadius="0.75rem"
-      style={{
-        border: `2px solid ${borderColor}`,
-        transition: "all 0.3s ease",
-      }}
-      _hover={{
-        transform: "scale(1.03)",
-        boxShadow: "0 10px 30px -15px rgba(0, 0, 0, 0.15)",
-      }}
+      border={`2px solid ${isHovered || isActive ? bgColor : borderColor}`}
+      boxShadow={
+        isHovered || isActive
+          ? "0 12px 40px -10px rgba(0, 0, 0, 0.15)"
+          : "0 2px 8px rgba(0, 0, 0, 0.04)"
+      }
       gridColumn={{ base: "auto", md: isActive ? "span 3" : "auto" }}
+      transitionProperty="border-color, box-shadow"
+      transitionDuration="0.2s"
+      transitionTimingFunction="ease"
     >
       <MotionBox
         position="absolute"
         inset={0}
-        opacity={isActive ? 0.1 : 0}
         background={bgColor}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isActive ? 0.1 : 0 }}
-        transition={{ duration: 0.3 }}
-        _hover={{
-          opacity: 0.05,
-        }}
+        variants={backgroundVariants}
+        initial="default"
+        animate={isActive ? "active" : isHovered ? "hover" : "default"}
+        transition={{ duration: 0.2 }}
+        borderRadius="0.75rem"
       />
 
-      <Chakra.IconButton
-        size={{ base: "xs", md: "sm" }}
-        position="absolute"
-        top={{ base: 2, md: -5 }}
-        right={{ base: 2, md: -3 }}
-        zIndex={2}
-        bg={bgColor}
-        border="1px solid black"
-        borderRadius="full"
-        _hover={{
-          bg: bgColor,
-        }}
-        onClick={(e) => {
-          e.stopPropagation();
-          onClick();
-        }}
-      >
-        <MotionIcon
-          as={HiOutlineChevronDown}
-          color={theme.colors.white}
-          animate={{ rotate: isActive ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-          boxSize={4}
-        />
-      </Chakra.IconButton>
+      <ExpertiseCardChevron
+        isActive={isActive}
+        bgColor={bgColor}
+        onClick={onClick}
+      />
 
       <Chakra.HStack alignItems="flex-start" gap={4} width="full">
         <MotionBox
           padding={4}
           borderRadius={10}
-          color={theme.colors.white}
+          color={"#FFF"}
           background={bgColor}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+          boxShadow={
+            isHovered || isActive ? "0 4px 16px rgba(0, 0, 0, 0.1)" : "none"
+          }
         >
           {icon}
         </MotionBox>
 
-        <Chakra.VStack alignItems="flex-start" width="full">
-          <ExpertiseContentContainer title={title} description={description} />
+        <Chakra.VStack alignItems="flex-start" width="full" gap={3}>
+          <ExpertiseCardContent title={title} description={description} />
 
-          {isActive && <ExpertiseTagContainer tags={tags} />}
+          {isActive && <ExpertiseCardTagContainer tags={tags} />}
         </Chakra.VStack>
       </Chakra.HStack>
     </MotionBox>

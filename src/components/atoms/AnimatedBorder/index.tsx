@@ -3,21 +3,21 @@ import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoo
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   position: IBorderPostion;
   isHovered: boolean;
-  activeColor: string;
-  inActiveColor: string;
+  activeColor?: string;
+  inActiveColor?: string;
   delay?: number;
 }
 
 export const AnimatedBorder = ({
   position,
   isHovered,
-  activeColor,
-  inActiveColor,
+  activeColor = "#A1A1A1",
+  inActiveColor = "#FFF",
   delay = 0,
 }: IProps) => {
   const color = validateOptionsBasedOnBoolean(

@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { CustomText } from "@/components/atoms/CustomText";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
-
 import { IconType } from "react-icons";
+import { getContactCardStyles } from "@/utils/getContactCardStyles";
 
 interface IProps {
   title: string;
@@ -11,6 +11,10 @@ interface IProps {
 }
 
 export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const styles = getContactCardStyles(isHovered);
+
   return (
     <Chakra.VStack
       onClick={handleOnClick}
@@ -19,19 +23,27 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
       alignItems="center"
       justifyItems="center"
       width="full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Chakra.Box
-        bg={theme.colors.blue.medium}
-        _hover={{
-          backgroundColor: theme.colors.blue.dark,
-          color: theme.colors.blue.dark,
-        }}
+        bg={styles.bgColor}
         borderRadius="full"
-        p={3}
+        p={4}
+        transition="all 0.3s ease"
       >
-        <Chakra.Icon as={icon} boxSize={6} color={theme.colors.white} />
+        <Chakra.Icon as={icon} boxSize={8} color="white" />
       </Chakra.Box>
-      <CustomText.Large fontWeight="bold">{title}</CustomText.Large>
+
+      <CustomText.Large
+        fontWeight="bold"
+        color={styles.color}
+        bgGradient={styles.bgGradient}
+        bgClip={styles.bgClip}
+        transition="all 0.3s ease"
+      >
+        {title}
+      </CustomText.Large>
     </Chakra.VStack>
   );
 };

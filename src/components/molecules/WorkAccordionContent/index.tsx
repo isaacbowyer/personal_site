@@ -1,17 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
 import { CustomText } from "@/components/atoms/CustomText";
-import { theme } from "@/theme";
+import { IWorkExperienceSkills } from "@/interfaces/IWorkExperienceSkills";
+import { BiCode } from "react-icons/bi";
+import { WorkAccordionContentSkills } from "@/components/organisms/WorkAccordionContentSkills";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionHStack = motion(Chakra.HStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
 
 interface IProps {
   isOpen: boolean;
   companyDescription: string;
   jobDescription: string;
-  skills: string[];
+  skills: IWorkExperienceSkills;
 }
 export const WorkAccordionContent = ({
   isOpen,
@@ -32,76 +32,39 @@ export const WorkAccordionContent = ({
           borderBottomRightRadius="8px"
           alignItems="start"
           width="full"
-          bg="white"
+          bg={"#EDF2F7"}
           px={5}
           py={4}
           gap={8}
         >
-          <Chakra.VStack alignItems="start" gap={4}>
-            <CustomText.Large fontStyle="italic">
-              {companyDescription}
-            </CustomText.Large>
+          <Chakra.VStack width="full" gap={2}>
+            <Chakra.HStack
+              bg="blue.50"
+              p={4}
+              rounded="lg"
+              borderLeftWidth="4px"
+              borderLeftColor="blue.400"
+              mb={6}
+              width="full"
+            >
+              <CustomText.Large fontStyle="italic" color={"#4A5568"}>
+                {companyDescription}
+              </CustomText.Large>
+            </Chakra.HStack>
 
-            <CustomText.Medium color={theme.colors.gray.dark}>
-              {jobDescription}
-            </CustomText.Medium>
+            <CustomText.Large>{jobDescription}</CustomText.Large>
           </Chakra.VStack>
 
-          <MotionHStack
-            gap={4}
-            flexWrap="wrap"
-            align="start"
-            justify="start"
-            maxW="100%"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.07,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-          >
-            {skills.map((skill) => (
-              <MotionBox
-                key={skill}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.9 },
-                  visible: {
-                    opacity: 1,
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 20,
-                    },
-                  },
-                }}
-              >
-                <Chakra.Badge
-                  px={3}
-                  py={2}
-                  backgroundColor={theme.colors.white}
-                  border="1px solid"
-                  borderColor={theme.colors.gray.dark}
-                  borderRadius="16px"
-                  fontSize="lg"
-                  whiteSpace="nowrap"
-                  cursor="default"
-                  transition="all 0.3s ease-in-out"
-                  _hover={{
-                    backgroundColor: theme.colors.blue.dark,
-                    color: theme.colors.white,
-                    borderColor: theme.colors.white,
-                  }}
-                >
-                  {skill}
-                </Chakra.Badge>
-              </MotionBox>
-            ))}
-          </MotionHStack>
+          <Chakra.VStack alignItems="flex-start" width="full" height="full">
+            <Chakra.HStack gap={2} align={"center"}>
+              <BiCode size={24} className="text-gray-600" />
+              <CustomText.Header fontWeight="bold">
+                Technologies
+              </CustomText.Header>
+            </Chakra.HStack>
+
+            <WorkAccordionContentSkills skills={skills} />
+          </Chakra.VStack>
         </MotionVStack>
       )}
     </AnimatePresence>

@@ -1,11 +1,7 @@
-import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-
-const MotionBox = motion(Chakra.Box);
+import { TestimonialCard } from "@/components/molecules/TestimonialCard";
+import { TemplateProductSectionContainer } from "@/components/templates/TemplateProjectSectionContainer";
+import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
 interface IProps {
   comment: string;
@@ -18,57 +14,24 @@ export const ProjectClientSection = ({
   clientName,
   clientRole,
 }: IProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <Chakra.VStack
-      width="full"
-      bg={theme.colors.gradients.gray}
-      id="client"
-      paddingBottom={4}
-    >
-      <Chakra.Box w="full" maxW="1200px">
-        <Chakra.VStack align={{ base: "center", md: "start" }} gap={4}>
-          <TitleWithHeader title="CLIENT TESTIMONIAL" />
+    <TemplateProductSectionContainer
+      bgGradient="linear-gradient(to bottom right, #f9fafb, #f3f4f6)"
+      bgImage={`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><line x1="0" y1="40" x2="40" y2="0" stroke="%23bbbbbb" stroke-width="1" opacity="0.1"/></svg>')`}
+      main={
+        <Chakra.VStack width="full" maxW="1200px" gap={8} id="gallery">
+          <TitleWithHeader
+            title="CLIENT"
+            subTitle={{ title: "TESTIMONY", color: "#111" }}
+          />
 
-          <Chakra.Container maxW="1200px" px={8}>
-            <MotionBox
-              ref={ref}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              bg="white"
-              p={12}
-              borderRadius="lg"
-              boxShadow="2xl"
-              maxW="1200px"
-              mx="auto"
-            >
-              <Chakra.Text fontSize="1.3rem" fontStyle="italic" mb={8}>
-                {`"${comment}"`}
-              </Chakra.Text>
-
-              <Chakra.Flex align="center">
-                <Chakra.Icon
-                  as={FaUser}
-                  boxSize="60px"
-                  mr={4}
-                  color={theme.colors.blue.vivid}
-                />
-                <Chakra.Box>
-                  <Chakra.Heading as="h4" size="sm" mb="1">
-                    {clientName}
-                  </Chakra.Heading>
-                  <Chakra.Text color="gray.500" fontSize="sm">
-                    {clientRole}
-                  </Chakra.Text>
-                </Chakra.Box>
-              </Chakra.Flex>
-            </MotionBox>
-          </Chakra.Container>
+          <TestimonialCard
+            comment={comment}
+            clientName={clientName}
+            clientRole={clientRole}
+          />
         </Chakra.VStack>
-      </Chakra.Box>
-    </Chakra.VStack>
+      }
+    />
   );
 };

@@ -10,7 +10,8 @@ const NAV_LINKS: INavLink[] = [
 const HOME_LINK = "/#home";
 
 const PROJECT_LINKS = {
-  OCCUPATIONAL_HEALTH_APP: "/projects/project/1/",
+  OCCUPATIONAL_HEALTH_APP: "/projects/project/occupational-health-app/",
+  GAI_TRANSLATE: "https://www.gaitranslate.ai/",
 };
 
 export const LINKS = {

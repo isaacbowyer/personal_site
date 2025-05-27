@@ -1,20 +1,15 @@
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   bgColor: string;
   icon: ReactNode;
   color?: string;
 }
-export const CustomIcon = ({
-  bgColor,
-  color = theme.colors.white,
-  icon,
-}: IProps) => {
+export const CustomIcon = ({ bgColor, color = "#FFF", icon }: IProps) => {
   return (
     <MotionBox
       display="flex"

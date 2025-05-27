@@ -1,21 +1,32 @@
 import { CustomNavLink } from "@/components/atoms/CustomNavLink";
 import { CustomLogo } from "@/components/molecules/CustomLogo";
 import { LINKS } from "@/data/links";
-import { theme } from "@/theme";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
+import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
 import { useState } from "react";
 
-export const WebNavBar = () => {
+interface IProps {
+  isLightMode?: boolean;
+}
+
+export const WebNavBar = ({ isLightMode = false }: IProps) => {
   const [hoveredLabel, setHoveredLabel] = useState<string>("");
 
+  const hoverColor = validateOptionsBasedOnBoolean(
+    isLightMode,
+    " #D1D1D1",
+    " #707070"
+  );
+
   return (
-    <Chakra.HStack as="nav" w="full" alignItems="start" id="home">
+    <Chakra.HStack as="nav" w="full" alignItems="start">
       <Chakra.HStack w="full" justifyContent="space-between">
         <CustomLogo
           isHovered={hoveredLabel === "HOME"}
           onMouseEnter={() => setHoveredLabel("HOME")}
           onMouseLeave={() => setHoveredLabel("")}
+          isLightMode
         />
 
         <Chakra.HStack as="ul" listStyleType="none" gap={6}>
@@ -25,8 +36,13 @@ export const WebNavBar = () => {
                 key={link.label}
                 href={link.href}
                 label={link.label}
-                color={getCustomLinkColor(hoveredLabel, link.label)}
-                hoverColor={theme.colors.blue.vivid}
+                color={getCustomLinkColor({
+                  hoverColor: hoverColor,
+                  color: "#FFF",
+                  label: link.label,
+                  hoveredLabel: hoveredLabel,
+                })}
+                hoverColor={"#77C7FF"}
                 onMouseEnter={() => setHoveredLabel(link.label)}
                 onMouseLeave={() => setHoveredLabel("")}
                 shouldTransform

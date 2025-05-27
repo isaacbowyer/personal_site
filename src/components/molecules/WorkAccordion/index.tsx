@@ -19,7 +19,6 @@ export const WorkAccordion = ({ workItem, index }: IProps) => {
     amount: 0.9,
   });
 
-  // Auto-open first accordion when scrolled into view (once)
   useEffect(() => {
     if (index === 0 && isInView) {
       setIsOpen(true);
@@ -27,10 +26,11 @@ export const WorkAccordion = ({ workItem, index }: IProps) => {
   }, [isInView, index]);
 
   return (
-    <Chakra.VStack ref={ref} width="full" px={4} gap={0}>
+    <Chakra.VStack ref={ref} width="full" gap={0}>
       {/* HEADER */}
       <WorkAccordionHeader
         title={workItem.title}
+        company={workItem.company}
         location={workItem.location}
         period={workItem.period}
         isOpen={isOpen}

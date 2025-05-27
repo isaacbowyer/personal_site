@@ -1,6 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
 import NextLink from "next/link";
-import { theme } from "@/theme";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 
 interface IProps {
@@ -18,8 +17,8 @@ interface IProps {
 export const CustomNavLink = ({
   href,
   label,
-  color = theme.colors.black,
-  hoverColor = theme.colors.blue.vivid,
+  color = "#111",
+  hoverColor = "#228BE6",
   fontWeight = "bold",
   hasPointer = true,
   onMouseEnter,

@@ -10,8 +10,8 @@ import { IoClose } from "react-icons/io5";
 import { getCustomLinkColor } from "@/utils/getCustomLinkColor";
 import { CustomLogo } from "@/components/molecules/CustomLogo";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionBox = motion.create(Chakra.Box);
 
 export const MobileNavBar = () => {
   const { open: isOpen, onOpen, onClose } = useDisclosure();

@@ -5,8 +5,8 @@ import { useState } from "react";
 import { ProjectTechnologiesContainer } from "@/components/organisms/ProjectTechnologiesContainer";
 import { motion } from "framer-motion";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   id: number;

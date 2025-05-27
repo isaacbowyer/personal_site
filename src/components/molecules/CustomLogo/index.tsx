@@ -9,6 +9,7 @@ interface IProps {
   isHovered: boolean;
   href?: string;
   size?: string;
+  isLightMode?: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
@@ -17,9 +18,16 @@ export const CustomLogo = ({
   isHovered,
   href = LINKS.HOME,
   size = "60px",
+  isLightMode = false,
   onMouseEnter,
   onMouseLeave,
 }: IProps) => {
+  const color = validateOptionsBasedOnBoolean(
+    isLightMode,
+    " #D1D0D0",
+    " #A1A1A1"
+  );
+
   return (
     <Chakra.Link
       marginTop={1}
@@ -57,9 +65,7 @@ export const CustomLogo = ({
         >
           ISAAC BOWYER
         </CustomText.Medium>
-        <CustomText.Small color={theme.colors.gray.light}>
-          BSc COMPUTER SCIENCE
-        </CustomText.Small>
+        <CustomText.Small color={color}>BSc COMPUTER SCIENCE</CustomText.Small>
       </Chakra.VStack>
     </Chakra.Link>
   );

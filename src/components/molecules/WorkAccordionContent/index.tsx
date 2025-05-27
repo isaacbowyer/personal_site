@@ -8,9 +8,9 @@ import {
 } from "@/interfaces/IWorkExperienceSkills";
 import { BiCode } from "react-icons/bi";
 
-const MotionVStack = motion(Chakra.VStack);
-const MotionHStack = motion(Chakra.HStack);
-const MotionBox = motion(Chakra.Box);
+const MotionVStack = motion.create(Chakra.VStack);
+const MotionHStack = motion.create(Chakra.HStack);
+const MotionBox = motion.create(Chakra.Box);
 
 const skillCategoryColors = {
   frontend: {
@@ -107,7 +107,7 @@ export const WorkAccordionContent = ({
           </Chakra.VStack>
 
           <Chakra.VStack alignItems="flex-start" width="full" height="full">
-            <Chakra.HStack gap={2}>
+            <Chakra.HStack gap={2} align={"center"}>
               <BiCode size={24} className="text-gray-600" />
               <CustomText.Header fontWeight="bold">
                 Technologies
@@ -151,7 +151,6 @@ export const WorkAccordionContent = ({
                             fontSize="sm"
                             fontWeight="medium"
                             borderRadius="full"
-                            cursor="pointer"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05, duration: 0.4 }}

@@ -1,6 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
-import { theme } from "@/theme";
 import { WorkItemsContainer } from "@/components/organisms/WorkItemsContainer";
 import { motion } from "framer-motion";
 
@@ -8,13 +7,13 @@ interface IProps {
   experienceItems: IWorkExperience[];
 }
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const WorkSection = ({ experienceItems }: IProps) => {
   return (
     <Chakra.VStack
       width="full"
-      backgroundGradient={theme.colors.gradients.gray}
+      backgroundGradient="linear-gradient(to bottom right, #f9fafb, #f3f4f6)"
       id="work"
       py={8}
       px={4}

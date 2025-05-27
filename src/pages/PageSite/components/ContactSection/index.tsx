@@ -8,7 +8,7 @@ interface IProps {
   contactItems: IContact[];
   handleOnClick: (index: number) => void;
 }
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const ContactSection = ({ contactItems, handleOnClick }: IProps) => {
   return (

@@ -12,7 +12,7 @@ export const PageProject = () => {
   return (
     <TemplateContainer
       main={
-        <Chakra.VStack w="full" h="full" gap={{ base: 20, md: 28 }}>
+        <Chakra.VStack w="full" h="full" gap={0}>
           <ProjectHomeSection
             featuredImageUrl={state.featuredImageUrl}
             description={state.description}

@@ -10,7 +10,7 @@ interface IProps {
   onClickExpertiseCard: (id: number) => void;
 }
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const ExpertiseSection = ({
   activeCard,

@@ -6,7 +6,7 @@ interface IProps {
   tags: string[];
 }
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 export const ExpertiseTagContainer = ({ tags }: IProps) => {
   return (

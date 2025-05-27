@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { BiMapPin } from "react-icons/bi";
 
-const MotionIcon = motion(Chakra.Icon);
+const MotionIcon = motion.create(Chakra.Icon);
 
 interface IProps {
   title: string;

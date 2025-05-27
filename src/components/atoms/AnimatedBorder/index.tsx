@@ -4,7 +4,7 @@ import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoo
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Chakra.Box);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   position: IBorderPostion;

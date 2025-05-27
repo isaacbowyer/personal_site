@@ -3,7 +3,7 @@ import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionIconButton = motion(IconButton);
+const MotionIconButton = motion.create(IconButton);
 
 interface ScrollToTopButtonProps {
   scrollContainer: React.RefObject<HTMLDivElement | null>;

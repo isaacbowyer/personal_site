@@ -35,8 +35,8 @@ const cardVariants = {
   },
 };
 
-const MotionSimpleGrid = motion(Chakra.SimpleGrid);
-const MotionBox = motion(Chakra.Box);
+const MotionSimpleGrid = motion.create(Chakra.SimpleGrid);
+const MotionBox = motion.create(Chakra.Box);
 
 interface IProps {
   projects: IProject[];

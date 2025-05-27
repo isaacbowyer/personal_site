@@ -7,7 +7,7 @@ interface IProps {
   label: string;
 }
 
-const MotionSpan = motion(Chakra.Span);
+const MotionSpan = motion.create(Chakra.Span);
 
 export const CustomTag = ({ label }: IProps) => (
   <MotionSpan

@@ -11,9 +11,15 @@ interface IProps {
   title: string;
   subTitle?: ISubTitle;
   header?: string;
+  headerColor?: string;
 }
 
-export const TitleWithHeader = ({ title, subTitle, header }: IProps) => {
+export const TitleWithHeader = ({
+  title,
+  subTitle,
+  header,
+  headerColor = "#4A5568",
+}: IProps) => {
   return (
     <MotionBox
       initial={{ opacity: 0, y: -20 }}
@@ -49,7 +55,7 @@ export const TitleWithHeader = ({ title, subTitle, header }: IProps) => {
               as="span"
               backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
               bgClip="text"
-              fontSize="6xl"
+              fontSize={{ base: "4xl", md: "6xl" }}
               fontWeight="extrabold"
               fontFamily="sans-serif"
               letterSpacing="6px"
@@ -78,7 +84,7 @@ export const TitleWithHeader = ({ title, subTitle, header }: IProps) => {
         />
 
         {header && (
-          <Chakra.Text color={"#4A5568"} fontSize="lg">
+          <Chakra.Text color={headerColor} fontSize="lg">
             {header}
           </Chakra.Text>
         )}

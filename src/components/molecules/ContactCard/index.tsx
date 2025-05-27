@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CustomText } from "@/components/atoms/CustomText";
 import * as Chakra from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
+import { getContactCardStyles } from "@/utils/getContactCardStyles";
 
 interface IProps {
   title: string;
@@ -13,12 +13,7 @@ interface IProps {
 export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const gradient = "linear-gradient(to right, #63B3ED, #9F7AEA)";
-
-  const bgColor = validateOptionsBasedOnBoolean(isHovered, gradient, "#77C7FF");
-  const bgGradient = validateOptionsBasedOnBoolean(isHovered, gradient, "none");
-  const bgClip = validateOptionsBasedOnBoolean(isHovered, "text", "border-box");
-  const color = validateOptionsBasedOnBoolean(isHovered, "transparent", "#FFF");
+  const styles = getContactCardStyles(isHovered);
 
   return (
     <Chakra.VStack
@@ -32,19 +27,19 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <Chakra.Box
-        bg={bgColor}
+        bg={styles.bgColor}
         borderRadius="full"
         p={4}
-        transition="background 0.3s ease"
+        transition="all 0.3s ease"
       >
         <Chakra.Icon as={icon} boxSize={8} color="white" />
       </Chakra.Box>
 
       <CustomText.Large
         fontWeight="bold"
-        color={color}
-        bgGradient={bgGradient}
-        bgClip={bgClip}
+        color={styles.color}
+        bgGradient={styles.bgGradient}
+        bgClip={styles.bgClip}
         transition="all 0.3s ease"
       >
         {title}

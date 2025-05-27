@@ -9,13 +9,7 @@ interface IProps {
 
 export const ContactCardContainer = ({ items, handleOnClick }: IProps) => {
   return (
-    <Chakra.SimpleGrid
-      alignItems={{ base: "center", md: "flex-start" }}
-      justifyContent={{ base: "center", md: "flex-start" }}
-      columns={{ base: 2, md: 4 }}
-      gap={10}
-      width="full"
-    >
+    <Chakra.SimpleGrid columns={{ base: 2, md: 4 }} width="full" gap={8}>
       {items.map((item, index) => (
         <ContactCard
           key={index}

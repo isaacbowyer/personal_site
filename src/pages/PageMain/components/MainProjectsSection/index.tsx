@@ -35,6 +35,7 @@ export const MainProjectsSection = ({
           title="PROJECTS"
           header={`Innovative solutions I've designed and developed, showcasing
               real-world applications of my technical skills.`}
+          headerColor="#9ea2aa"
         />
 
         <AdvancedProjectFilter

@@ -1,7 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { IContact } from "@/interfaces/IContact";
 import { ContactCardContainer } from "@/components/organisms/ContactCardContainer";
-import { motion } from "framer-motion";
 import { ParticleBackground } from "@/components/molecules/ParticleBackground";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
@@ -9,7 +8,6 @@ interface IProps {
   contactItems: IContact[];
   handleOnClick: (index: number) => void;
 }
-const MotionBox = motion.create(Chakra.Box);
 
 export const MainContactSection = ({ contactItems, handleOnClick }: IProps) => {
   return (

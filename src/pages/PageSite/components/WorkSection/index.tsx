@@ -14,7 +14,7 @@ export const WorkSection = ({ experienceItems }: IProps) => {
   return (
     <Chakra.VStack
       width="full"
-      backgroundGradient={theme.colors.gradients.gray}
+      backgroundGradient="linear-gradient(to bottom right, #f9fafb, #f3f4f6)"
       id="work"
       py={8}
       px={4}

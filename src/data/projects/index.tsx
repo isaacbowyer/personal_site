@@ -7,7 +7,7 @@ export const PROJECTS: IProject[] = [
     id: 1,
     title: "Occupational Health App",
     description:
-      "A cross-platform mobile app developed for ELAROS to assist individuals recovering from Long COVID, helping them regain their health and return to work effectively.",
+      "A cross-platform mobile app developed for ELAROS to assist individuals recovering from Long COVID, helping them manage their health and return to work effectively.",
     overview:
       "A mobile application developed as part of my dissertation in collaboration with ELAROS. The solution supports individuals recovering from Long COVID through self-management, in order to facilitate their successful return to work. \n\n Built using React Native and Firebase, I focused on delivering cross-platform compatibility, responsive UI/UX design, and clean architecture principles like atomic design. The PoC received strong client feedback and was later integrated into the final product.",
     images: {

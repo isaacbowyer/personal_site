@@ -151,7 +151,6 @@ export const WorkAccordionContent = ({
                             fontSize="sm"
                             fontWeight="medium"
                             borderRadius="full"
-                            cursor="pointer"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05, duration: 0.4 }}

@@ -11,7 +11,7 @@ export const useWorkSection = () => {
       companyDescription:
         "A UK-based company delivering AI-powered digital translation solutions to clients worldwide.",
       jobDescription:
-        "Worked across the full stack to develop GAI Translate, an AI-powered machine translation SaaS application for 100+ B2B clients. The platform automated translation workflows and simplified expert review processes, becoming a key revenue-generating product for the company",
+        "Worked across the full stack to develop GAI Translate, an AI-powered machine translation SaaS application for B2B clients. The platform automated translation workflows and simplified expert review processes, becoming a key revenue-generating product for the company",
       skills: {
         frontend: [
           "JavaScript",
@@ -35,7 +35,7 @@ export const useWorkSection = () => {
       companyDescription:
         "A healthcare technology company providing digital solutions for the NHS and private sector.",
       jobDescription:
-        "Enhanced the UI/UX of the client’s digital self-recovery healthcare tools, including the COVID-19 Yorkshire Rehabilitation Scale (C19-YRS) platform. Also co-developed an Occupational Health (OH) mobile app for my final-year dissertation, aimed at supporting self-recovery and wellbeing.",
+        "Enhanced the UI/UX of the client’s digital self-recovery healthcare tools, including the COVID-19 Yorkshire Rehabilitation Scale (C19-YRS) platform. Also expanded my placement and co-developed an Occupational Health (OH) mobile app for my final-year dissertation, aimed at supporting self-recovery and wellbeing.",
       skills: {
         frontend: [
           "JavaScript",

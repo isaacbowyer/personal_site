@@ -5,12 +5,11 @@ import { DOWNLOAD } from "@/data/download";
 import { RiDownload2Fill } from "react-icons/ri";
 import { MobileProfileAvatar } from "@/components/molecules/MobileProfileAvatar";
 import { WebProfileAvatar } from "@/components/molecules/WebProfileAvatar";
-import { MobileNavBar } from "@/components/organisms/MobileNavBar";
-import { WebNavBar } from "@/components/organisms/WebNavBar";
 import { motion } from "framer-motion";
 import { CodeBackground } from "@/components/molecules/CodeBackground";
 import { SquaresBackground } from "@/components/molecules/SquaresBackground";
 import { NavBarContainer } from "@/components/molecules/NavBarContainer";
+import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
 const MotionBox = motion.create(Chakra.Box);
 
@@ -45,48 +44,10 @@ export const MainHomeSection = () => {
             <MobileProfileAvatar />
           </Chakra.VStack>
 
-          <MotionBox
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <Chakra.VStack
-              gap={4}
-              textAlign={{ base: "center", md: "start" }}
-              w="full"
-              justify="flex-start"
-              align="flex-start"
-            >
-              <Chakra.Text
-                fontSize={{
-                  base: "4xl",
-                  sm: "5xl",
-                  md: "6xl",
-                  lg: "7xl",
-                }}
-                fontWeight="bold"
-                color="white"
-                lineHeight="1"
-                fontFamily="sans-serif"
-                letterSpacing="6px"
-              >
-                ISAAC
-                <br />
-                <Chakra.Text
-                  as="span"
-                  backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
-                  bgClip="text"
-                  fontSize="6xl"
-                  fontWeight="extrabold"
-                  fontFamily="sans-serif"
-                  letterSpacing="6px"
-                >
-                  BOWYER
-                </Chakra.Text>
-              </Chakra.Text>
-            </Chakra.VStack>
-          </MotionBox>
+          <TitleWithHeader
+            title="ISAAC"
+            subTitle={{ color: "#FFF", title: "BOWYER" }}
+          />
 
           <CustomTypeWriter
             staticLabel="I'm a"

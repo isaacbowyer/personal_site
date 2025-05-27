@@ -8,7 +8,7 @@ interface IProps {
 
 const MotionText = motion.create(Chakra.Text);
 
-export const ExpertiseContentContainer = ({ title, description }: IProps) => {
+export const ExpertiseCardContent = ({ title, description }: IProps) => {
   return (
     <>
       <MotionText

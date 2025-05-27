@@ -1,9 +1,9 @@
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
-import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
-import { HiOutlineChevronDown } from "react-icons/hi";
+import { ExpertiseCardTagContainer } from "@/components/organisms/ExpertiseCardTagContainer";
+import { ExpertiseCardContent } from "@/components/organisms/ExpertiseCardContent";
 import { useState } from "react";
+import { ExpertiseCardChevron } from "../ExpertiseCardChevron";
 
 interface IProps {
   id: number;
@@ -18,7 +18,6 @@ interface IProps {
 }
 
 const MotionBox = motion.create(Chakra.Box);
-const MotionIcon = motion.create(Chakra.Icon);
 
 export const ExpertiseCard = ({
   id,
@@ -69,11 +68,6 @@ export const ExpertiseCard = ({
     active: { opacity: 0.12 },
   };
 
-  const chevronVariants = {
-    default: { rotate: 0 },
-    active: { rotate: 180 },
-  };
-
   return (
     <MotionBox
       custom={id}
@@ -113,35 +107,11 @@ export const ExpertiseCard = ({
         borderRadius="0.75rem"
       />
 
-      <MotionBox
-        boxSize={{ base: "2rem", md: "2.5rem" }}
-        position="absolute"
-        top={{ base: "0.5rem", md: "0.5rem" }}
-        right={{ base: "0.5rem", md: "0.5rem" }}
-        zIndex={2}
-        bg={bgColor}
-        borderRadius="full"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        cursor="pointer"
-        onClick={(e: React.MouseEvent) => {
-          e.stopPropagation();
-          onClick();
-        }}
-        boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
-      >
-        <MotionIcon
-          as={HiOutlineChevronDown}
-          color={"#FFF"}
-          variants={chevronVariants}
-          animate={isActive ? "active" : "default"}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
-          boxSize={4}
-        />
-      </MotionBox>
+      <ExpertiseCardChevron
+        isActive={isActive}
+        bgColor={bgColor}
+        onClick={onClick}
+      />
 
       <Chakra.HStack alignItems="flex-start" gap={4} width="full">
         <MotionBox
@@ -159,9 +129,9 @@ export const ExpertiseCard = ({
         </MotionBox>
 
         <Chakra.VStack alignItems="flex-start" width="full" gap={3}>
-          <ExpertiseContentContainer title={title} description={description} />
+          <ExpertiseCardContent title={title} description={description} />
 
-          {isActive && <ExpertiseTagContainer tags={tags} />}
+          {isActive && <ExpertiseCardTagContainer tags={tags} />}
         </Chakra.VStack>
       </Chakra.HStack>
     </MotionBox>

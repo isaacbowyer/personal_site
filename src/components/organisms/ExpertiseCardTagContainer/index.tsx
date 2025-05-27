@@ -8,7 +8,7 @@ interface IProps {
 
 const MotionBox = motion.create(Chakra.Box);
 
-export const ExpertiseTagContainer = ({ tags }: IProps) => {
+export const ExpertiseCardTagContainer = ({ tags }: IProps) => {
   return (
     <MotionBox
       initial={{ opacity: 0, y: 20 }}

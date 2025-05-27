@@ -96,7 +96,7 @@ export const CodeBackground = () => {
         position="absolute"
         top="50%"
         left="38%"
-        fontSize={{ base: "sm", md: "md" }}
+        fontSize={"md"}
         fontFamily="mono"
         color="green.300"
         opacity="0.7"
@@ -110,7 +110,7 @@ export const CodeBackground = () => {
 
       <Chakra.Text
         position="absolute"
-        top={{ base: "15%", md: "25%" }}
+        top={{ base: "90%", md: "25%" }}
         right={{ base: "10%", md: "15%" }}
         fontSize={{ base: "sm", md: "md" }}
         fontFamily="mono"

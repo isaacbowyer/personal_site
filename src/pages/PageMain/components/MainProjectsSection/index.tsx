@@ -4,7 +4,6 @@ import { ICategory } from "@/interfaces/ICategory";
 import { ICategoryCount } from "@/interfaces/ICategoryCount";
 import { AdvancedProjectFilter } from "@/components/organisms/AdvancedProjectFilter";
 import { ProjectsCardContainer } from "@/components/organisms/ProjectCardContainer";
-import { motion } from "framer-motion";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
 interface IProps {

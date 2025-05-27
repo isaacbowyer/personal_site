@@ -2,7 +2,6 @@ import * as Chakra from "@chakra-ui/react";
 import { ButtonLink } from "@/components/molecules/ButtonLink";
 import { FloatingCirclesBackground } from "@/components/molecules/FloatingCirclesBackground";
 import { NavBarContainer } from "@/components/molecules/NavBarContainer";
-import { keyframes } from "@emotion/react";
 import { BiChevronRight } from "react-icons/bi";
 import { ProjectHomeTitle } from "@/components/molecules/ProjectHomeTitle";
 import { ProjectFeaturedImage } from "@/components/atoms/ProjectFeaturedImage";
@@ -13,15 +12,6 @@ interface IProps {
   featuredImageUrl: string;
   description: string;
 }
-
-const float = keyframes`
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-`;
 
 export const ProjectHomeSection = ({
   title,

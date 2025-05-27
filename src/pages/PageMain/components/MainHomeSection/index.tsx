@@ -11,8 +11,6 @@ import { SquaresBackground } from "@/components/molecules/SquaresBackground";
 import { NavBarContainer } from "@/components/molecules/NavBarContainer";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
-const MotionBox = motion.create(Chakra.Box);
-
 export const MainHomeSection = () => {
   return (
     <Chakra.VStack

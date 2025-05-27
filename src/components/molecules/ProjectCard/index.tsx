@@ -3,7 +3,6 @@ import * as Chakra from "@chakra-ui/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCardHeader } from "../ProjectCardHeader";
-import { ViewProjectButton } from "../ViewProjectButton";
 import { ProjectCardContent } from "../ProjectCardContent";
 import { useIsMobileContext } from "@/context/useIsMobile";
 

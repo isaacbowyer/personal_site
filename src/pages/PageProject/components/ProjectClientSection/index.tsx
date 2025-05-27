@@ -1,7 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { TestimonialCard } from "@/components/molecules/TestimonialCard";
-import { getInitials } from "@/utils/getInitals";
 import { TemplateProductSectionContainer } from "@/components/templates/TemplateProjectSectionContainer";
 import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 

@@ -1,6 +1,5 @@
 import { CustomText } from "../../atoms/CustomText";
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 
 interface IProps {
   title: string;
@@ -18,13 +17,13 @@ export const TitleWithHeader = ({ title, header }: IProps) => {
       <CustomText.Title
         fontFamily="sans-serif"
         letterSpacing="6px"
-        color={theme.colors.black}
+        color={"#111"}
       >
         {title}
       </CustomText.Title>
 
       {header && (
-        <CustomText.Header width="90%" color={theme.colors.gray.medium}>
+        <CustomText.Header width="90%" color={"#4A5568"}>
           {header}
         </CustomText.Header>
       )}

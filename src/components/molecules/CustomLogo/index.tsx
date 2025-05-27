@@ -1,6 +1,5 @@
 import { CustomText } from "@/components/atoms/CustomText";
 import { LINKS } from "@/data/links";
-import { theme } from "@/theme";
 import { validateOptionsBasedOnBoolean } from "@/utils/validateOptionsBasedOnBoolean";
 import * as Chakra from "@chakra-ui/react";
 import NextLink from "next/link";
@@ -57,11 +56,7 @@ export const CustomLogo = ({
       >
         <CustomText.Medium
           fontWeight="bold"
-          color={validateOptionsBasedOnBoolean(
-            isHovered,
-            theme.colors.blue.light,
-            theme.colors.white
-          )}
+          color={validateOptionsBasedOnBoolean(isHovered, "#77C7FF", "#FFF")}
         >
           ISAAC BOWYER
         </CustomText.Medium>

@@ -1,5 +1,4 @@
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 import { getBottomPathForProfileBorder } from "@/utils/getBottomPathForProfileBorder";
 import { getHexPoints } from "@/utils/getHexPoints";
 import { getTopPathForProfileBorder } from "@/utils/getTopPathForProfileBorder";
@@ -55,8 +54,8 @@ export const WebProfileAvatar = ({
     });
   }, [animated]);
 
-  const borderColorNormal = theme.colors.white;
-  const borderColorHover = theme.colors.blue.light;
+  const borderColorNormal = "#FFF";
+  const borderColorHover = "#77C7FF";
 
   const width = imageSize || 0;
   const height = Math.round((width * Math.sqrt(3)) / 2);

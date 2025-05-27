@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { CustomText } from "../../atoms/CustomText";
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 
 const MotionBox = motion.create(Chakra.Box);
 
@@ -33,13 +32,13 @@ export const AnimatedTitleWithHeader = ({ title, header }: IProps) => {
         <CustomText.Title
           fontFamily="sans-serif"
           letterSpacing="6px"
-          color={theme.colors.black}
+          color={"#111"}
         >
           {title}
         </CustomText.Title>
 
         {header && (
-          <CustomText.Header width="90%" color={theme.colors.gray.medium}>
+          <CustomText.Header width="90%" color={"#4A5568"}>
             {header}
           </CustomText.Header>
         )}

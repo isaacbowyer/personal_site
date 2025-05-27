@@ -1,6 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import { CustomText } from "../../atoms/CustomText";
-import { theme } from "@/theme";
+
 import { motion } from "framer-motion";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { BiMapPin } from "react-icons/bi";
@@ -27,9 +27,7 @@ export const WorkAccordionHeader = ({
     <Chakra.Box
       width="full"
       background={
-        isOpen
-          ? "linear-gradient(to right, #63B3ED, #9F7AEA)"
-          : theme.colors.blue.vivid
+        isOpen ? "linear-gradient(to right, #63B3ED, #9F7AEA)" : "#228BE6"
       }
       borderRadius={isOpen ? "8px 8px 0 0" : "8px"}
       px={5}
@@ -49,7 +47,7 @@ export const WorkAccordionHeader = ({
         gap={3}
       >
         <CustomText.Header
-          color={theme.colors.white}
+          color={"#FFF"}
           fontWeight="bold"
           flex={1}
           fontSize={{ base: "md", md: "lg" }}
@@ -64,17 +62,15 @@ export const WorkAccordionHeader = ({
           flexWrap="wrap"
           justify={{ base: "flex-start", md: "center" }}
         >
-          <Chakra.HStack color={theme.colors.white} gap={2}>
+          <Chakra.HStack color={"#FFF"} gap={2}>
             <BiMapPin size={16} />
-            <CustomText.Large color={theme.colors.white}>
-              {location}
-            </CustomText.Large>
+            <CustomText.Large color={"#FFF"}>{location}</CustomText.Large>
           </Chakra.HStack>
 
           <Chakra.Badge
             px={3}
             py={1}
-            backgroundColor={theme.colors.white}
+            backgroundColor={"#FFF"}
             fontSize="md"
             fontWeight="bold"
             borderRadius="4px"
@@ -97,7 +93,7 @@ export const WorkAccordionHeader = ({
           <MotionIcon
             as={HiOutlineChevronDown}
             position={{ base: "absolute", md: "static" }}
-            color={theme.colors.white}
+            color={"#FFF"}
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
             boxSize={6}

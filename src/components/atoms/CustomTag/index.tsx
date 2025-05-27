@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
-import { theme } from "@/theme";
 
 interface IProps {
   label: string;
@@ -18,8 +17,8 @@ export const CustomTag = ({ label }: IProps) => (
     paddingY={1}
     marginRight={1}
     marginBottom={1}
-    backgroundColor={theme.colors.gray.dim}
-    color={theme.colors.gray.medium}
+    backgroundColor={"#EDF2F7"}
+    color={"#4A5568"}
     rounded="full"
     fontSize="sm"
   >

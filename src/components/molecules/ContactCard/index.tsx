@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CustomText } from "@/components/atoms/CustomText";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
@@ -26,9 +25,7 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
     >
       <Chakra.Box
         bg={
-          isHovered
-            ? "linear-gradient(to right, #63B3ED, #9F7AEA)"
-            : theme.colors.blue.light
+          isHovered ? "linear-gradient(to right, #63B3ED, #9F7AEA)" : "#77C7FF"
         }
         borderRadius="full"
         p={4}
@@ -39,7 +36,7 @@ export const ContactCard = ({ title, icon, handleOnClick }: IProps) => {
 
       <CustomText.Large
         fontWeight="bold"
-        color={isHovered ? "transparent" : theme.colors.white}
+        color={isHovered ? "transparent" : "#FFF"}
         bgGradient={
           isHovered ? "linear-gradient(to right, #63B3ED, #9F7AEA)" : "none"
         }

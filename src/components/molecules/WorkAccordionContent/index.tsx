@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
 import { CustomText } from "@/components/atoms/CustomText";
-import { theme } from "@/theme";
 import {
   ISkillCategory,
   IWorkExperienceSkills,
@@ -80,7 +79,7 @@ export const WorkAccordionContent = ({
           borderBottomRightRadius="8px"
           alignItems="start"
           width="full"
-          bg={theme.colors.gray.dim}
+          bg={"#EDF2F7"}
           px={5}
           py={4}
           gap={8}
@@ -95,10 +94,7 @@ export const WorkAccordionContent = ({
               mb={6}
               width="full"
             >
-              <CustomText.Large
-                fontStyle="italic"
-                color={theme.colors.gray.medium}
-              >
+              <CustomText.Large fontStyle="italic" color={"#4A5568"}>
                 {companyDescription}
               </CustomText.Large>
             </Chakra.HStack>

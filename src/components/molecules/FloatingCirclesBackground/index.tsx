@@ -19,7 +19,7 @@ const floatAround = keyframes`
   }
 `;
 
-export const FloatingCircles = () => {
+export const FloatingCirclesBackground = () => {
   return (
     <>
       <Chakra.Box

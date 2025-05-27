@@ -1,5 +1,4 @@
 import { IProject } from "@/interfaces/IProject";
-import { theme } from "@/theme";
 import { LINKS } from "../links";
 
 export const PROJECTS: IProject[] = [
@@ -26,7 +25,7 @@ export const PROJECTS: IProject[] = [
       "Figma",
       "Expo",
     ],
-    backgroundColor: theme.colors.gradients.light_blue,
+    backgroundColor: "linear-gradient(to bottom, #4A90E2, #7AB8F5, #B3D9FF)",
     link: LINKS.PROJECTS.OCCUPATIONAL_HEALTH_APP,
     category: "Mobile Apps",
     clientFeedback: {
@@ -57,7 +56,7 @@ export const PROJECTS: IProject[] = [
       "OpenAI",
       "Azure",
     ],
-    backgroundColor: theme.colors.gradients.purple,
+    backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #ec4899)",
     link: LINKS.PROJECTS.GAI_TRANSLATE,
     category: "Web Apps",
     clientFeedback: {
@@ -81,7 +80,8 @@ export const PROJECTS: IProject[] = [
       "Figma",
       "Vercel",
     ],
-    backgroundColor: theme.colors.gradients.sunset,
+    backgroundColor:
+      "linear-gradient(to bottom, #ff7f50, #ff944d, #ffab66, #ffc285, #ffd8a3)",
     link: "",
     category: "Web Apps",
     images: {

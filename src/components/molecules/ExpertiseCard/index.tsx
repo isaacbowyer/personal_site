@@ -2,7 +2,6 @@ import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ExpertiseTagContainer } from "@/components/organisms/ExpertiseTagContainer";
 import { ExpertiseContentContainer } from "@/components/organisms/ExpertiseContentContainer";
-import { theme } from "@/theme";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { useState } from "react";
 
@@ -136,7 +135,7 @@ export const ExpertiseCard = ({
       >
         <MotionIcon
           as={HiOutlineChevronDown}
-          color={theme.colors.white}
+          color={"#FFF"}
           variants={chevronVariants}
           animate={isActive ? "active" : "default"}
           transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -148,7 +147,7 @@ export const ExpertiseCard = ({
         <MotionBox
           padding={4}
           borderRadius={10}
-          color={theme.colors.white}
+          color={"#FFF"}
           background={bgColor}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}

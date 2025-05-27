@@ -1,4 +1,3 @@
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
@@ -16,7 +15,7 @@ export const ExpertiseContentContainer = ({ title, description }: IProps) => {
         fontSize={{ base: "lg", md: "xl" }}
         fontWeight="bold"
         marginBottom={1}
-        color={theme.colors.black}
+        color={"#111"}
         width="80%"
         whileHover={{ x: 2 }}
         transition={{ duration: 0.2 }}
@@ -25,7 +24,7 @@ export const ExpertiseContentContainer = ({ title, description }: IProps) => {
       </MotionText>
 
       <MotionText
-        color={theme.colors.gray.medium}
+        color={"#4A5568"}
         whileHover={{ x: 2 }}
         transition={{ duration: 0.2 }}
       >

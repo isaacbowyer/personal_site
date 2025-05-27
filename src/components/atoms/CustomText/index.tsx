@@ -1,4 +1,3 @@
-import { theme } from "@/theme";
 import { Text as ChakraText, TextProps } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
@@ -7,7 +6,7 @@ interface IProps extends TextProps {
   color?: string;
 }
 
-const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
+const Title = ({ children, color = "#111", ...props }: IProps) => {
   return (
     <ChakraText
       color={color}
@@ -20,7 +19,7 @@ const Title = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
-const Header = ({ children, color = theme.colors.black, ...props }: IProps) => {
+const Header = ({ children, color = "#111", ...props }: IProps) => {
   return (
     <ChakraText fontSize="xl" color={color} {...props}>
       {children}
@@ -28,7 +27,7 @@ const Header = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
-const Large = ({ children, color = theme.colors.black, ...props }: IProps) => {
+const Large = ({ children, color = "#111", ...props }: IProps) => {
   return (
     <ChakraText color={color} fontSize="lg" {...props}>
       {children}
@@ -36,7 +35,7 @@ const Large = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
-const Medium = ({ children, color = theme.colors.black, ...props }: IProps) => {
+const Medium = ({ children, color = "#111", ...props }: IProps) => {
   return (
     <ChakraText color={color} fontSize="md" {...props}>
       {children}
@@ -44,7 +43,7 @@ const Medium = ({ children, color = theme.colors.black, ...props }: IProps) => {
   );
 };
 
-const Small = ({ children, color = theme.colors.black, ...props }: IProps) => {
+const Small = ({ children, color = "#111", ...props }: IProps) => {
   return (
     <ChakraText color={color} fontSize="sm" {...props}>
       {children}

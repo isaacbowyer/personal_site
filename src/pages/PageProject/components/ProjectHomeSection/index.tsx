@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/molecules/ButtonLink";
-import { FloatingCircles } from "@/components/molecules/FloatingCircles";
+import { FloatingCirclesBackground } from "@/components/molecules/FloatingCirclesBackground";
+import { NavBarContainer } from "@/components/molecules/NavBarContainer";
 import { MobileNavBar } from "@/components/organisms/MobileNavBar";
 import { WebNavBar } from "@/components/organisms/WebNavBar";
 import * as Chakra from "@chakra-ui/react";
@@ -54,11 +55,9 @@ export const ProjectHomeSection = ({
       }}
     >
       <Chakra.VStack zIndex={1} position="relative">
-        <Chakra.HStack w="full" maxW="1200px" mx="auto" id="nav">
-          {isDrawer ? <MobileNavBar /> : <WebNavBar isLightMode />}
-        </Chakra.HStack>
+        <NavBarContainer isLightMode />
 
-        <FloatingCircles />
+        <FloatingCirclesBackground />
 
         <Chakra.Grid
           templateColumns={{ base: "1fr", lg: "1fr 2fr" }}

@@ -33,7 +33,7 @@ const bounce = keyframes`
   }
 `;
 
-export const HomeSection = () => {
+export const MainHomeSection = () => {
   const isDrawer = Chakra.useBreakpointValue({
     base: true,
     md: false,

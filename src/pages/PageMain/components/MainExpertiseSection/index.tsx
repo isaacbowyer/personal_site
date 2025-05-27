@@ -1,40 +1,40 @@
 import * as Chakra from "@chakra-ui/react";
-import { IContact } from "@/interfaces/IContact";
-import { ContactCardContainer } from "@/components/organisms/ContactCardContainer";
+import { IExpertiseArea } from "@/interfaces/IExpertiseArea";
 import { motion } from "framer-motion";
-import { ParticleBackground } from "@/components/molecules/ParticleBackground";
+import { ExpertiseCardContainer } from "@/components/organisms/ExpertiseCardContainer";
 
 interface IProps {
-  contactItems: IContact[];
-  handleOnClick: (index: number) => void;
+  activeCard: number;
+  expertiseItems: IExpertiseArea[];
+  onClickExpertiseCard: (id: number) => void;
 }
+
 const MotionBox = motion.create(Chakra.Box);
 
-export const ContactSection = ({ contactItems, handleOnClick }: IProps) => {
+export const MainExpertiseSection = ({
+  activeCard,
+  onClickExpertiseCard,
+  expertiseItems,
+}: IProps) => {
   return (
     <Chakra.VStack
-      w="full"
-      backgroundGradient="linear-gradient(to bottom right, #1a202c, #2d3748, #1a202c)"
-      position="relative"
-      py={8}
-      px={4}
-      id="contact"
+      width="full"
+      backgroundGradient="linear-gradient(to bottom right, #f9fafb, #f3f4f6)"
+      id="expertise"
     >
-      <ParticleBackground />
-      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
+      <Chakra.VStack w="full" maxW="1200px" gap={8} py={8} px={4}>
         <MotionBox
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.1 }}
-          width="full"
+          w="full"
         >
           <Chakra.VStack
-            gap={4}
             textAlign={{ base: "center", md: "start" }}
-            align={{ base: "center", md: "start" }}
-            justifyContent={{ base: "center", md: "start" }}
+            align={{ base: "center", md: "flex-start" }}
             w="full"
+            gap={2}
           >
             <Chakra.Text
               as="span"
@@ -45,21 +45,28 @@ export const ContactSection = ({ contactItems, handleOnClick }: IProps) => {
               fontFamily="sans-serif"
               letterSpacing="6px"
             >
-              CONTACT
+              EXPERTISE
             </Chakra.Text>
 
+            {/* Centered Line */}
             <Chakra.Box
               w="80px"
               h="4px"
               bgGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
               borderRadius="full"
             />
+
+            <Chakra.Text color={"#4A5568"} fontSize="lg">
+              Hands-on experience across multiple development domains with
+              cutting-edge technologies
+            </Chakra.Text>
           </Chakra.VStack>
         </MotionBox>
 
-        <ContactCardContainer
-          items={contactItems}
-          handleOnClick={handleOnClick}
+        <ExpertiseCardContainer
+          activeCard={activeCard}
+          handleClickCard={onClickExpertiseCard}
+          items={expertiseItems}
         />
       </Chakra.VStack>
     </Chakra.VStack>

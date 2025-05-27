@@ -16,7 +16,7 @@ interface IProps {
 
 const MotionBox = motion.create(Chakra.Box);
 
-export const ProjectSection = ({
+export const MainProjectsSection = ({
   projects,
   categories,
   categoryCounts,

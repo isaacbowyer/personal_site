@@ -9,7 +9,7 @@ interface IProps {
 
 const MotionBox = motion.create(Chakra.Box);
 
-export const WorkSection = ({ experienceItems }: IProps) => {
+export const MainWorkSection = ({ experienceItems }: IProps) => {
   return (
     <Chakra.VStack
       width="full"

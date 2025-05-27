@@ -1,28 +1,28 @@
 import * as Chakra from "@chakra-ui/react";
 import { TemplateContainer } from "@/components/templates/TemplateContainer";
-import { HomeSection } from "./components/HomeSection";
-import { ExpertiseSection } from "./components/ExpertiseSection";
-import { ProjectSection } from "./components/ProjectSection";
-import { WorkSection } from "./components/WorkSection";
 import { usePageSite } from "@/hooks/usePageSite";
-import { ContactSection } from "./components/ContactSection";
+import { MainHomeSection } from "./components/MainHomeSection";
+import { MainExpertiseSection } from "./components/MainExpertiseSection";
+import { MainProjectsSection } from "./components/MainProjectsSection";
+import { MainWorkSection } from "./components/MainWorkSection";
+import { MainContactSection } from "./components/MainContactSection";
 
-export const PageSite = () => {
+export const PageMain = () => {
   const { state, methods } = usePageSite();
 
   return (
     <TemplateContainer
       main={
         <Chakra.VStack w="full" h="full" gap={0}>
-          <HomeSection />
+          <MainHomeSection />
 
-          <ExpertiseSection
+          <MainExpertiseSection
             activeCard={state.activeExpertiseItem}
             onClickExpertiseCard={methods.handleClickExpertiseItem}
             expertiseItems={state.expertiseItems}
           />
 
-          <ProjectSection
+          <MainProjectsSection
             projects={state.projectItems}
             categories={state.projectCategories}
             activeFilter={state.activeCategoryFilter}
@@ -30,9 +30,9 @@ export const PageSite = () => {
             handleSetActiveFilter={methods.handleChangeActiveCategory}
           />
 
-          <WorkSection experienceItems={state.workItems} />
+          <MainWorkSection experienceItems={state.workItems} />
 
-          <ContactSection
+          <MainContactSection
             contactItems={state.contactItems}
             handleOnClick={methods.handleClickContactItem}
           />

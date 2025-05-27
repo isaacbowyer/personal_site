@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react";
+import { CustomText } from "@/components/atoms/CustomText";
 
 const MotionBox = motion.create(Chakra.Box);
 
@@ -40,8 +41,6 @@ export const TitleWithHeader = ({
             fontSize={{
               base: "4xl",
               sm: "5xl",
-              md: "6xl",
-              lg: "7xl",
             }}
             fontWeight="bold"
             color={subTitle.color}
@@ -51,30 +50,10 @@ export const TitleWithHeader = ({
           >
             {title}
             <br />
-            <Chakra.Text
-              as="span"
-              backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
-              bgClip="text"
-              fontSize={{ base: "4xl", md: "6xl" }}
-              fontWeight="extrabold"
-              fontFamily="sans-serif"
-              letterSpacing="6px"
-            >
-              {subTitle.title}
-            </Chakra.Text>
+            <CustomText.Title>{subTitle.title}</CustomText.Title>
           </Chakra.Text>
         ) : (
-          <Chakra.Text
-            as="span"
-            backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
-            bgClip="text"
-            fontSize={{ base: "4xl", md: "6xl" }}
-            fontWeight="extrabold"
-            fontFamily="sans-serif"
-            letterSpacing="6px"
-          >
-            {title}
-          </Chakra.Text>
+          <CustomText.Title>{title}</CustomText.Title>
         )}
         <Chakra.Box
           w="80px"

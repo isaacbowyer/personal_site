@@ -5,7 +5,6 @@ import { DOWNLOAD } from "@/data/download";
 import { RiDownload2Fill } from "react-icons/ri";
 import { MobileProfileAvatar } from "@/components/molecules/MobileProfileAvatar";
 import { WebProfileAvatar } from "@/components/molecules/WebProfileAvatar";
-import { motion } from "framer-motion";
 import { CodeBackground } from "@/components/molecules/CodeBackground";
 import { SquaresBackground } from "@/components/molecules/SquaresBackground";
 import { NavBarContainer } from "@/components/molecules/NavBarContainer";

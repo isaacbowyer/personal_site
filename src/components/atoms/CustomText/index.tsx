@@ -6,12 +6,16 @@ interface IProps extends TextProps {
   color?: string;
 }
 
-const Title = ({ children, color = "#111", ...props }: IProps) => {
+const Title = ({ children, ...props }: IProps) => {
   return (
     <ChakraText
-      color={color}
-      fontSize={{ base: "3xl", md: "7xl" }}
-      fontWeight="bold"
+      as="span"
+      backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
+      bgClip="text"
+      fontSize={{ base: "4xl", md: "6xl" }}
+      fontWeight="extrabold"
+      fontFamily="sans-serif"
+      letterSpacing="6px"
       {...props}
     >
       {children}

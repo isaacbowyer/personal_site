@@ -30,11 +30,6 @@ export const ProjectHomeSection = ({
   featuredImageUrl,
   description,
 }: IProps) => {
-  const isDrawer = Chakra.useBreakpointValue({
-    base: true,
-    md: false,
-  });
-
   return (
     <Chakra.Box
       width="full"

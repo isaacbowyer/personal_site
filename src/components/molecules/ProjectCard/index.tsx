@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ProjectCardHeader } from "../ProjectCardHeader";
 import { ViewProjectButton } from "../ViewProjectButton";
 import { ProjectCardContent } from "../ProjectCardContent";
+import { useIsMobileContext } from "@/context/useIsMobile";
 
 const MotionVStack = motion.create(Chakra.VStack);
 interface IProps {
@@ -27,9 +28,7 @@ export const ProjectCard = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
-
-  const isMobile = Chakra.useBreakpointValue({ base: true, sm: false });
-
+  const { isMobile } = useIsMobileContext();
   return (
     <Link href={link} passHref>
       <MotionVStack

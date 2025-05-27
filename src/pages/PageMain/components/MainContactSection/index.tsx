@@ -3,6 +3,7 @@ import { IContact } from "@/interfaces/IContact";
 import { ContactCardContainer } from "@/components/organisms/ContactCardContainer";
 import { motion } from "framer-motion";
 import { ParticleBackground } from "@/components/molecules/ParticleBackground";
+import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
 
 interface IProps {
   contactItems: IContact[];
@@ -21,41 +22,9 @@ export const MainContactSection = ({ contactItems, handleOnClick }: IProps) => {
       id="contact"
     >
       <ParticleBackground />
-      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
-        <MotionBox
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.1 }}
-          width="full"
-        >
-          <Chakra.VStack
-            gap={4}
-            textAlign={{ base: "center", md: "start" }}
-            align={{ base: "center", md: "start" }}
-            justifyContent={{ base: "center", md: "start" }}
-            w="full"
-          >
-            <Chakra.Text
-              as="span"
-              backgroundGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
-              bgClip="text"
-              fontSize={{ base: "4xl", md: "6xl" }}
-              fontWeight="extrabold"
-              fontFamily="sans-serif"
-              letterSpacing="6px"
-            >
-              CONTACT
-            </Chakra.Text>
 
-            <Chakra.Box
-              w="80px"
-              h="4px"
-              bgGradient="linear-gradient(to right, #63B3ED, #9F7AEA)"
-              borderRadius="full"
-            />
-          </Chakra.VStack>
-        </MotionBox>
+      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
+        <TitleWithHeader title="CONTACT" />
 
         <ContactCardContainer
           items={contactItems}

@@ -17,7 +17,7 @@ export const usePageProject = () => {
     if (!project || project.title !== projectName) {
       router.replace("/404");
     }
-  }, [project, router]);
+  }, [project, projectName, router]);
 
   const clientFeedback: IClientFeedback = {
     comment: project?.clientFeedback?.comment || "",

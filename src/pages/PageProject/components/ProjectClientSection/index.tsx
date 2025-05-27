@@ -1,10 +1,5 @@
-import { TitleWithHeader } from "@/components/molecules/TitleWithHeader";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { keyframes } from "@emotion/react";
+import { motion } from "framer-motion";
 import { TestimonialCard } from "@/components/molecules/TestimonialCard";
 import { getInitials } from "@/utils/getInitals";
 

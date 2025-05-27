@@ -1,6 +1,5 @@
 import * as Chakra from "@chakra-ui/react";
 import { IWorkExperience } from "@/interfaces/IWorkExperience";
-import { theme } from "@/theme";
 import { WorkItemsContainer } from "@/components/organisms/WorkItemsContainer";
 import { motion } from "framer-motion";
 

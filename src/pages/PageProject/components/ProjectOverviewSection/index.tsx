@@ -1,6 +1,5 @@
 import { CustomText } from "@/components/atoms/CustomText";
 import { ProductTechStack } from "@/components/organisms/ProductTechStack";
-import { theme } from "@/theme";
 import * as Chakra from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BiCode } from "react-icons/bi";

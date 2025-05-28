@@ -16,11 +16,7 @@ export const ProjectCardContent = ({
   isHovered,
   shouldDisplayButton,
 }: IProps) => {
-  const isHoveredAndNotMobile = isHovered && !isMobile;
-
-  const { titleProps, lineProps } = getProjectTitleAndLineStyles(
-    isHoveredAndNotMobile
-  );
+  const { titleProps, lineProps } = getProjectTitleAndLineStyles(isHovered);
 
   return (
     <Chakra.VStack

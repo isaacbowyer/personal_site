@@ -11,7 +11,7 @@ const INITAL_LINK = "/";
 const HOME_LINK = "/#home";
 
 const PROJECT_LINKS = {
-  OCCUPATIONAL_HEALTH_APP: "/projects/project/occupational-health-app/",
+  OCCUPATIONAL_HEALTH_APP: "/projects/occupational-health-app/",
   GAI_TRANSLATE: "https://www.gaitranslate.ai/",
 };
 

@@ -6,17 +6,21 @@ import { BiChevronRight } from "react-icons/bi";
 import { ProjectHomeTitle } from "@/components/molecules/ProjectHomeTitle";
 import { ProjectFeaturedImage } from "@/components/atoms/ProjectFeaturedImage";
 import { TemplateProductSectionContainer } from "@/components/templates/TemplateProjectSectionContainer";
+import { Breadcrumbs } from "@/components/molecules/Breadcrumbs";
+import { IBreadcrumbItem } from "@/interfaces/IBreadcrumItem";
 
 interface IProps {
   title: string;
   featuredImageUrl: string;
   description: string;
+  breadcrums: IBreadcrumbItem[];
 }
 
 export const ProjectHomeSection = ({
   title,
   featuredImageUrl,
   description,
+  breadcrums,
 }: IProps) => {
   return (
     <TemplateProductSectionContainer
@@ -42,7 +46,14 @@ export const ProjectHomeSection = ({
               justifyContent="center"
               gap={16}
             >
-              <ProjectHomeTitle title={title} description={description} />
+              <Chakra.VStack
+                width="full"
+                align={{ base: "center", md: "flex-start" }}
+                gap={4}
+              >
+                <Breadcrumbs items={breadcrums} />
+                <ProjectHomeTitle title={title} description={description} />
+              </Chakra.VStack>
 
               <ButtonLink
                 href="#gallery"

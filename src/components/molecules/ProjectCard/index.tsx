@@ -68,7 +68,7 @@ export const ProjectCard = ({
           bottom: 0,
           bgGradient:
             "linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 212, 0.1))",
-          opacity: isHovered && !isMobile ? 1 : 0,
+          opacity: isHovered ? 1 : 0,
           transition: "opacity 0.4s ease",
           zIndex: -1,
           borderRadius: "2xl",

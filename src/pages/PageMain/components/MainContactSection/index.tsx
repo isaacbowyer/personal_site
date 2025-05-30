@@ -18,10 +18,18 @@ export const MainContactSection = ({ contactItems, handleOnClick }: IProps) => {
       py={8}
       px={4}
       id="contact"
+      zIndex={1}
     >
       <ParticleBackground />
 
-      <Chakra.VStack w="full" maxW="1200px" gap={8} mb={8}>
+      <Chakra.VStack
+        w="full"
+        maxW="1200px"
+        gap={8}
+        mb={8}
+        position="relative"
+        zIndex={2}
+      >
         <TitleWithHeader title="CONTACT" />
 
         <ContactCardContainer

@@ -27,7 +27,7 @@ export const ProjectCardHeader = ({
   const headerHeight = validateOptionsBasedOnBoolean(
     shouldShowAllTags,
     "320px",
-    "250px"
+    "280px"
   );
 
   return (

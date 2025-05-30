@@ -34,7 +34,7 @@ export const SquaresBackground = () => {
         borderColor="blue.500"
         transform="rotate(45deg)"
         animation={`${spinSlow} 8s linear infinite`}
-        display={{ sm: "none", md: "flex" }}
+        display={{ base: "none", md: "flex" }}
       />
 
       <Chakra.Box
@@ -47,7 +47,6 @@ export const SquaresBackground = () => {
         borderColor="purple.500"
         transform="rotate(12deg)"
         animation={`${bounce} 2s infinite`}
-        display={{ sm: "none", md: "flex" }}
       />
     </>
   );

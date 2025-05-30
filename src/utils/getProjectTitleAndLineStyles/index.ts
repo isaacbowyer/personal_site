@@ -1,33 +1,27 @@
 import { validateOptionsBasedOnBoolean } from "../validateOptionsBasedOnBoolean";
 
-export const getProjectTitleAndLineStyles = (
-  isHoveredAndNotMobile: boolean
-) => {
+export const getProjectTitleAndLineStyles = (isHovered: boolean) => {
   //  TITLE
   const titleColor = validateOptionsBasedOnBoolean(
-    isHoveredAndNotMobile,
+    isHovered,
     "transparent",
     "#FFF"
   );
   const titleBgGradient = validateOptionsBasedOnBoolean(
-    isHoveredAndNotMobile,
+    isHovered,
     "linear-gradient(to right, #00D4FF, #FF00D4)",
     "none"
   );
 
   //  LINE
-  const lineWidth = validateOptionsBasedOnBoolean(
-    isHoveredAndNotMobile,
-    "60px",
-    "30px"
-  );
+  const lineWidth = validateOptionsBasedOnBoolean(isHovered, "60px", "30px");
   const lineBgColor = validateOptionsBasedOnBoolean(
-    isHoveredAndNotMobile,
+    isHovered,
     "transparent",
     "#FFF"
   );
   const lineBgGradient = validateOptionsBasedOnBoolean(
-    isHoveredAndNotMobile,
+    isHovered,
     "linear-gradient(to right, #00D4FF, #FF00D4)",
     ""
   );

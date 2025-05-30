@@ -1,5 +1,7 @@
 import { useIsMobileContext } from "@/context/useIsMobile";
+import { LINKS } from "@/data/links";
 import { PROJECTS } from "@/data/projects";
+import { IBreadcrumbItem } from "@/interfaces/IBreadcrumItem";
 import { IClientFeedback } from "@/interfaces/IClientFeedback";
 import { findItemByName } from "@/utils/findProjectById";
 import { transformProductQueryUrl } from "@/utils/transformProductQueryUrl";
@@ -12,6 +14,12 @@ export const usePageProject = () => {
   const queryProject = String(router.query.slug);
   const projectName = transformProductQueryUrl(queryProject);
   const project = findItemByName(PROJECTS, projectName);
+
+  const breadcrumLinks: IBreadcrumbItem[] = [
+    { label: "Home", href: LINKS.INITAL },
+    { label: "Projects" },
+    { label: projectName },
+  ];
 
   useEffect(() => {
     if (!project || project.title !== projectName) {
@@ -36,6 +44,7 @@ export const usePageProject = () => {
       featuredImageUrl: project?.images?.featuredImage || "",
       galleryImageUrls: project?.images?.galleryImages || [],
       clientFeedback: clientFeedback,
+      breadcrums: breadcrumLinks,
     },
     methods: {},
   };

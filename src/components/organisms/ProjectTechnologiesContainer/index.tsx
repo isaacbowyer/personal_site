@@ -24,6 +24,7 @@ export const ProjectTechnologiesContainer = ({
       gap={2}
       flexWrap="wrap"
       justify="flex-end"
+      width="full"
       zIndex={2}
       px={4}
       onClick={(e) => {

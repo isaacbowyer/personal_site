@@ -44,7 +44,11 @@ export const ExpertiseCardContainer = ({
         gap={8}
         position="relative"
         overflow="visible"
-        gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+        gridTemplateColumns={{
+          base: "1fr",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -55,7 +59,7 @@ export const ExpertiseCardContainer = ({
             key={expertise.id}
             id={expertise.id}
             title={expertise.title}
-            icon={<expertise.icon color={"#FFF"} size="30" />}
+            icon={<expertise.icon color="#FFF" size="30" />}
             description={expertise.description}
             bgColor={expertise.backgroundColor}
             borderColor={expertise.borderColor}

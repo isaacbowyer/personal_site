@@ -32,6 +32,16 @@ export const ExpertiseCard = ({
 }: IProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const getGridColumnSpan = () => {
+    if (!isActive) return "auto";
+
+    return {
+      base: "auto", // Mobile: single column, no spanning needed
+      md: "span 2", // Medium: always span 2 columns when active
+      lg: "span 3", // Large: span all 3 columns when active
+    };
+  };
+
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -91,7 +101,7 @@ export const ExpertiseCard = ({
           ? "0 12px 40px -10px rgba(0, 0, 0, 0.15)"
           : "0 2px 8px rgba(0, 0, 0, 0.04)"
       }
-      gridColumn={{ base: "auto", md: isActive ? "span 3" : "auto" }}
+      gridColumn={getGridColumnSpan()}
       transitionProperty="border-color, box-shadow"
       transitionDuration="0.2s"
       transitionTimingFunction="ease"

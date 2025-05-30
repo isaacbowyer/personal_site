@@ -17,8 +17,8 @@ export const usePageProject = () => {
 
   const breadcrumLinks: IBreadcrumbItem[] = [
     { label: "Home", href: LINKS.INITAL },
-    { label: "Projects" },
-    { label: projectName },
+    { label: "Projects", href: LINKS.INITAL },
+    { label: "Project" },
   ];
 
   useEffect(() => {

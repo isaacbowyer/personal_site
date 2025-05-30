@@ -17,6 +17,7 @@ export const PageProject = () => {
             featuredImageUrl={state.featuredImageUrl}
             description={state.description}
             title={state.title}
+            breadcrums={state.breadcrums}
           />
 
           <ProjectOverviewSection

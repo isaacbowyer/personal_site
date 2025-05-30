@@ -33,9 +33,9 @@ export const CodeBackground = () => {
     "const developer = {",
     "  name: 'Isaac Bowyer',",
     "  skills: ['TypeScript', 'React', 'Django'],",
-    "  speciality: 'Creating seamless user experiences',",
-    "  experience: 'Fullstack software development',",
-    "  currentFocus: 'Cross-platform AI-integrated Apps'",
+    "  speciality: 'SaaS UX design',",
+    "  experience: 'Fullstack development',",
+    "  currentFocus: 'AI-powered cross-platform apps'",
     "};",
     "",
     "const createApp =  () => {",
@@ -110,8 +110,8 @@ export const CodeBackground = () => {
 
       <Chakra.Text
         position="absolute"
-        top={{ base: "90%", md: "25%" }}
-        right={{ base: "10%", md: "15%" }}
+        bottom={{ base: "2%", lg: "30%" }}
+        right="5%"
         fontSize={{ base: "sm", md: "md" }}
         fontFamily="mono"
         color="purple.300"

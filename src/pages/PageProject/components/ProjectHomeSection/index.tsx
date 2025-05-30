@@ -7,7 +7,6 @@ import { ProjectHomeTitle } from "@/components/molecules/ProjectHomeTitle";
 import { ProjectFeaturedImage } from "@/components/atoms/ProjectFeaturedImage";
 import { TemplateProductSectionContainer } from "@/components/templates/TemplateProjectSectionContainer";
 import { Breadcrumbs } from "@/components/molecules/Breadcrumbs";
-import { LINKS } from "@/data/links";
 import { IBreadcrumbItem } from "@/interfaces/IBreadcrumItem";
 
 interface IProps {

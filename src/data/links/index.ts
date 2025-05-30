@@ -7,6 +7,7 @@ const NAV_LINKS: INavLink[] = [
   { href: "/#contact", label: "CONTACT" },
 ];
 
+const INITAL_LINK = "/";
 const HOME_LINK = "/#home";
 
 const PROJECT_LINKS = {
@@ -15,6 +16,7 @@ const PROJECT_LINKS = {
 };
 
 export const LINKS = {
+  INITAL: INITAL_LINK,
   NAV_BAR: NAV_LINKS,
   PROJECTS: PROJECT_LINKS,
   HOME: HOME_LINK,
